@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full margin="false">
+   <vaadin-vertical-layout size-auto margin="false">
+    <vaadin-label>
+     <h2><b>Iniciar Sesión</b></h2>
+    </vaadin-label>
+   </vaadin-vertical-layout>
+   <vaadin-horizontal-layout width="70%" margin>
+    <vaadin-label plain-text>
+      Email o apodo: 
+    </vaadin-label>
+    <vaadin-text-field height="25px"></vaadin-text-field>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width="70%" margin>
+    <vaadin-label plain-text>
+      Contraseña: 
+    </vaadin-label>
+    <vaadin-text-field height="25px"></vaadin-text-field>
+   </vaadin-horizontal-layout>
+   <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
+   <vaadin-horizontal-layout height-full :middle :right>
+    <vaadin-button plain-text :right>
+      Cancelar 
+    </vaadin-button>
+    <vaadin-button plain-text :right>
+      Registrarse 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout spacing="false">
+    <vaadin-link caption="¿Has olvidado la contraseña?"></vaadin-link>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>
