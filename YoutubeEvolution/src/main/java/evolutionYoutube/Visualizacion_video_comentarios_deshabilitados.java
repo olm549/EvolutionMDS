@@ -4,6 +4,11 @@ public class Visualizacion_video_comentarios_deshabilitados extends Visualizacio
 	public Buscador_videos _unnamed_Buscador_videos_;
 	public Ver_video _unnamed_Ver_video_;
 
+	public Visualizacion_video_comentarios_deshabilitados() {
+		Visualizacion_video visu = new Visualizacion_video();
+		visualizacionComun.addComponent(visu);
+	}
+	
 	public void usuario(Object aVer_perfil_usuario) {
 		throw new UnsupportedOperationException();
 	}

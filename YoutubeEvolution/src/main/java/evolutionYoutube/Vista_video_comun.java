@@ -1,9 +1,13 @@
 package evolutionYoutube;
 
-public class Vista_video_comun {
+public class Vista_video_comun extends Vista_video_comun_ventana{
 	public Buscador_videos _unnamed_Buscador_videos_;
 	public Ver_video _unnamed_Ver_video_;
 
+	public Vista_video_comun() {
+		
+	}
+	
 	public void usuario() {
 		throw new UnsupportedOperationException();
 	}

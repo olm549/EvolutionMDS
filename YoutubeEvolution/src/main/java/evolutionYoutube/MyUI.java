@@ -24,8 +24,7 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-    	
-    	Vista_video_comun_ventana ventana = new Vista_video_comun_ventana();
+    	Visualizacion_video ventana = new Visualizacion_video();
     	setContent(ventana);
     }
 

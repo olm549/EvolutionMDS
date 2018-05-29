@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout>
+   <vaadin-vertical-layout>
+    <vaadin-horizontal-layout size-full margin>
+     <vaadin-vertical-layout width="50%" margin="false">
+      <vaadin-image source="C:/Users/Zéin/Desktop/Carpetamds/modelado2/YoutubeEvolution/src/main/resources/evolutionYoutube/imagenes/logo.png" size-full></vaadin-image>
+      <vaadin-button plain-text :center>
+        Volver 
+      </vaadin-button>
+      <vaadin-image source="C:/Users/Zéin/Desktop/Carpetamds/modelado2/YoutubeEvolution/src/main/resources/evolutionYoutube/imagenes/banner.PNG" size-full></vaadin-image>
+     </vaadin-vertical-layout>
+     <vaadin-vertical-layout width="300%" margin="false">
+      <vaadin-video autoplay width-full></vaadin-video>
+      <vaadin-vertical-layout spacing="false" margin="false">
+       <vaadin-horizontal-layout width-full>
+        <vaadin-label>
+         <b></b>
+         <h1><b>Título del vídeo</b></h1>
+        </vaadin-label>
+        <vaadin-horizontal-layout width="80%" _id="botonesOpciones" :middle :right>
+         <vaadin-button visible="false" enabled="false" plain-text _id="eliminarVideo">
+           Eliminar 
+         </vaadin-button>
+         <vaadin-button visible="false" enabled="false" plain-text _id="meGusta">
+           Me gusta 
+         </vaadin-button>
+         <vaadin-button visible="false" enabled="false" plain-text _id="descargar">
+           Descargar 
+         </vaadin-button>
+        </vaadin-horizontal-layout>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout>
+        <vaadin-label plain-text>
+          Fecha de subida : 
+        </vaadin-label>
+        <vaadin-label plain-text>
+          11/11/11 
+        </vaadin-label>
+        <vaadin-label plain-text>
+          Número de visualizaciones : 
+        </vaadin-label>
+        <vaadin-label plain-text>
+          17 
+        </vaadin-label>
+        <vaadin-label plain-text>
+          Cantidad de "Me gusta": 
+        </vaadin-label>
+        <vaadin-label plain-text>
+          42 
+        </vaadin-label>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout width-full>
+        <vaadin-horizontal-layout>
+         <vaadin-label plain-text>
+           Categorias: 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           Deporte y cultura 
+         </vaadin-label>
+        </vaadin-horizontal-layout>
+        <vaadin-horizontal-layout visible="false" enabled="false" _id="aniadirALista">
+         <vaadin-label plain-text>
+           ¡Añadelo a una de tus listas! 
+         </vaadin-label>
+         <vaadin7-combo-box>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+         </vaadin7-combo-box>
+         <vaadin-button plain-text _id="aniadeALista">
+           Añadir 
+         </vaadin-button>
+        </vaadin-horizontal-layout>
+       </vaadin-horizontal-layout>
+      </vaadin-vertical-layout>
+      <vaadin-horizontal-layout spacing="false" width="30%">
+       <vaadin-vertical-layout spacing="false" width="250%" margin="false" :center>
+        <vaadin-image source="C:/Users/Zéin/Desktop/Carpetamds/modelado2/YoutubeEvolution/src/main/resources/evolutionYoutube/imagenes/avatar.png" width="20%"></vaadin-image>
+        <vaadin-label plain-text>
+          Usuario 
+        </vaadin-label>
+       </vaadin-vertical-layout>
+       <vaadin-text-area width="575%">
+         Descripcion del vídeo 
+       </vaadin-text-area>
+      </vaadin-horizontal-layout>
+     </vaadin-vertical-layout>
+     <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
+     <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout size-auto _id="listaComentarios"></vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>
