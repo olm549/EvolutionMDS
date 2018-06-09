@@ -1,6 +1,6 @@
 package evolutionYoutube;
 
-public class Mi_perfil {
+public class Mi_perfil extends Mi_perfil_ventana {
 	public Usuario_Registrado _unnamed_Usuario_Registrado_;
 	public Suscripciones _unnamed_Suscripciones_;
 	public Mi_cuenta _unnamed_Mi_cuenta_;

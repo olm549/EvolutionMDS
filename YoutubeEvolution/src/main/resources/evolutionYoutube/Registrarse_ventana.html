@@ -16,25 +16,25 @@
     <vaadin-label plain-text>
       Nombre 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="nombre"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width="70%" margin>
     <vaadin-label plain-text>
       Apellidos 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="apellidos"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width="70%" margin>
     <vaadin-label plain-text>
       Apodo 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="apodo"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width="70%" margin>
     <vaadin-label plain-text>
       Edad 
     </vaadin-label>
-    <vaadin-combo-box height="25px" data-item-type="java.lang.String">
+    <vaadin-combo-box height="25px" data-item-type="java.lang.String" _id="edad">
      <option item="Option1">Option 1</option>
      <option item="Option2">Option 2</option>
      <option item="Option3">Option 3</option>
@@ -44,26 +44,26 @@
     <vaadin-label plain-text>
       Email 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="email"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width="70%" margin>
     <vaadin-label plain-text>
       Contraseña 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="contrasenia"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width="70%" margin>
     <vaadin-label plain-text>
       Confirmar 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="confirmar"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
    <vaadin-horizontal-layout height-full :middle :right>
-    <vaadin-button width-full plain-text :middle :right>
+    <vaadin-button width-full plain-text _id="cancelarBoton" :middle :right>
       Cancelar 
     </vaadin-button>
-    <vaadin-button plain-text :middle :right>
+    <vaadin-button plain-text _id="registrarseBoton" :middle :right>
       Registrarse 
     </vaadin-button>
    </vaadin-horizontal-layout>

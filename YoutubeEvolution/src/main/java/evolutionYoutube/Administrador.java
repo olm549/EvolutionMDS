@@ -1,6 +1,11 @@
 package evolutionYoutube;
 
-public class Administrador extends Administrador_ventana{
+import com.vaadin.navigator.View;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
+public class Administrador extends Administrador_ventana implements View{
 	public Inicio_Administrador _unnamed_Inicio_Administrador_;
 	public Mi_perfil_Admin _unnamed_Mi_perfil_Admin_;
 	public Cerrar_Sesion _unnamed_Cerrar_Sesion_;
@@ -8,6 +13,14 @@ public class Administrador extends Administrador_ventana{
 public Administrador() {
 	cerrarSesion.addComponent(new Cerrar_Sesion());
 	inicioComun.addComponent(new Inicio_Comun());
+	
+	aniadirCategoria.addClickListener(new Button.ClickListener() {
+		
+		@Override
+		public void buttonClick(ClickEvent event) {
+			((MyUI) UI.getCurrent()).aniadir_categoria();
+		}
+	});
 	
 }
 

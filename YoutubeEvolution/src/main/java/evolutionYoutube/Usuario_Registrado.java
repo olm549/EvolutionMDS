@@ -1,6 +1,13 @@
 package evolutionYoutube;
 
-public class Usuario_Registrado extends Usuario_Registrado_ventana{
+
+import com.vaadin.navigator.View;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Window;
+
+public class Usuario_Registrado extends Usuario_Registrado_ventana implements View{
 	public Cerrar_Sesion _unnamed_Cerrar_Sesion_;
 	public Pagina_de_inicio_registrado _unnamed_Pagina_de_inicio_registrado_;
 	public Vista_perfil_Registrado _unnamed_Vista_perfil_Registrado_;
@@ -10,5 +17,24 @@ public class Usuario_Registrado extends Usuario_Registrado_ventana{
 	public Usuario_Registrado() {
 		paginaInicio.addComponent(new Pagina_de_inicio_registrado());
 		cerrarSesion.addComponent(new Cerrar_Sesion());
+		subirVideo.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+
+				((MyUI) UI.getCurrent()).subir_video();
+			}
+			
+		});
+		miPerfil.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+
+				((MyUI) UI.getCurrent()).mi_perfil_registrado();
+				
+			}
+			
+		});
 	}
 }

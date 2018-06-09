@@ -1,6 +1,8 @@
 package evolutionYoutube;
 
-public class Subir_video {
+import com.vaadin.navigator.View;
+
+public class Subir_video extends Subir_video_ventana implements View {
 	public Usuario_Registrado _unnamed_Usuario_Registrado_;
 
 	public void subir_video() {
