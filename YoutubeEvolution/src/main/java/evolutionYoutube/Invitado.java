@@ -21,7 +21,6 @@ public class Invitado extends Invitado_ventana{
 				Window ventana = new Window();
 				ventana.setVisible(true);
 				ventana.setEnabled(true);
-				ventana.attach();
 				ventana.setContent(registro);
 				
 			}
