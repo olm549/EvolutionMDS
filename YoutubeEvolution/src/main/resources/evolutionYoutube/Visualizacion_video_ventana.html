@@ -6,7 +6,7 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout>
+  <vaadin-vertical-layout style-name="layoutGeneral">
    <vaadin-vertical-layout>
     <vaadin-horizontal-layout size-full margin>
      <vaadin-vertical-layout width="50%" margin="false">
@@ -69,11 +69,11 @@
          <vaadin-label plain-text>
            ¡Añadelo a una de tus listas! 
          </vaadin-label>
-         <vaadin7-combo-box>
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
-         </vaadin7-combo-box>
+         <vaadin-combo-box data-item-type="java.lang.String" _id="comboBox">
+          <option item="Option1">Option 1</option>
+          <option item="Option2">Option 2</option>
+          <option item="Option3">Option 3</option>
+         </vaadin-combo-box>
          <vaadin-button plain-text _id="aniadeALista">
            Añadir 
          </vaadin-button>
@@ -96,7 +96,7 @@
      <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
     </vaadin-horizontal-layout>
    </vaadin-vertical-layout>
-   <vaadin-vertical-layout size-auto _id="listaComentarios"></vaadin-vertical-layout>
+   <vaadin-vertical-layout _id="listaComentarios"></vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

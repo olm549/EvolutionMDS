@@ -7,6 +7,14 @@ public class Visualizacion_video_creador extends Visualizacion_video_creador_ven
 	
 	public Visualizacion_video_creador() {
 		Visualizacion_video visu = new Visualizacion_video();
+		visu.descargar.setVisible(true);
+		visu.descargar.setEnabled(true);
+		visu.aniadeALista.setVisible(true);
+		visu.aniadeALista.setEnabled(true);
+		visu.aniadirALista.setVisible(true);
+		visu.aniadirALista.setEnabled(true);
+		visu.eliminarVideo.setVisible(true);
+		visu.eliminarVideo.setEnabled(true);
 		visualizacionComun.addComponent(visu);
 	}
 

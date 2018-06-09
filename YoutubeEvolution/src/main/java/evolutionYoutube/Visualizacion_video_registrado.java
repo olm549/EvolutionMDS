@@ -7,7 +7,6 @@ public class Visualizacion_video_registrado extends Visualizacion_video_registra
 	
 	public Visualizacion_video_registrado() {
 		Visualizacion_video visu = new Visualizacion_video();
-		//Enable - disable buttons
 		visualizacionComun.addComponent(visu);
 	}
 
