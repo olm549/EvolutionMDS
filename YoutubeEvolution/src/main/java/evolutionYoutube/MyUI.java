@@ -24,8 +24,14 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-    	Visualizacion_video ventana = new Visualizacion_video();
+    	//Visualizacion_video ventana = new Visualizacion_video();
+    	//setContent(ventana);
+    	//Mi_perfil_ventana ventana2 = new Mi_perfil_ventana();
+    	//setContent(ventana2);
+    	//setVisible(true);
+    	Ver_perfil_usuario ventana = new Ver_perfil_usuario();
     	setContent(ventana);
+    	
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
