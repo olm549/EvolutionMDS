@@ -28,13 +28,12 @@ public class Aniadir_Categoria extends Aniadir_Categoria_ventana implements View
 		@Override
 		public void buttonClick(ClickEvent event) {
 			crear_categoria();
-			((MyUI) UI.getCurrent()).administrador();
 			
 		}
 		
 	});
 	}
 	public void crear_categoria() {
-		throw new UnsupportedOperationException();
+		((MyUI) UI.getCurrent()).administrador();
 	}
 }

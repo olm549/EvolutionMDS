@@ -15,7 +15,7 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).usuario_registrado();
+				iniciar_sesion();
 			}
 			
 		});
@@ -23,20 +23,27 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).finAccionInv();
+				((MyUI) UI.getCurrent()).invitado();
 			}
 			
 		});
 	}
 	public void cancelar() {
+		((MyUI) UI.getCurrent()).invitado();
 		
 	}
 
 	public void iniciar_sesion() {
-		throw new UnsupportedOperationException();
+		//UNO U OTRO O LOGIN INVALIDO
+		
+		((MyUI) UI.getCurrent()).usuario_registrado();
+
+		//((MyUI) UI.getCurrent()).administrador();
+
+		//((MyUI) UI.getCurrent()).invitado();
 	}
 
 	public void olvida_contrasenia() {
-		throw new UnsupportedOperationException();
+		((MyUI) UI.getCurrent()).recordarContrasenia();		
 	}
 }

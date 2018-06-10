@@ -1,5 +1,7 @@
 package evolutionYoutube;
 
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
@@ -13,6 +15,8 @@ public class Visualizacion_video_administrador extends Visualizacion_video_admin
 		Visualizacion_video visu = new Visualizacion_video();
 		visu.eliminarVideo.setVisible(true);
 		visu.eliminarVideo.setEnabled(true);
+		visu.descargar.setVisible(true);
+		visu.descargar.setEnabled(true);
 		visu.eliminarVideo.addClickListener(new ClickListener() {
 
 			@Override
@@ -22,8 +26,14 @@ public class Visualizacion_video_administrador extends Visualizacion_video_admin
 			}
 			
 		});
-		visu.descargar.setVisible(true);
-		visu.descargar.setEnabled(true);
+		visu.volver.addClickListener(new Button.ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).administrador();
+				
+			}
+		});
 		visualizacionComun.addComponent(new Visualizacion_video());
 	}
 	

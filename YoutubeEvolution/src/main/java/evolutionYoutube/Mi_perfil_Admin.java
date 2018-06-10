@@ -1,6 +1,8 @@
 package evolutionYoutube;
 
-public class Mi_perfil_Admin {
+import com.vaadin.navigator.View;
+
+public class Mi_perfil_Admin extends Mi_perfil_Admin_ventana implements View{
 	public Administrador _unnamed_Administrador_;
 	public Mi_cuenta_admin _unnamed_Mi_cuenta_admin_;
 	public Categorias _unnamed_Categorias_;

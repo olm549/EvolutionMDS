@@ -21,6 +21,6 @@ public class Cerrar_Sesion extends Cerrar_Sesion_ventana{
 		});
 	}
 	public void cerrar_sesion() {
-		((MyUI) UI.getCurrent()).finAccionInv();
+		((MyUI) UI.getCurrent()).invitado();
 	}
 }

@@ -37,12 +37,12 @@ public class MyUI extends UI implements View{
     	getNavigator().addView("Iniciar Sesion", new Iniciar_Sesion());
 		getNavigator().navigateTo("Iniciar Sesion");
 	}
-    public void finAccionInv() {
+    public void invitado() {
     	getNavigator().addView("Invitado", new Invitado());
 		getNavigator().navigateTo("Invitado");
 	}
 	public void usuario_registrado() {
-    	getNavigator().addView("Usuario Registrado", new Administrador());
+    	getNavigator().addView("Usuario Registrado", new Usuario_Registrado());
 		getNavigator().navigateTo("Usuario Registrado");
 	}
 	public void subir_video() {
@@ -59,14 +59,33 @@ public class MyUI extends UI implements View{
 		getNavigator().navigateTo("Aniadir categoria");
 		
 	}
-    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
-    public static class MyUIServlet extends VaadinServlet {
-    }
 	public void administrador() {
     	getNavigator().addView("Administrador", new Administrador());
 		getNavigator().navigateTo("Administrador");
 	}
+	public void perfil_administrador() {
+    	getNavigator().addView("Mi perfil Admin", new Mi_perfil_Admin());
+		getNavigator().navigateTo("Mi perfil Admin");
+		
+	}
+	
+    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
+    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+    public static class MyUIServlet extends VaadinServlet {
+    }
+
+	public void recordarContrasenia() {
+
+    	getNavigator().addView("Recordar Contrasenia", new Recordar_Contrasenia());
+		getNavigator().navigateTo("Recordar Contrasenia");
+		
+	}
+	public void ver_perfil_usuario() {
+    	getNavigator().addView("Ver_perfil_usuario", new Ver_perfil_usuario());
+		getNavigator().navigateTo("Ver_perfil_usuario");		
+		
+	}
+	
 	
 
 	

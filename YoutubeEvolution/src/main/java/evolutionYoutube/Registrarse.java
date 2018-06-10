@@ -16,7 +16,7 @@ public class Registrarse extends Registrarse_ventana implements View{
 			@Override
 			public void buttonClick(ClickEvent event) {
 				//REGISTRO
-				((MyUI) UI.getCurrent()).finAccionInv();
+				((MyUI) UI.getCurrent()).invitado();
 				
 			}
 			
@@ -25,7 +25,7 @@ public class Registrarse extends Registrarse_ventana implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).finAccionInv();
+				((MyUI) UI.getCurrent()).invitado();
 				
 			}
 			

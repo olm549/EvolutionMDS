@@ -21,6 +21,15 @@ public Administrador() {
 			((MyUI) UI.getCurrent()).aniadir_categoria();
 		}
 	});
+	miPerfil.addClickListener(new Button.ClickListener() {
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			((MyUI) UI.getCurrent()).perfil_administrador();
+			
+		}
+		
+	});
 	
 }
 

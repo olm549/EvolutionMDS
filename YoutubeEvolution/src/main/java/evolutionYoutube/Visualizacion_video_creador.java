@@ -1,5 +1,9 @@
 package evolutionYoutube;
 
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
 public class Visualizacion_video_creador extends Visualizacion_video_creador_ventana {
 	public Video_subido_propietario _unnamed_Video_subido_propietario_;
 	public Ver_video _unnamed_Ver_video_;
@@ -16,6 +20,14 @@ public class Visualizacion_video_creador extends Visualizacion_video_creador_ven
 		visu.eliminarVideo.setVisible(true);
 		visu.eliminarVideo.setEnabled(true);
 		visualizacionComun.addComponent(visu);
+		visu.volver.addClickListener(new Button.ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).usuario_registrado();
+				
+			}
+		});
 	}
 
 	public void deshabilitar_comentario() {
