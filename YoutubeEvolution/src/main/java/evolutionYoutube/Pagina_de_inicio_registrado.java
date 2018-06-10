@@ -10,5 +10,6 @@ public class Pagina_de_inicio_registrado extends Pagina_de_inicio_registrado_ven
 		inicio.contenedorMeGusta.addComponent(new Lista_videos_relacionados());
 		inicioComun.addComponent(inicio);
 		
+		
 	}
 }

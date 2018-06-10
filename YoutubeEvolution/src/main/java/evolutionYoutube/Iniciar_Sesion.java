@@ -1,18 +1,49 @@
 package evolutionYoutube;
 
-public class Iniciar_Sesion {
+import com.vaadin.navigator.View;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
+public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 	public Invitado _unnamed_Invitado_;
 	public Recordar_Contrasenia _unnamed_Recordar_Contrasenia_;
 
+	
+	public Iniciar_Sesion() {
+		iniciarSesion.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				iniciar_sesion();
+			}
+			
+		});
+		cancelarBoton.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).invitado();
+			}
+			
+		});
+	}
 	public void cancelar() {
-		throw new UnsupportedOperationException();
+		((MyUI) UI.getCurrent()).invitado();
+		
 	}
 
 	public void iniciar_sesion() {
-		throw new UnsupportedOperationException();
+		//UNO U OTRO O LOGIN INVALIDO
+		
+		((MyUI) UI.getCurrent()).usuario_registrado();
+
+		//((MyUI) UI.getCurrent()).administrador();
+
+		//((MyUI) UI.getCurrent()).invitado();
 	}
 
 	public void olvida_contrasenia() {
-		throw new UnsupportedOperationException();
+		((MyUI) UI.getCurrent()).recordarContrasenia();		
 	}
 }

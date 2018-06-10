@@ -16,25 +16,25 @@
     <vaadin-label plain-text>
       Email o apodo: 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="email"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width="70%" margin>
     <vaadin-label plain-text>
       Contraseña: 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="contrasenia"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
    <vaadin-horizontal-layout height-full :middle :right>
-    <vaadin-button plain-text :right>
+    <vaadin-button plain-text _id="cancelarBoton" :right>
       Cancelar 
     </vaadin-button>
-    <vaadin-button plain-text :right>
-      Registrarse 
+    <vaadin-button plain-text _id="iniciarSesion" :right>
+      Iniciar Sesión 
     </vaadin-button>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout spacing="false">
-    <vaadin-link caption="¿Has olvidado la contraseña?"></vaadin-link>
+    <vaadin-link caption="¿Has olvidado la contraseña?" _id="olvidaPass"></vaadin-link>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </body>

@@ -19,6 +19,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Invitado_ventana extends VerticalLayout {
 	protected Button registrarse;
+	protected Button iniciarSesion;
 	protected VerticalLayout inicioComun;
 
 	public Invitado_ventana() {

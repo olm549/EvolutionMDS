@@ -16,19 +16,19 @@
     <vaadin-label plain-text>
       Categoría: 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="categoria"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width="70%" margin>
     <vaadin-label plain-text>
       Contraseña: 
     </vaadin-label>
-    <vaadin-text-field height="25px"></vaadin-text-field>
+    <vaadin-text-field height="25px" _id="contrasenia"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout width="70%" margin>
     <vaadin-label plain-text>
       Edad mínima: 
     </vaadin-label>
-    <vaadin-combo-box height="25px" data-item-type="java.lang.String">
+    <vaadin-combo-box height="25px" data-item-type="java.lang.String" _id="edad">
      <option item="Option1">Option 1</option>
      <option item="Option2">Option 2</option>
      <option item="Option3">Option 3</option>
@@ -38,7 +38,7 @@
     <vaadin-label plain-text>
       Selecciona una imagen para la categoría: 
     </vaadin-label>
-    <vaadin-button plain-text :middle :right>
+    <vaadin-button plain-text _id="seleccionarImag" :middle :right>
       ... 
     </vaadin-button>
    </vaadin-horizontal-layout>
@@ -46,14 +46,14 @@
     <vaadin-label plain-text>
       ¿Está seguro de añadir la categoria? 
     </vaadin-label>
-    <vaadin-check-box :middle :right></vaadin-check-box>
+    <vaadin-check-box _id="check" :middle :right></vaadin-check-box>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
    <vaadin-horizontal-layout height-full :middle :right>
-    <vaadin-button width-full plain-text :middle :right>
+    <vaadin-button width-full plain-text _id="cancelar" :middle :right>
       Cancelar 
     </vaadin-button>
-    <vaadin-button plain-text :middle :right>
+    <vaadin-button plain-text _id="aniadirCategoria" :middle :right>
       Añadir categoría 
     </vaadin-button>
    </vaadin-horizontal-layout>

@@ -1,12 +1,15 @@
 package evolutionYoutube;
 import evolutionYoutube.Usuario_busqueda;
 import evolutionYoutube.Usuario_Comentario;
+
+import com.vaadin.navigator.View;
+
 import evolutionYoutube.Lista_Seguidores;
 import evolutionYoutube.Lista_Suscriptores;
 import evolutionYoutube.Suscribirse_invitado;
 import evolutionYoutube.Listas_creadas;
 
-public class Ver_perfil_usuario {
+public class Ver_perfil_usuario extends Ver_perfil_usuario_ventana implements View {
 	public Usuario_busqueda _unnamed_Usuario_busqueda_;
 	public Usuario_Comentario _unnamed_Usuario_Comentario_;
 	public Lista_Seguidores _unnamed_Lista_Seguidores_;
