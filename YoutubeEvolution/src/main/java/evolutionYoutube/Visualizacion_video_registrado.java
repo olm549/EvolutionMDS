@@ -5,6 +5,8 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
+import database.BD_general;
+
 public class Visualizacion_video_registrado extends Visualizacion_video_registrado_ventana implements View {
 	public Ver_video _unnamed_Ver_video_;
 	public Escribir_Comentario _unnamed_Escribir_Comentario_;
@@ -24,14 +26,17 @@ public class Visualizacion_video_registrado extends Visualizacion_video_registra
 	}
 
 	public void aniade_a_lista() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		bd.aniade_a_lista(1, 1);//ID VIDEO E IDLISTA
 	}
 
 	public void eliminar_comentario_propio() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		bd.eliminar_comentario_propio(1);//IDCOMENTARIO
 	}
 
 	public void me_gusta() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		bd.me_gusta(1);//IDVIDEO
 	}
 }

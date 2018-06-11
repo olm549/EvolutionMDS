@@ -4,6 +4,7 @@ import evolutionYoutube.Usuario_Comentario;
 
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Component;
+import com.vaadin.ui.UI;
 
 import evolutionYoutube.Lista_Seguidores;
 import evolutionYoutube.Lista_Suscriptores;
@@ -24,6 +25,6 @@ public class Ver_perfil_usuario extends Ver_perfil_usuario_ventana implements Vi
 	}
 	
 	public void volver() {
-		throw new UnsupportedOperationException();
+		((MyUI) UI.getCurrent()).usuario_registrado();
 	}
 }

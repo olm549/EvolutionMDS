@@ -5,7 +5,6 @@ import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Window;
 
 public class Usuario_Registrado extends Usuario_Registrado_ventana implements View{
 	public Cerrar_Sesion _unnamed_Cerrar_Sesion_;

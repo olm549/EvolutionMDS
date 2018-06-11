@@ -6,6 +6,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.UI;
 
+import database.BD_general;
 import evolutionYoutube.Administrador;
 
 public class Aniadir_Categoria extends Aniadir_Categoria_ventana implements View {
@@ -27,13 +28,14 @@ public class Aniadir_Categoria extends Aniadir_Categoria_ventana implements View
 
 		@Override
 		public void buttonClick(ClickEvent event) {
-			crear_categoria();
+			((MyUI) UI.getCurrent()).administrador();
 			
 		}
 		
 	});
 	}
 	public void crear_categoria() {
-		((MyUI) UI.getCurrent()).administrador();
+		BD_general bd = new BD_general();
+		bd.crear_categoria(categoria.getValue(), contrasenia.getValue(),Integer.valueOf(edad.getValue()), urlImagen.getValue(), check.getValue());
 	}
 }

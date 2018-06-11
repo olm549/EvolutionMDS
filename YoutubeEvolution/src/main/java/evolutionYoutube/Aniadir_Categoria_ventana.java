@@ -24,7 +24,7 @@ public class Aniadir_Categoria_ventana extends VerticalLayout {
 	protected TextField categoria;
 	protected TextField contrasenia;
 	protected ComboBox<java.lang.String> edad;
-	protected Button seleccionarImag;
+	protected TextField urlImagen;
 	protected CheckBox check;
 	protected Button cancelar;
 	protected Button aniadirCategoria;

@@ -2,6 +2,9 @@ package evolutionYoutube;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
+
+import database.BD_general;
+
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Visualizacion_video_creador extends Visualizacion_video_creador_ventana {
@@ -31,10 +34,14 @@ public class Visualizacion_video_creador extends Visualizacion_video_creador_ven
 	}
 
 	public void deshabilitar_comentario() {
-		throw new UnsupportedOperationException();
+	/*	BD_general bd = new BD_general();
+		for(Object comentario : bd.cargar_Comentarios(1)) {
+		bd.eliminar_comentarioAdmin(Comentario.ID);
+		}*/
 	}
 
 	public void aniadir_a_lista() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		bd.aniade_a_lista(1, 1);//ID VIDEO E ID LISTA
 	}
 }

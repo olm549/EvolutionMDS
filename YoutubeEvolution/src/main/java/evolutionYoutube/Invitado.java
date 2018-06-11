@@ -14,7 +14,8 @@ public class Invitado extends Invitado_ventana implements View{
 	public Inicio_Comun _unnamed_Inicio_Comun_;
 	
 	public Invitado() {
-		inicioComun.addComponent(new Inicio_Comun());
+		Inicio_Comun inicio = new Inicio_Comun();
+		inicioComun.addComponent(inicio);
 		registrarse.addClickListener(new Button.ClickListener() {
 
 			@Override
@@ -33,5 +34,6 @@ public class Invitado extends Invitado_ventana implements View{
 			}
 			
 		});
+		
 	}
 }

@@ -42,8 +42,8 @@ public class Registrarse extends Registrarse_ventana implements View{
 		BD_general bd = new BD_general();
 		if(!(contrasenia.getCaption().equals(confirmar.getCaption())))return;
 		try {
-			bd.Registrarse(nombre.getCaption(), apellidos.getCaption(), apodo.getCaption(), 
-					Integer.valueOf(edad.getCaption()), email.getCaption(), contrasenia.getCaption(), confirmar.getCaption());
+			bd.Registrarse(nombre.getValue(), apellidos.getValue(), apodo.getValue(), 
+					Integer.valueOf(edad.getValue()), email.getValue(), contrasenia.getValue(), confirmar.getValue());
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}

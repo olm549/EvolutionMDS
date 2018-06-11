@@ -1,19 +1,23 @@
 package evolutionYoutube;
 
+import database.BD_general;
+
 public class Video_subido_propietario {
 	public Lista_videos_subidos _unnamed_Lista_videos_subidos_;
 	public Visualizacion_video_creador _unnamed_Visualizacion_video_creador_;
 	public Modificar_video _unnamed_Modificar_video_;
 
 	public void editar_miniatura() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		bd.editar_Miniatura(1);//IDVIDEO
 	}
 
 	public void guardar_cambios() {
-		throw new UnsupportedOperationException();
+		
 	}
 
 	public void eliminar_video() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		bd.Eliminar_video(1);//IDVIDEO
 	}
 }

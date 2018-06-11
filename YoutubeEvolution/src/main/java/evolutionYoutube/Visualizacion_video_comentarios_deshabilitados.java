@@ -1,8 +1,12 @@
 package evolutionYoutube;
 
+import java.util.List;
+
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
+
+import database.BD_general;
 
 public class Visualizacion_video_comentarios_deshabilitados extends Visualizacion_video_comentarios_deshabilitados_ventana{
 	public Buscador_videos _unnamed_Buscador_videos_;
@@ -17,25 +21,27 @@ public class Visualizacion_video_comentarios_deshabilitados extends Visualizacio
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-
-				((MyUI) UI.getCurrent()).usuario_registrado();
+				volver();
 			}
 		});
 	}
 	
-	public void usuario(Object aVer_perfil_usuario) {
-		throw new UnsupportedOperationException();
+	public void usuario() {
+
+		((MyUI) UI.getCurrent()).ver_perfil_usuario();
 	}
 
-	public void volver(Object aInicio_Comun) {
-		throw new UnsupportedOperationException();
+	public void volver() {
+
+		((MyUI) UI.getCurrent()).usuario_registrado();
 	}
 
 	public void ver_etiquetas() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		List lista = bd.ver_etiquetas();
 	}
 
 	public void visualizar_pantalla_completa() {
-		throw new UnsupportedOperationException();
+		
 	}
 }

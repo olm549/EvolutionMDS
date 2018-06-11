@@ -22,5 +22,15 @@ public Inicio_Comun() {
 		BD_general bd = new BD_general();
 		List listaMeGusta = bd.Cargar_Videos_Megusta();
 		List listaRecientes = bd.Cargar_Videos_Recientes();
+		/**
+		 * for(Video video : listaMeGusta){
+		 * 	Video temp = new Video();
+		 * 	temp.setNombre(video.getNombre())
+		 * temp.setVisu(video.getVisu())
+		 * temp.setMiniatura(video.getMiniatura())
+		 * addComponent(video);
+		 * 
+		 * }
+		 */
 	}
 }

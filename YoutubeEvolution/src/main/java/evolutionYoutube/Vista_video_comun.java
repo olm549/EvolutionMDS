@@ -40,7 +40,4 @@ public class Vista_video_comun extends Vista_video_comun_ventana{
 		//añadir etiquetas a la vista
 	}
 
-	public void visualizar_pantalla_completa() {
-		throw new UnsupportedOperationException();
-	}
 }

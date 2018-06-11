@@ -70,7 +70,6 @@ public class MyUI extends UI implements View{
 	}
 
 	public void recordarContrasenia() {
-
     	getNavigator().addView("Recordar Contrasenia", new Recordar_Contrasenia());
 		getNavigator().navigateTo("Recordar Contrasenia");
 		

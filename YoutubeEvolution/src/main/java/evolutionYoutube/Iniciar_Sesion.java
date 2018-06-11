@@ -13,6 +13,14 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 
 	
 	public Iniciar_Sesion() {
+		olvidaPass.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				olvida_contrasenia();
+			}
+			
+		});
 		iniciarSesion.addClickListener(new Button.ClickListener() {
 
 			@Override
@@ -25,7 +33,7 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).invitado();
+				cancelar();
 			}
 			
 		});
@@ -37,13 +45,13 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 
 	public void iniciar_sesion() {
 		BD_general bd = new BD_general();
-		bd.iniciar_sesion(email.getCaption(), contrasenia.getCaption());
+		bd.iniciar_sesion(email.getValue(), contrasenia.getValue());
 		
-		
+		//ESTO VA EN LA BD
 		((MyUI) UI.getCurrent()).usuario_registrado();
 
 		//((MyUI) UI.getCurrent()).administrador();
-
+		//o
 		//((MyUI) UI.getCurrent()).invitado();
 	}
 
