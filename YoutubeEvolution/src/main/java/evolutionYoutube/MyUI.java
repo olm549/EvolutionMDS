@@ -68,11 +68,6 @@ public class MyUI extends UI implements View{
 		getNavigator().navigateTo("Mi perfil Admin");
 		
 	}
-	
-    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
-    public static class MyUIServlet extends VaadinServlet {
-    }
 
 	public void recordarContrasenia() {
 
@@ -86,6 +81,11 @@ public class MyUI extends UI implements View{
 		
 	}
 	
+	
+    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
+    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+    public static class MyUIServlet extends VaadinServlet {
+    }
 	
 
 	
