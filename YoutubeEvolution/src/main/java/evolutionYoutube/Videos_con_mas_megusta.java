@@ -11,7 +11,7 @@ public class Videos_con_mas_megusta extends Videos_con_mas_megusta_ventana {
 	
 	public Videos_con_mas_megusta(List lista) {
 		for(int i = 0 ; i<lista.size(); i++) {
-			videosMeGusta.addComponent(new Lista_videos(lista.get(i));
+			videosMeGusta.addComponent(new Lista_videos(lista.get(i)));
 		}
 	}
 }
