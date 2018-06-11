@@ -51,7 +51,7 @@ public class MyUI extends UI implements View{
 		
 	}
 	public void mi_perfil_registrado() {
-    	getNavigator().addView("Mi perfil registrado", new Mi_cuenta());
+    	getNavigator().addView("Mi perfil registrado", new Mi_perfil());
 		getNavigator().navigateTo("Mi perfil registrado");
 	}
 	public void aniadir_categoria() {
