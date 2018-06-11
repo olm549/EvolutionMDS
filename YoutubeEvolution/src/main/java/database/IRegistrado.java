@@ -14,15 +14,13 @@ public interface IRegistrado {
 
 	public void Registrarse(String aNombre, String aApellidos, String aApodo, int aEdad, String aEmail, String aContrasenia, String aConfirmacion);
 
-	public void Subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, Categoria aCategoria, Listas_creadas aLista);
+	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String aCategoria, String aLista);
 
 	public void descargar(int aID);
 
 	public List cargar_Comentarios(int aID);
 
 	public void aniade_a_lista(int aIDvideo, int aIDlista);
-
-	public void eliminar_comentario(Object aIDcomentario);
 
 	public void me_gusta(int aIDvideo);
 

@@ -2,6 +2,9 @@ package evolutionYoutube;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
+
+import database.BD_general;
+
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
@@ -38,7 +41,8 @@ public class Visualizacion_video_administrador extends Visualizacion_video_admin
 	}
 	
 	public void eliminar_video() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		bd.eliminar_Video(1);//AQUI TIENE QUE IR IDVIDEO, QUE SE CARGA CON LA VISUALIZACION
 	}
 
 	public void eliminar_comentario() {

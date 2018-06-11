@@ -28,6 +28,7 @@ public class Visualizacion_video_ventana extends VerticalLayout {
 	protected HorizontalLayout aniadirALista;
 	protected ComboBox<java.lang.String> comboBox;
 	protected Button aniadeALista;
+	protected VerticalLayout escribirComentario;
 	protected VerticalLayout listaComentarios;
 
 	public Visualizacion_video_ventana() {

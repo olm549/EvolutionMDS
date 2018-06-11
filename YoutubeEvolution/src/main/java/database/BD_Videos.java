@@ -28,7 +28,7 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, Categoria aCategoria, Listas_creadas aLista) {
+	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String string, String string2) {
 		throw new UnsupportedOperationException();
 	}
 

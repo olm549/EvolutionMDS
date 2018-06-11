@@ -6,93 +6,60 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout>
-   <vaadin-vertical-layout size-full>
-    <vaadin-horizontal-layout size-full>
-     <vaadin-horizontal-layout spacing="false" size-full>
-      <vaadin-image source="C:/Users/Zéin/Desktop/Carpetamds/modelado2/YoutubeEvolution/src/main/resources/evolutionYoutube/imagenes/logo.png" width="60%" height-full></vaadin-image>
-      <vaadin-label caption-as-html caption="<b><h1>Subir vídeo</b></h1>" plain-text></vaadin-label>
+  <vaadin-horizontal-layout width-full margin>
+   <vaadin-vertical-layout>
+    <vaadin-label>
+     <h1><b>Subir Video</b></h1>
+    </vaadin-label>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-label plain-text>
+       Título del vídeo 
+     </vaadin-label>
+     <vaadin-text-field _id="titulo"></vaadin-text-field>
+     <vaadin-label plain-text>
+       Miniatura 
+     </vaadin-label>
+     <vaadin-text-field _id="miniatura"></vaadin-text-field>
+     <vaadin-label plain-text>
+       Añadir a lista de reproduccion 
+     </vaadin-label>
+     <vaadin-combo-box data-item-type="java.lang.String" _id="lista">
+      <option item="Option1">Option 1</option>
+      <option item="Option2">Option 2</option>
+      <option item="Option3">Option 3</option>
+     </vaadin-combo-box>
+     <vaadin-horizontal-layout>
+      <vaadin-label plain-text>
+        Deshabilitar comentarios 
+      </vaadin-label>
+      <vaadin-check-box _id="deshCom"></vaadin-check-box>
      </vaadin-horizontal-layout>
-     <vaadin7-horizontal-layout :right>
-      <vaadin-button _id="subir_video">
-       <b>Subir video</b>
-      </vaadin-button>
-     </vaadin7-horizontal-layout>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout margin>
-     <vaadin-button plain-text _id="volver">
-       &lt;&lt;Volver 
-     </vaadin-button>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
-   <vaadin7-horizontal-layout size-full margin>
-    <vaadin7-vertical-layout width="50%" height="1000%">
-     <vaadin-vertical-layout width="150%">
-      <vaadin-vertical-layout height="120px" margin="false">
-       <vaadin-label caption-as-html caption="<b><h1>Título del vídeo:</b></h1>" size-full plain-text></vaadin-label>
-       <vaadin-text-field width="400px" height="80%" _id="titulo"></vaadin-text-field>
-      </vaadin-vertical-layout>
-      <vaadin-image source="C:/Users/Zéin/Desktop/Carpetamds/modelado2/YoutubeEvolution/src/main/resources/evolutionYoutube/imagenes/miniatura.png" width="400px" height="280px"></vaadin-image>
-      <vaadin-horizontal-layout>
-       <vaadin-label caption-as-html caption="<b><h1>Elige una miniatura</b></h1>" plain-text></vaadin-label>
-       <vaadin-button _id="miniatura" :middle>
-        <b>...</b>
-       </vaadin-button>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout>
-       <vaadin-label>
-        <b>¿Deshabilitar comentarios</b>
-       </vaadin-label>
-       <vaadin-check-box _id="deshabilitarCom"></vaadin-check-box>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
-    </vaadin7-vertical-layout>
-    <vaadin-vertical-layout>
-     <vaadin7-vertical-layout>
-      <vaadin-label size-full>
-       <b>Descripción del vídeo</b>
-      </vaadin-label>
-      <vaadin-text-area width-full _id="descripcion"></vaadin-text-area>
-      <vaadin-label>
-       <b>Introduce las etiquetas (Opcionales):</b>
-      </vaadin-label>
-      <vaadin-text-area width-full _id="etiquetas"></vaadin-text-area>
-      <vaadin-label>
-       <b>*Deben de ir separadas por una coma (",")</b>
-      </vaadin-label>
-     </vaadin7-vertical-layout>
-     <vaadin-vertical-layout size-auto>
-      <vaadin-horizontal-layout>
-       <vaadin-label>
-        <b></b>
-        <h2><b>Selecciona una categoria</b></h2>
-       </vaadin-label>
-       <vaadin-combo-box data-item-type="java.lang.String" _id="categoriaCombo" :middle :center>
-        <option item="Option1">Option 1</option>
-        <option item="Option2">Option 2</option>
-        <option item="Option3">Option 3</option>
-       </vaadin-combo-box>
-       <vaadin-label>
-        <b>*</b>
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout>
-       <vaadin-label>
-        <b>¡Añádelo a una de tus listas de reproducción!</b>
-       </vaadin-label>
-       <vaadin-combo-box data-item-type="java.lang.String" _id="aniadirALista" :middle :center>
-        <option item="Option1">Option 1</option>
-        <option item="Option2">Option 2</option>
-        <option item="Option3">Option 3</option>
-       </vaadin-combo-box>
-       <vaadin-label>
-        <b>*</b>
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
+     <vaadin-label plain-text>
+       Categoria 
+     </vaadin-label>
+     <vaadin-combo-box data-item-type="java.lang.String" _id="categoria">
+      <option item="Option1">Option 1</option>
+      <option item="Option2">Option 2</option>
+      <option item="Option3">Option 3</option>
+     </vaadin-combo-box>
     </vaadin-vertical-layout>
-   </vaadin7-horizontal-layout>
-  </vaadin-vertical-layout>
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout>
+    <vaadin-label plain-text>
+      Descripción del vídeo: 
+    </vaadin-label>
+    <vaadin-text-area width-full _id="descripcion"></vaadin-text-area>
+    <vaadin-label plain-text>
+      Etiquetas: 
+    </vaadin-label>
+    <vaadin-text-area width-full _id="etiquetas"></vaadin-text-area>
+    <vaadin-label>
+     <h6>*Las etiquetas deben de ir separadas por una coma (',')</h6>
+    </vaadin-label>
+    <vaadin-button plain-text _id="subir" :bottom :right>
+      Subir video 
+    </vaadin-button>
+   </vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
  </body>
 </html>

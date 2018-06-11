@@ -23,4 +23,14 @@ public class BD_listas {
 	public void eliminar_lista_reproduccion(int aID_lista) {
 		throw new UnsupportedOperationException();
 	}
+
+	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List cargar_Listas_Reproduccion(int aID_Usuario) {
+		throw new UnsupportedOperationException();
+		
+	}
 }

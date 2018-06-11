@@ -5,6 +5,8 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
+import database.BD_general;
+
 public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 	public Invitado _unnamed_Invitado_;
 	public Recordar_Contrasenia _unnamed_Recordar_Contrasenia_;
@@ -34,7 +36,9 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 	}
 
 	public void iniciar_sesion() {
-		//UNO U OTRO O LOGIN INVALIDO
+		BD_general bd = new BD_general();
+		bd.iniciar_sesion(email.getCaption(), contrasenia.getCaption());
+		
 		
 		((MyUI) UI.getCurrent()).usuario_registrado();
 

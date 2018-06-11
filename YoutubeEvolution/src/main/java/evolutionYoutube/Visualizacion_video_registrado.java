@@ -1,10 +1,11 @@
 package evolutionYoutube;
 
+import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
-public class Visualizacion_video_registrado extends Visualizacion_video_registrado_ventana {
+public class Visualizacion_video_registrado extends Visualizacion_video_registrado_ventana implements View {
 	public Ver_video _unnamed_Ver_video_;
 	public Escribir_Comentario _unnamed_Escribir_Comentario_;
 	

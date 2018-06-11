@@ -1,8 +1,14 @@
 package evolutionYoutube;
 
+import org.orm.PersistentException;
+
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
+
+import database.BD_Usuario_registrado;
+import database.BD_general;
+
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Registrarse extends Registrarse_ventana implements View{
@@ -15,8 +21,7 @@ public class Registrarse extends Registrarse_ventana implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				//REGISTRO
-				((MyUI) UI.getCurrent()).invitado();
+				registrarse();
 				
 			}
 			
@@ -25,7 +30,7 @@ public class Registrarse extends Registrarse_ventana implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).invitado();
+				cancelar();
 				
 			}
 			
@@ -34,10 +39,18 @@ public class Registrarse extends Registrarse_ventana implements View{
 	
 	
 	public void registrarse() {
-		
+		BD_general bd = new BD_general();
+		if(!(contrasenia.getCaption().equals(confirmar.getCaption())))return;
+		try {
+			bd.Registrarse(nombre.getCaption(), apellidos.getCaption(), apodo.getCaption(), 
+					Integer.valueOf(edad.getCaption()), email.getCaption(), contrasenia.getCaption(), confirmar.getCaption());
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		((MyUI) UI.getCurrent()).invitado();
 	}
 
 	public void cancelar() {
-		
+		((MyUI) UI.getCurrent()).invitado();
 	}
 }

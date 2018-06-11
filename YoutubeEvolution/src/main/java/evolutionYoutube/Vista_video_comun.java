@@ -1,8 +1,13 @@
 package evolutionYoutube;
 
+import java.util.List;
+
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
+
+import database.BD_Videos;
+import database.BD_general;
 
 public class Vista_video_comun extends Vista_video_comun_ventana{
 	public Buscador_videos _unnamed_Buscador_videos_;
@@ -30,7 +35,9 @@ public class Vista_video_comun extends Vista_video_comun_ventana{
 	}
 
 	public void ver_etiquetas() {
-		throw new UnsupportedOperationException();
+		BD_general bd = new BD_general();
+		List lista = bd.ver_etiquetas();
+		//añadir etiquetas a la vista
 	}
 
 	public void visualizar_pantalla_completa() {
