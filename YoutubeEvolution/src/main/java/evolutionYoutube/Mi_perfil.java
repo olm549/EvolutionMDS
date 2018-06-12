@@ -11,12 +11,13 @@ public class Mi_perfil extends Mi_perfil_ventana implements View {
 
 	public Mi_perfil() {
 		menu.addComponent(new Menu());
-		mi_cuenta.addComponent(new Mi_cuenta());
+		// NO FUNCIONA NO SE POR QUE mi_cuenta.addComponent(new Mi_cuenta());
+		cerrar_sesion.addComponent(new Cerrar_Sesion());
 	}
 	
-	
-	
-	public void cerrar_sesion() {
+	/**public void cerrar_sesion() {
 		throw new UnsupportedOperationException();
-	}
+	}**/
+	
+	
 }

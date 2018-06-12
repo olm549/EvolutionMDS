@@ -20,13 +20,25 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 
 	public List Cargar_Videos_Relacionados() {
 		BD_Videos bd = new BD_Videos();
-		List lista = bd.Cargar_Videos_Relacionados();
+		List lista = null;
+		try {
+			lista = bd.Cargar_Videos_Relacionados();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return lista;
 	}
 
 	public List Cargar_Videos_Suscripciones() {
 		BD_Videos bd = new BD_Videos();
-		List lista = bd.Cargar_Videos_Suscripciones();
+		List lista = null;
+		try {
+			lista = bd.Cargar_Videos_Suscripciones();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return lista;
 	}
 
@@ -170,13 +182,25 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 
 	public List Cargar_Videos_Megusta() {
 		BD_Videos bd = new BD_Videos();
-		List lista = bd.Cargar_Videos_Megusta();
+		List lista = null;
+		try {
+			lista = bd.Cargar_Videos_Megusta();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return lista;
 	}
 
 	public List Cargar_Videos_Recientes() {
 		BD_Videos bd = new BD_Videos();
-		List lista = bd.Cargar_Videos_Recientes();
+		List lista = null;
+		try {
+			lista = bd.Cargar_Videos_Recientes();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return lista;
 	}
 

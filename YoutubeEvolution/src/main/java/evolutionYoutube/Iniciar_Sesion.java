@@ -37,6 +37,7 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 			}
 			
 		});
+		
 	}
 	public void cancelar() {
 		((MyUI) UI.getCurrent()).invitado();
@@ -44,8 +45,8 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 	}
 
 	public void iniciar_sesion() {
-		BD_general bd = new BD_general();
-		bd.iniciar_sesion(email.getValue(), contrasenia.getValue());
+		/**BD_general bd = new BD_general();
+		bd.iniciar_sesion(email.getValue(), contrasenia.getValue());**/
 		
 		//ESTO VA EN LA BD
 		((MyUI) UI.getCurrent()).usuario_registrado();

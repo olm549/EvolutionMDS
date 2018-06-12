@@ -14,12 +14,12 @@ public class Inicio_Comun extends Inicio_comun_ventana{
 
 	
 public Inicio_Comun() {
-	Cargar_Videos();
-	contenedorMeGusta.addComponent(videos_con_mas_megusta);
-	contenedorUltimosVideos.addComponent(ultimos_videos);
+	//Cargar_Videos();
+	contenedorMeGusta.addComponent(new Videos_con_mas_megusta());
+	contenedorUltimosVideos.addComponent(new Ultimos_videos());
 	menuVideos.addComponent(new Menu_videos_ventana());
 }
-	public void Cargar_Videos() {
+	/**public void Cargar_Videos() {
 		BD_general bd = new BD_general();
 		List listaMeGusta = bd.Cargar_Videos_Megusta();
 		videos_con_mas_megusta = new Videos_con_mas_megusta(listaMeGusta);
@@ -35,5 +35,5 @@ public Inicio_Comun() {
 		 * 
 		 * }
 		 */
-	}
+	//}
 }

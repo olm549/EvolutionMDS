@@ -4,14 +4,14 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
-public class Menu extends Menu_ventana {
+public class Menu_admin extends Menu_ventana {
 	
-	public Menu() {
+	public Menu_admin() {
 		principal.addClickListener(new Button.ClickListener() {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).usuario_registrado();
+				((MyUI) UI.getCurrent()).administrador();
 				
 			}
 			
@@ -20,7 +20,7 @@ public class Menu extends Menu_ventana {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).mi_perfil_registrado();
+				((MyUI) UI.getCurrent()).perfil_administrador();
 				
 			}
 			

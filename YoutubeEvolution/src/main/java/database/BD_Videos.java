@@ -2,6 +2,9 @@ package database;
 import java.util.List;
 import java.util.Vector;
 
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
 import com.vaadin.ui.TextArea;
 
 import database.Videos;
@@ -12,20 +15,53 @@ public class BD_Videos {
 	public BD_general _bd_PrincipalVideos;
 	public Vector<Videos> _contieneVideo = new Vector<Videos>();
 
-	public List Cargar_Videos_Megusta() {
-		throw new UnsupportedOperationException();
+	public List Cargar_Videos_Megusta() throws PersistentException {
+	
+		List listaVideos=null;
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+	      listaVideos=VideosDAO.queryVideos("NumVisualizaciones > 0", "NumVisualizaciones");
+		} catch(Exception e) {
+			transaccion.rollback();			
+		}
+		return listaVideos;
 	}
 
-	public List Cargar_Videos_Recientes() {
-		throw new UnsupportedOperationException();
+	public List Cargar_Videos_Recientes() throws PersistentException {
+		List listaVideos=null;
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+	      listaVideos=VideosDAO.queryVideos("Fecha = 2018", "NumVisualizaciones");
+		} catch(Exception e) {
+			transaccion.rollback();			
+		}
+		return listaVideos;
 	}
 
-	public List Cargar_Videos_Relacionados() {
-		throw new UnsupportedOperationException();
+	public List Cargar_Videos_Relacionados() throws PersistentException {
+		List listaVideos=null;
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+	      listaVideos=VideosDAO.queryVideos("NumVisualizaciones > 0", "NumVisualizaciones");
+		} catch(Exception e) {
+			transaccion.rollback();			
+		}
+		return listaVideos;
 	}
 
-	public List Cargar_Videos_Suscripciones() {
-		throw new UnsupportedOperationException();
+	public List Cargar_Videos_Suscripciones() throws PersistentException {
+		List listaVideos=null;
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+	      listaVideos=VideosDAO.queryVideos("NumVisualizaciones > 0", "NumVisualizaciones");
+		} catch(Exception e) {
+			transaccion.rollback();			
+		}
+		return listaVideos;
 	}
 
 	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String string, String string2) {

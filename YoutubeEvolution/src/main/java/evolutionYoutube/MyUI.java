@@ -45,6 +45,18 @@ public class MyUI extends UI implements View{
     	getNavigator().addView("Usuario Registrado", new Usuario_Registrado());
 		getNavigator().navigateTo("Usuario Registrado");
 	}
+	public void videos_subidos() {
+    	getNavigator().addView("Videos Subidos", new Videos_subidos());
+		getNavigator().navigateTo("Videos Subidos");
+	}
+	public void mis_listas() {
+    	getNavigator().addView("Mis Listas", new Listas_de_reproduccion());
+		getNavigator().navigateTo("Mis Listas");
+	}
+	public void suscripciones() {
+    	getNavigator().addView("Suscripciones", new Suscripciones());
+		getNavigator().navigateTo("Suscripciones");
+	}
 	public void subir_video() {
     	getNavigator().addView("Subir video", new Subir_video());
 		getNavigator().navigateTo("Subir video");
@@ -85,6 +97,12 @@ public class MyUI extends UI implements View{
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
     }
+
+
+	
+
+
+	
 	
 
 	
