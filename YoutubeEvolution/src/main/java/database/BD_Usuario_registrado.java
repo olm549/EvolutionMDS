@@ -51,8 +51,8 @@ public class BD_Usuario_registrado {
 		comprobar_inicio(aEmail,aContrasenia);
 	}
 
-	public void comprobar_inicio(String aEmail, String aContrasenia) {
-		
+	public boolean comprobar_inicio(String aEmail, String aContrasenia) {
+		return true;
 	}
 
 	public void recuperar_contrasenia(String aEmail) {

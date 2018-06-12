@@ -6,9 +6,6 @@ import org.orm.PersistentException;
 
 import com.vaadin.ui.TextArea;
 
-import evolutionYoutube.Categoria;
-import evolutionYoutube.Listas_creadas;
-import evolutionYoutube.Etiqueta;
 
 public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 	public BD_Videos _bd_Videos;

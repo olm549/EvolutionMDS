@@ -5,7 +5,7 @@ import evolutionYoutube.Video_subido;
 
 public class Lista_videos extends Lista_videos_ventana{
 	
-	public Lista_videos(Object object) {
+	public Lista_videos() {
 		
 	}
 
