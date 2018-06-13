@@ -8,7 +8,7 @@ import database.BD_general;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Visualizacion_video_creador extends Visualizacion_video_creador_ventana {
-	public Video_subido_propietario _unnamed_Video_subido_propietario_;
+	//public Video_subido_propietario _unnamed_Video_subido_propietario_;
 	public Ver_video _unnamed_Ver_video_;
 	
 	

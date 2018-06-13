@@ -1,6 +1,9 @@
 package evolutionYoutube;
 
 import com.vaadin.navigator.View;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
 
 import database.BD_general;
 
@@ -10,8 +13,54 @@ public class Suscripciones extends Suscripciones_ventana implements View {
 	public Lista_Seguidores _unnamed_Lista_Seguidores_;
 
 	public Suscripciones() {
-		menu.addComponent(new Menu());
+		
 		seguidores.addComponent(new Lista_Seguidores_Suscriptores_ventana());
+		principal.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).usuario_registrado();
+				
+			}
+			
+		});
+		micuenta.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).mi_perfil_registrado();
+				
+			}
+			
+		});
+		videos_subidos.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).videos_subidos();
+				
+			}
+			
+		});
+		mis_listas.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).mis_listas();
+				
+			}
+			
+		});
+		suscripciones.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).suscripciones();
+				
+			}
+			
+		});
+		
 	}
 	public void ver_perfil() {
 		throw new UnsupportedOperationException();

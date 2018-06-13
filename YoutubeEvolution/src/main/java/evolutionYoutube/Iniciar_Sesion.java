@@ -54,6 +54,7 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 		//((MyUI) UI.getCurrent()).administrador();
 		//o
 		//((MyUI) UI.getCurrent()).invitado();
+		//((MyUI) UI.getCurrent()).ver_perfil_usuario();
 	}
 
 	public void olvida_contrasenia() {

@@ -3,7 +3,7 @@ import java.util.List;
 
 import com.vaadin.ui.TextArea;
 
-import evolutionYoutube.Categoria;
+//import evolutionYoutube.Categoria;
 import evolutionYoutube.Listas_creadas;
 
 public interface IRegistrado {

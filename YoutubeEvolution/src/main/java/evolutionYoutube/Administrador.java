@@ -25,7 +25,7 @@ public Administrador() {
 
 		@Override
 		public void buttonClick(ClickEvent event) {
-			((MyUI) UI.getCurrent()).perfil_administrador();
+			((MyUI) UI.getCurrent()).Mi_perfil_Admin();
 			
 		}
 		

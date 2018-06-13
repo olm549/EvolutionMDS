@@ -1,6 +1,9 @@
 package evolutionYoutube;
 
 import com.vaadin.navigator.View;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
 
 public class Mi_perfil extends Mi_perfil_ventana implements View {
 	public Usuario_Registrado _unnamed_Usuario_Registrado_;
@@ -10,14 +13,59 @@ public class Mi_perfil extends Mi_perfil_ventana implements View {
 	public Listas_de_reproduccion _unnamed_Listas_de_reproduccion_;
 
 	public Mi_perfil() {
-		menu.addComponent(new Menu());
-		// NO FUNCIONA NO SE POR QUE mi_cuenta.addComponent(new Mi_cuenta());
+		
+		mi_cuenta.addComponent(new Mi_cuenta());
 		cerrar_sesion.addComponent(new Cerrar_Sesion());
-	}
+	
+	principal.addClickListener(new Button.ClickListener() {
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			((MyUI) UI.getCurrent()).usuario_registrado();
+			
+		}
+		
+	});
+	micuenta.addClickListener(new Button.ClickListener() {
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			((MyUI) UI.getCurrent()).mi_perfil_registrado();
+			
+		}
+		
+	});
+	videos_subidos.addClickListener(new Button.ClickListener() {
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			((MyUI) UI.getCurrent()).videos_subidos();
+			
+		}
+		
+	});
+	mis_listas.addClickListener(new Button.ClickListener() {
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			((MyUI) UI.getCurrent()).mis_listas();
+			
+		}
+		
+	});
+	suscripciones.addClickListener(new Button.ClickListener() {
+
+		@Override
+		public void buttonClick(ClickEvent event) {
+			((MyUI) UI.getCurrent()).suscripciones();
+			
+		}
+		
+	});
 	
 	/**public void cerrar_sesion() {
 		throw new UnsupportedOperationException();
 	}**/
 	
-	
+	}
 }

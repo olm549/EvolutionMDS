@@ -10,7 +10,37 @@
    <vaadin-vertical-layout height="200px" margin="false">
     <vaadin-image source="https://image.ibb.co/bKS6So/cabecera.png" width-full height="98.44%"></vaadin-image>
    </vaadin-vertical-layout>
-   <vaadin-horizontal-layout width="25%" height="2500px" _id="menu"></vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width="25%" height="2500px" _id="menu">
+    <vaadin-horizontal-layout width="103.3%" height="2500px">
+     <vaadin-css-layout size-full>
+      <vaadin-vertical-layout height="10px">
+       <vaadin-button style-name="menu" width-full plain-text _id="principal" :center>
+         PRINCIPAL 
+       </vaadin-button>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout height="10px">
+       <vaadin-button style-name="menu" width-full plain-text _id="micuenta" :center>
+         MI CUENTA 
+       </vaadin-button>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout height="10px">
+       <vaadin-button style-name="menu" width="106.9%" plain-text _id="videos_subidos" :center>
+         VIDEOS SUBIDOS 
+       </vaadin-button>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout height="10px">
+       <vaadin-button style-name="menu" width-full plain-text _id="mis_listas" :center>
+         MIS LISTAS 
+       </vaadin-button>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout height="10px">
+       <vaadin-button style-name="menu" width-full plain-text _id="suscripciones" :center>
+         SUSCRIPCIONES 
+       </vaadin-button>
+      </vaadin-vertical-layout>
+     </vaadin-css-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-horizontal-layout>
    <vaadin-css-layout width="75%" height="2500px" _id="seguidores"></vaadin-css-layout>
   </vaadin-css-layout>
  </body>

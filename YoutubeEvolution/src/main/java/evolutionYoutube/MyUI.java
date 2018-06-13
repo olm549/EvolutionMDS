@@ -66,6 +66,14 @@ public class MyUI extends UI implements View{
     	getNavigator().addView("Mi perfil registrado", new Mi_perfil());
 		getNavigator().navigateTo("Mi perfil registrado");
 	}
+	public void modificar_datos_personales() {
+    	getNavigator().addView("Modificar datos personales", new Modificar_datos_personales());
+		getNavigator().navigateTo("Modificar datos personales");
+	}
+	public void modificar_video() {
+    	getNavigator().addView("Modificar video", new Modificar_video());
+		getNavigator().navigateTo("Modificar video");
+	}
 	public void aniadir_categoria() {
     	getNavigator().addView("Aniadir categoria", new Aniadir_Categoria());
 		getNavigator().navigateTo("Aniadir categoria");
@@ -98,6 +106,60 @@ public class MyUI extends UI implements View{
     public static class MyUIServlet extends VaadinServlet {
     }
 
+
+    public void modificar_datos_Admin() {
+    	getNavigator().addView("Modificar datos admin", new Modificar_Datos_Admin());
+		getNavigator().navigateTo("Modificar datos admin");
+		
+	}
+	public void Mi_perfil_Admin() {
+		getNavigator().addView("perfil admin", new Mi_perfil_Admin());
+		getNavigator().navigateTo("perfil admin");
+		
+	}
+	public void listausuarios() {
+		getNavigator().addView("lista usuarios", new Lista_Usuarios());
+		getNavigator().navigateTo("lista usuarios");
+		
+	}
+	public void Categorias() {
+		getNavigator().addView("categorias", new Categorias());
+		getNavigator().navigateTo("categorias");
+		
+	}
+	public void Lista_Video_Usuario() {
+		getNavigator().addView("lista video usuario", new Lista_Video_Usuario());
+		getNavigator().navigateTo("lista video usuario");
+		
+	}
+	public void Lista_Usuarios() {
+		getNavigator().addView("lista usuarios", new Lista_Usuarios());
+		getNavigator().navigateTo("lista usuarios");
+		
+	}
+	public void crearcategoria() {
+		getNavigator().addView("crear categoria", new Aniadir_Categoria());
+		getNavigator().navigateTo("crear categoria");
+		
+	}
+	public void editarcategoria() {
+		getNavigator().addView("editar categoria", new Editar_Categoria());
+		getNavigator().navigateTo("editar categoria");
+		
+	}
+	public void cambiarnombre() {
+		getNavigator().addView("cambiar nombre", new Cambiar_nombre());
+		getNavigator().navigateTo("cambiar nombre");
+		
+	}
+	public void Editar_lista() {
+		getNavigator().addView("editar lista", new Editar_lista());
+		getNavigator().navigateTo("editar lista");
+		
+	}
+	
+
+	
 
 	
 

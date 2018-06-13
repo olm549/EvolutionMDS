@@ -1,6 +1,6 @@
 package database;
 import java.util.List;
-import evolutionYoutube.Etiqueta;
+//import evolutionYoutube.Etiqueta;
 
 public interface IInvitado {
 

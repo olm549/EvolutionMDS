@@ -1,5 +1,5 @@
 package evolutionYoutube;
-import evolutionYoutube.Edicion_Categorias;
+//import evolutionYoutube.Edicion_Categorias;
 
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
@@ -10,7 +10,7 @@ import database.BD_general;
 import evolutionYoutube.Administrador;
 
 public class Aniadir_Categoria extends Aniadir_Categoria_ventana implements View {
-	public Edicion_Categorias _unnamed_Edicion_Categorias_;
+	//public Edicion_Categorias _unnamed_Edicion_Categorias_;
 	public Administrador _unnamed_Administrador_;
 
 	public Aniadir_Categoria() {

@@ -6,7 +6,7 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-css-layout width-full height="256px">
+  <vaadin-css-layout width-full>
    <vaadin-horizontal-layout width-full height="15%" margin>
     <vaadin-css-layout :center>
      <vaadin-label plain-text>
@@ -20,41 +20,49 @@
        TÍTULO CATEGORIA 
      </vaadin-label>
     </vaadin-css-layout>
-    <vaadin-css-layout :center>
-     <vaadin-button plain-text>
-       CAMBIAR NOMBRE 
-     </vaadin-button>
-    </vaadin-css-layout>
+    <vaadin-css-layout :center></vaadin-css-layout>
    </vaadin-horizontal-layout>
-   <vaadin-css-layout responsive width-full height="145px">
-    <vaadin-horizontal-layout spacing="false" width-full height="145px" margin>
-     <vaadin-vertical-layout height="77px" margin="false">
-      <vaadin7-label size-auto plain-text>
-        Logo 
-      </vaadin7-label>
-      <vaadin7-upload></vaadin7-upload>
-      <vaadin-label plain-text>
-        Edad 
-      </vaadin-label>
-      <vaadin-native-select data-item-type="java.lang.String">
-       <option item="Option1">Option 1</option>
-       <option item="Option2">Option 2</option>
-       <option item="Option3">Option 3</option>
-      </vaadin-native-select>
+   <vaadin-css-layout responsive width-full>
+    <vaadin-vertical-layout spacing="false" responsive>
+     <vaadin-horizontal-layout width-full>
+      <vaadin-vertical-layout height="77px" margin="false">
+       <vaadin-label plain-text>
+         Nombre 
+       </vaadin-label>
+       <vaadin-text-field></vaadin-text-field>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-vertical-layout margin="false">
+      <vaadin-vertical-layout margin="false">
+       <vaadin-label plain-text>
+         Logo 
+       </vaadin-label>
+       <vaadin-upload></vaadin-upload>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout spacing="false" margin="false">
+       <vaadin-label plain-text>
+         Edad 
+       </vaadin-label>
+       <vaadin-native-select data-item-type="java.lang.String">
+        <option item="Option1">Option 1</option>
+        <option item="Option2">Option 2</option>
+        <option item="Option3">Option 3</option>
+       </vaadin-native-select>
+      </vaadin-vertical-layout>
      </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
     <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
     <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
     <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
    </vaadin-css-layout>
    <vaadin-horizontal-layout width-full height="133px">
     <vaadin-vertical-layout size-auto margin="false" :center>
-     <vaadin-button width="159px" height="37px" plain-text>
+     <vaadin-button width="159px" height="37px" plain-text _id="guardar">
        GUARDAR 
      </vaadin-button>
     </vaadin-vertical-layout>
     <vaadin-vertical-layout size-auto margin="false">
-     <vaadin-button width="132px" height="37px" plain-text>
+     <vaadin-button width="132px" height="37px" plain-text _id="atras">
        &lt;&lt;ATRÁS 
      </vaadin-button>
     </vaadin-vertical-layout>

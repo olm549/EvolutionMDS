@@ -8,7 +8,7 @@ import org.orm.PersistentTransaction;
 import com.vaadin.ui.TextArea;
 
 import database.Videos;
-import evolutionYoutube.Categoria;
+//import evolutionYoutube.Categoria;
 import evolutionYoutube.Listas_creadas;
 
 public class BD_Videos {
