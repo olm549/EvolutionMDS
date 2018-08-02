@@ -12,6 +12,6 @@ public class Escribir_Comentario extends Escribir_Comentario_ventana{
 	}
 	public void enviar_comentario() {
 		BD_general bd = new BD_general();
-		bd.enviar_comentario(comentario, 1);//1 = idvideo
+		bd.enviar_comentario(comentario, 1,2);//1 = idvideo 2 = idusuario
 	}
 }

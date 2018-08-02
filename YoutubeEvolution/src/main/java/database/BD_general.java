@@ -49,9 +49,14 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		}
 	}
 
-	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String categoria, String lista) {
+	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String categoria, String lista) { 
 		BD_Videos bd = new BD_Videos();
-		bd.subir_video(aTitulo, aMiniatura, aDeshabilitar_comentarios, aDescripcion, aEtiquetas, categoria, lista);
+		try {
+			bd.subir_video(aTitulo, aMiniatura, aDeshabilitar_comentarios, aDescripcion, aEtiquetas, categoria, lista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void descargar(int aID) {
@@ -80,9 +85,14 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		bd.me_gusta(aIDvideo);
 	}
 
-	public void enviar_comentario(TextArea aTexto, int aIDvideo) {
+	public void enviar_comentario(TextArea aTexto, int aIDvideo, int aIDusuario) {
 		BD_Comentarios bd = new BD_Comentarios();
-		bd.enviar_comentario(aTexto, aIDvideo);
+		try {
+			bd.enviar_comentario(aTexto, aIDvideo, aIDusuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos) {

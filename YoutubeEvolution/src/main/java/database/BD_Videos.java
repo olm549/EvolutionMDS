@@ -1,4 +1,6 @@
 package database;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -64,8 +66,33 @@ public class BD_Videos {
 		return listaVideos;
 	}
 
-	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String string, String string2) {
-		throw new UnsupportedOperationException();
+	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String categoria, String lista) throws PersistentException {
+		VideosCriteria vc = new VideosCriteria();
+		//El titulo era unico?
+		//En ese caso realizar vc
+		/*vc.titulo.eq(aTitulo);
+		if(vc.uniqueVideos()!=null) {
+			throw new RuntimeException("Titulo en uso");
+
+		}
+		*/
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Videos video = database.VideosDAO.createVideos();
+			video.setTitulo(aTitulo);
+			video.setMiniatura(aMiniatura);
+			video.setDescrVideo(aDescripcion.toString());
+			video.setEtiquetas(aEtiquetas.toString());
+			video.setFecha(Calendar.getInstance().toString());
+			video.setNumVisualizaciones(0);
+			//DEBERIA RECIIR IDCATEGORIA NO CATEGORIA video.setCategoria(categoria);
+			//FALTA IDAUTOR EN PARAM video.setORMAutor()
+			//FALTA CONTENIDO VIDEO EN PARAM video.setContenidoVideo(value);
+			transaccion.commit();
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
 	}
 
 	public void Eliminar_video(int aID) {

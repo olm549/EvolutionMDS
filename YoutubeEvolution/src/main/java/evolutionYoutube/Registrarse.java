@@ -39,6 +39,10 @@ public class Registrarse extends Registrarse_ventana implements View{
 	
 	
 	public void registrarse() {
+		/*METODO QUE SE REGISTRA, CREA UNA BD GENERAL SIEMPRE PARA LLAMAR AL METODO DE LA INTERFAZ,
+		*QUE A SU VEZ LLAMA AL METODO DE bd_especifica QUE SERA EL QUE REALICE LA ACCION
+		*DE REGISTRARSE
+		*/
 		BD_general bd = new BD_general();
 		if(!(contrasenia.getCaption().equals(confirmar.getCaption())))return;
 		try {

@@ -1,6 +1,8 @@
 package database;
 import java.util.List;
 
+import org.orm.PersistentException;
+
 import com.vaadin.ui.TextArea;
 
 //import evolutionYoutube.Categoria;
@@ -14,7 +16,7 @@ public interface IRegistrado {
 
 	public void Registrarse(String aNombre, String aApellidos, String aApodo, int aEdad, String aEmail, String aContrasenia, String aConfirmacion);
 
-	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String aCategoria, String aLista);
+	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String aCategoria, String aLista) throws PersistentException;
 
 	public void descargar(int aID);
 
@@ -24,7 +26,7 @@ public interface IRegistrado {
 
 	public void me_gusta(int aIDvideo);
 
-	public void enviar_comentario(TextArea aTexto, int aIDvideo);
+	public void enviar_comentario(TextArea aTexto, int aIDvideo, int aIDUsuario) throws PersistentException;
 
 	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos);
 

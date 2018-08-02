@@ -14,9 +14,9 @@ public class BD_Usuario_registrado {
 
 	public void Registrarse(String aNombre, String aApellidos, String aApodo, int aEdad, String aEmail, String aContrasenia, String aConfirmacion) throws PersistentException {
 		Usuario_registradoCriteria criteria = new Usuario_registradoCriteria();
-		criteria.apodo.eq(aEmail);
+		criteria.email.eq(aEmail);
 		if(criteria.uniqueUsuario_registrado()!=null) throw new RuntimeException("Email en uso");
-		criteria.email.eq(aApodo);
+		criteria.apodo.eq(aApodo);
 		if(criteria.uniqueUsuario_registrado()!=null) throw new RuntimeException("Apodo en uso");
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
