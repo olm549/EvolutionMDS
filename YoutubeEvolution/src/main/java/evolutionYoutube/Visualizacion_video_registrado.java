@@ -32,7 +32,7 @@ public class Visualizacion_video_registrado extends Visualizacion_video_registra
 
 	public void eliminar_comentario_propio() {
 		BD_general bd = new BD_general();
-		bd.eliminar_comentario_propio(1);//IDCOMENTARIO
+		bd.eliminar_comentario_propio(1,1,1);//IDCOMENTARIO,USUARIO Y VIDEO
 	}
 
 	public void me_gusta() {

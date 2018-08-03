@@ -66,8 +66,14 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 
 	public List cargar_Comentarios(int aID) {
 		BD_Comentarios bd = new BD_Comentarios();
-		List lista = bd.cargar_Comentarios(aID);
-		return lista;
+		try {
+			List lista = bd.cargar_Comentarios(aID);
+			return lista;
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void aniade_a_lista(int aIDvideo, int aIDlista) {
@@ -182,9 +188,14 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		bd.editar_Miniatura(aIDVideo);
 	}
 
-	public void eliminar_comentario_propio(int aIDComentario) {
+	public void eliminar_comentario_propio(int aIDUsuario, int aIDComentario, int aIDVideo) {
 		BD_Comentarios bd = new BD_Comentarios();
-		bd.eliminar_comentario_propio(aIDComentario);
+		try {
+			bd.eliminar_comentario_propio(aIDUsuario, aIDComentario, aIDVideo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List Cargar_Videos_Megusta() {
@@ -213,7 +224,13 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 
 	public List Cargar_Categorias() {
 		BD_Categorias bd = new BD_Categorias();
-		return bd.Cargar_Categorias();
+		try {
+			return bd.Cargar_Categorias();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public List ver_etiquetas() {
@@ -249,19 +266,35 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		
 	}
 
-	public void crear_categoria(String aNombre, String aContrasenia, int aEdad, String aImagen, boolean aConfirmacion) {
+	public void crear_categoria(int idAdmin, String aNombre, String aContrasenia, int aEdad, String aImagen, boolean aConfirmacion) {
 		BD_Categorias bd = new BD_Categorias();
-		bd.crear_categoria(aNombre, aContrasenia, aEdad, aImagen, aConfirmacion);
+		try {
+			bd.crear_categoria(idAdmin, aNombre, aContrasenia, aEdad, aImagen, aConfirmacion);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List cargar_Lista_De_Categorias() {
 		BD_Categorias bd = new BD_Categorias();
-		return bd.Cargar_Categorias();
+		try {
+			return bd.Cargar_Categorias();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void eliminar_categoria(int aId_categoria) {
 		BD_Categorias bd = new BD_Categorias();
-		bd.eliminar_categoria(aId_categoria);
+		try {
+			bd.eliminar_categoria(aId_categoria);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List cargar_Lista_Usuarios() {
@@ -269,9 +302,14 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return bd.cargar_Lista_Usuarios();
 	}
 
-	public void editar_Categoria(String aNombre_categoria, String aIcono_categoria, int aEdad_categoria) {
+	public void editar_Categoria(int id_Categoria, String aNombre_categoria, String aIcono_categoria, int aEdad_categoria) {
 		BD_Categorias bd = new BD_Categorias();
-		bd.editarCategoria(aNombre_categoria, aIcono_categoria, aEdad_categoria);
+		try {
+			bd.editarCategoria(id_Categoria, aNombre_categoria, aIcono_categoria, aEdad_categoria);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Usuario_Administrador cargar_datos_admin(int aID_Admin) {

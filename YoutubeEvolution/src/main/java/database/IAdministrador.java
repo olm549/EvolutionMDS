@@ -4,7 +4,7 @@ public interface IAdministrador {
 
 	public void Eliminar_video(int aID);
 
-	public void crear_categoria(String aNombre, String aContrasenia, int aEdad, String aImagen, boolean aConfirmacion);
+	public void crear_categoria(int idAdmin, String aNombre, String aContrasenia, int aEdad, String aImagen, boolean aConfirmacion);
 
 	public List cargar_Lista_De_Categorias();
 
@@ -12,7 +12,7 @@ public interface IAdministrador {
 
 	public List cargar_Lista_Usuarios();
 
-	public void editar_Categoria(String aNombre_categoria, String aIcono_categoria, int aEdad_categoria);
+	public void editar_Categoria(int id_Categoria, String aNombre_categoria, String aIcono_categoria, int aEdad_categoria);
 
 	public Usuario_Administrador cargar_datos_admin(int aID_Admin);
 

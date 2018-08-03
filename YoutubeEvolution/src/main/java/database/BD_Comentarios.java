@@ -1,4 +1,5 @@
 package database;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -13,8 +14,16 @@ public class BD_Comentarios {
 	public BD_general _bd_PrincipalComentarios;
 	public Vector<Comentarios> _contieneComentarios = new Vector<Comentarios>();
 	
-	public List cargar_Comentarios(int aID) {
-		throw new UnsupportedOperationException();
+	public List cargar_Comentarios(int aID) throws PersistentException {
+		List listaComentarios = null;
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			
+	      listaComentarios = ComentariosDAO.queryComentarios("videosComentadosId = "+aID, "1");
+		} catch(Exception e) {
+			transaccion.rollback();			
+		}
+		return listaComentarios;
 	}
 	//FALTA IDVIDEO?
 	public void eliminar_comentario(int aIDcomentario) {
@@ -40,8 +49,23 @@ public class BD_Comentarios {
 		}
 		
 	}
-	//FALTA IDVIDEO?
-	public void eliminar_comentario_propio(int aIDComentario) {
-		throw new UnsupportedOperationException();
+	//FALTA IDVIDEO? EDIT DONE
+	public void eliminar_comentario_propio(int aIDUsuario, int aIDComentario, int aIDVideo) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+		Videos vid = database.VideosDAO.getVideosByORMID(aIDVideo);
+		Comentarios coment = database.ComentariosDAO.getComentariosByORMID(aIDComentario);
+		Usuario_registrado user = database.Usuario_registradoDAO.getUsuario_registradoByORMID(aIDUsuario);
+		if(coment.getUsuarios_que_comentan().getId_Usuario_registrado()!=aIDUsuario) {
+			throw new RuntimeException("El comentario no pertenece al usuario");
+		}
+		vid.comentarios_en_videos.remove(coment);
+		transaccion.commit();
+		}catch(Exception e) {
+			
+			transaccion.rollback();
+			e.printStackTrace();
+			
+		}
 	}
 }

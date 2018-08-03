@@ -62,5 +62,5 @@ public interface IRegistrado {
 
 	public void editar_Miniatura(int aIDVideo);
 
-	public void eliminar_comentario_propio(int aIDComentario);
+	public void eliminar_comentario_propio(int aIDUsuario, int aIDComentario, int aIDVideo);
 }
