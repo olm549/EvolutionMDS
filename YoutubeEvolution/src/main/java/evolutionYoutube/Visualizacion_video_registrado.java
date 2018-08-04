@@ -27,16 +27,16 @@ public class Visualizacion_video_registrado extends Visualizacion_video_registra
 
 	public void aniade_a_lista() {
 		BD_general bd = new BD_general();
-		bd.aniade_a_lista(1, 1);//ID VIDEO E IDLISTA
+		bd.aniade_a_lista(1, 1,1);//ID VIDEO E IDLISTA
 	}
 
 	public void eliminar_comentario_propio() {
 		BD_general bd = new BD_general();
-		bd.eliminar_comentario_propio(1,1,1);//IDCOMENTARIO,USUARIO Y VIDEO
+		bd.eliminar_comentario_propio(1,1,1);//IDCOMENTARIO,USUARIO Y VIDEO1
 	}
 
 	public void me_gusta() {
 		BD_general bd = new BD_general();
-		bd.me_gusta(1);//IDVIDEO
+		bd.me_gusta(1,1);//IDVIDEO
 	}
 }

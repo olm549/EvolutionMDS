@@ -16,19 +16,19 @@ public interface IRegistrado {
 
 	public void Registrarse(String aNombre, String aApellidos, String aApodo, int aEdad, String aEmail, String aContrasenia, String aConfirmacion);
 
-	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String aCategoria, String aLista) throws PersistentException;
-
+	public void subir_video(String aTitulo, String aMiniatura,String contenido, int idAutor, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String categoria, int lista); 
+		
 	public void descargar(int aID);
 
 	public List cargar_Comentarios(int aID);
 
-	public void aniade_a_lista(int aIDvideo, int aIDlista);
+	public void aniade_a_lista(int IDusuario, int aIDvideo, int aIDlista);
 
-	public void me_gusta(int aIDvideo);
+	public void me_gusta(int aIDvideo, int aIDusuario);
 
+	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice);
+	
 	public void enviar_comentario(TextArea aTexto, int aIDvideo, int aIDUsuario) throws PersistentException;
-
-	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos);
 
 	public void cambiar_Nombre_Lista(String aNuevo_Nombre);
 
@@ -40,7 +40,7 @@ public interface IRegistrado {
 
 	public String editar_avatar(int aID_Usuario);
 
-	public void modificar_datos(String aNombre, String aApellido, String aApodo, String anio, String aEmail, String aContrasenia);
+	public void modificar_datos(int id, String aNombre, String aApellido, String aApodo, String anio, String aEmail, String aContrasenia);
 
 	public void dejar_de_seguir(int aID_Usuario);
 

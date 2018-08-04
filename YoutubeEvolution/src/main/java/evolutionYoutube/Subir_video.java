@@ -23,8 +23,8 @@ public class Subir_video extends Subir_video_ventana implements View {
 	}
 	public void subir_video() {
 		BD_general bd = new BD_general();
-		bd.subir_video(titulo.getValue(), miniatura.getValue(), deshCom.getValue(), descripcion
-		,etiquetas.getValue(), categoria.getValue(), lista.getValue());
+	//	bd.subir_video(titulo.getValue(), miniatura.getValue(), deshCom.getValue(), descripcion
+		//,etiquetas.getValue(), categoria.getValue(), lista.getValue());
 		((MyUI) UI.getCurrent()).usuario_registrado();
 	}
 

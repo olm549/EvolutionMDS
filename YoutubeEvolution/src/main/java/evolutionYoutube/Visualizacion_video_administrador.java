@@ -47,6 +47,6 @@ public class Visualizacion_video_administrador extends Visualizacion_video_admin
 
 	public void eliminar_comentario() {
 		BD_general bd = new BD_general();
-		bd.eliminar_comentarioAdmin(1);//IDVIDEO
+		bd.eliminar_comentarioAdmin(1,1);//IDVIDEO
 	}
 }

@@ -12,11 +12,13 @@ public interface IAdministrador {
 
 	public List cargar_Lista_Usuarios();
 
+	public void modificar_datosAdmin(int idAdmin, String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia);
+	
 	public void editar_Categoria(int id_Categoria, String aNombre_categoria, String aIcono_categoria, int aEdad_categoria);
 
 	public Usuario_Administrador cargar_datos_admin(int aID_Admin);
 
-	public void modificar_datos(String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia);
-
+	public void eliminar_comentarioAdmin(int aIDvideo, int aIDcomentario);
+	
 	public void eliminar_Usuario(int aIDUsuario);
 }

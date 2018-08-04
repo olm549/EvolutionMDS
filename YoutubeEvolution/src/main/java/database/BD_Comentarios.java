@@ -1,14 +1,10 @@
 package database;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Vector;
-
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
 import com.vaadin.ui.TextArea;
-
-import database.Comentarios;
 
 public class BD_Comentarios {
 	public BD_general _bd_PrincipalComentarios;
@@ -26,21 +22,33 @@ public class BD_Comentarios {
 		return listaComentarios;
 	}
 	//FALTA IDVIDEO?
-	public void eliminar_comentario(int aIDcomentario) {
-		throw new UnsupportedOperationException();
+	public void eliminar_comentarioAdmin(int aIDvideo , int aIDcomentario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+		Videos vid = database.VideosDAO.loadVideosByQuery("id_video= "+aIDvideo,"1");
+		Comentarios coment = database.ComentariosDAO.loadComentariosByQuery("id_comentario = " +aIDcomentario ,"1");
+		vid.comentarios_en_videos.remove(coment);
+		transaccion.commit();
+		}catch(Exception e) {
+			
+			transaccion.rollback();
+			e.printStackTrace();
+			
+		}
 	}
-	//No faltaria el IDUsuario que envia el comentario?
+	//No faltaria el IDUsuario que envia el comentario
 	//EDIT :
 	//he aniadido IDUSUARIO A LOS PARAMETROS, EN ESTE METODO Y EN BDGENERAL.
 	public void enviar_comentario(TextArea aTexto, int aIDvideo, int aIDusuario) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 		Comentarios comentario = database.ComentariosDAO.createComentarios();
-		Videos vid = database.VideosDAO.getVideosByORMID(aIDvideo);
-		Usuario_registrado user = database.Usuario_registradoDAO.getUsuario_registradoByORMID(aIDusuario);
+		Videos vid = database.VideosDAO.loadVideosByQuery("id_video =" +aIDvideo , "1");
+		Usuario_registrado user = database.Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDusuario,"1");
 		comentario.setContenido_comentario(aTexto.toString());
 		comentario.setVideosComentados(vid);
-		comentario.setORM_Usuarios_que_comentan(user);
+		comentario.setUsuarios_que_comentan(user);
+		ComentariosDAO.save(comentario);
 		transaccion.commit();
 			
 		} catch (Exception e) {
@@ -53,9 +61,8 @@ public class BD_Comentarios {
 	public void eliminar_comentario_propio(int aIDUsuario, int aIDComentario, int aIDVideo) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-		Videos vid = database.VideosDAO.getVideosByORMID(aIDVideo);
-		Comentarios coment = database.ComentariosDAO.getComentariosByORMID(aIDComentario);
-		Usuario_registrado user = database.Usuario_registradoDAO.getUsuario_registradoByORMID(aIDUsuario);
+		Videos vid = database.VideosDAO.loadVideosByQuery("id_video =" +aIDVideo, "1");
+		Comentarios coment = database.ComentariosDAO.loadComentariosByQuery("id_comentario = "+aIDComentario , "1");
 		if(coment.getUsuarios_que_comentan().getId_Usuario_registrado()!=aIDUsuario) {
 			throw new RuntimeException("El comentario no pertenece al usuario");
 		}

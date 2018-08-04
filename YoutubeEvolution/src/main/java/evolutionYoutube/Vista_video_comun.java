@@ -36,7 +36,7 @@ public class Vista_video_comun extends Vista_video_comun_ventana{
 
 	public void ver_etiquetas() {
 		BD_general bd = new BD_general();
-		List lista = bd.ver_etiquetas();
+		List lista = bd.ver_etiquetas(1);
 		//añadir etiquetas a la vista
 	}
 

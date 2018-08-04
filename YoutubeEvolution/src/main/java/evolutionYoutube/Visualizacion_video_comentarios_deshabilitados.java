@@ -38,7 +38,7 @@ public class Visualizacion_video_comentarios_deshabilitados extends Visualizacio
 
 	public void ver_etiquetas() {
 		BD_general bd = new BD_general();
-		List lista = bd.ver_etiquetas();
+		List lista = bd.ver_etiquetas(1);
 	}
 
 	public void visualizar_pantalla_completa() {

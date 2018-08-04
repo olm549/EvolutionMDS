@@ -31,6 +31,7 @@ public class BD_Usuario_registrado {
 			Listas_de_reproduccion2 lrd = database.Listas_de_reproduccion2DAO.createListas_de_reproduccion2();
 			lrd.setUsuario_registrado(registrado);
 			lrd.setUsuario_que_consulta_historial(registrado);
+			registrado.listas_de_reproduccion.add(lrd);
 			Usuario_registradoDAO.save(registrado);
 			Listas_de_reproduccion2DAO.save(lrd);
 			transaccion.commit();
@@ -75,8 +76,21 @@ public class BD_Usuario_registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificar_datos(String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia) {
-		throw new UnsupportedOperationException();
+	public void modificar_datos(int id, String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_registrado user = database.Usuario_registradoDAO.loadUsuario_registradoByQuery("ID ="+id, "1");
+			user.setNombre(aNombre);
+			user.setApellido(aApellido);
+			user.setContrasenia(aContrasenia);
+			user.setEmail(aEmail);
+			user.setApodo(aApodo);
+			Usuario_registradoDAO.save(user);
+			transaccion.commit();
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
 	}
 
 	public void dejar_de_seguir(int aID_Usuario) {

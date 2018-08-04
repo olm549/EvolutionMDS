@@ -10,7 +10,7 @@ public interface IInvitado {
 
 	public List Cargar_Categorias();
 
-	public List ver_etiquetas();
+	public List ver_etiquetas(int idVideo);
 
 	public void recuperar_contrasenia(String aEmail);
 

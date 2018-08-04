@@ -49,10 +49,10 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		}
 	}
 
-	public void subir_video(String aTitulo, String aMiniatura, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String categoria, String lista) { 
+	public void subir_video(String aTitulo, String aMiniatura,String contenido, int idAutor, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String categoria, int lista) { 
 		BD_Videos bd = new BD_Videos();
 		try {
-			bd.subir_video(aTitulo, aMiniatura, aDeshabilitar_comentarios, aDescripcion, aEtiquetas, categoria, lista);
+			bd.subir_video(aTitulo, aMiniatura,contenido, idAutor, aDeshabilitar_comentarios, aDescripcion, aEtiquetas, categoria, lista);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,19 +76,29 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return null;
 	}
 
-	public void aniade_a_lista(int aIDvideo, int aIDlista) {
+	public void aniade_a_lista(int IDusuario, int aIDvideo, int aIDlista) {
 		BD_listas bd = new BD_listas();
-		bd.aniade_a_lista(aIDvideo, aIDlista);
+		bd.aniade_a_lista(IDusuario, aIDvideo, aIDlista);
 	}
 
-	public void eliminar_comentarioAdmin(int aIDcomentario) {
+	public void eliminar_comentarioAdmin(int aIDvideo, int aIDcomentario) {
 		BD_Comentarios bd = new BD_Comentarios();
-		bd.eliminar_comentario(aIDcomentario);
+		try {
+			bd.eliminar_comentarioAdmin(aIDvideo, aIDcomentario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public void me_gusta(int aIDvideo) {
+	public void me_gusta(int aIDvideo, int aIDusuario) {
 		BD_Videos bd = new BD_Videos();
-		bd.me_gusta(aIDvideo);
+		try {
+			bd.me_gusta(aIDvideo, aIDusuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void enviar_comentario(TextArea aTexto, int aIDvideo, int aIDusuario) {
@@ -100,10 +110,10 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 			e.printStackTrace();
 		}
 	}
-
-	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos) {
-		BD_listas bd = new BD_listas();
-		bd.eliminar_Video_De_Lista(aLista_De_IDs_Videos);
+	
+	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice) {
+		BD_Videos bd = new BD_Videos();
+		bd.eliminar_Video_De_Lista(aLista_De_IDs_Videos, indice);
 	}
 
 	public void cambiar_Nombre_Lista(String aNuevo_Nombre) {
@@ -131,9 +141,25 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return bd.editar_avatar(aID_Usuario);
 	}
 
-	public void modificar_datos(String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia) {
+	public void modificar_datos(int id, String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia) {
 		BD_Usuario_registrado bd = new BD_Usuario_registrado();
-		bd.modificar_datos(aNombre, aApellido, aApodo, aAnio, aEmail, aContrasenia);
+		try {
+			bd.modificar_datos(id, aNombre, aApellido, aApodo, aAnio, aEmail, aContrasenia);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void modificar_datosAdmin(int idAdmin, String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia) {
+		BD_Usuario_administrador bd = new BD_Usuario_administrador();
+		try {
+			bd.modificar_datosAdmin(idAdmin ,aNombre, aApellido, aApodo, aAnio, aEmail, aContrasenia);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -233,9 +259,15 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return null;
 	}
 
-	public List ver_etiquetas() {
+	public List ver_etiquetas(int idVideo) {
 		BD_Videos bd = new BD_Videos();
-		return bd.ver_etiquetas();
+		try {
+			return bd.ver_etiquetas(idVideo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void recuperar_contrasenia(String aEmail) {
@@ -244,14 +276,21 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 	}
 
 	public List buscar(String aTexto, String aTipo) {
+		List lista = null;
 		if(aTipo.equals("Video")) {
 			BD_Videos bd = new BD_Videos();
-			return bd.buscar(aTexto);
-			
+			try {
+				lista = bd.buscar(aTexto);
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return lista;
 		}
 		else {
 			BD_Usuario_registrado bd = new BD_Usuario_registrado();
-			return bd.buscar(aTexto);
+			lista =  bd.buscar(aTexto);
+			return lista;
 		}
 	}
 
@@ -262,7 +301,12 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 
 	public void Eliminar_video(int aID) {
 		BD_Videos bd = new BD_Videos();
-		bd.Eliminar_video(aID);
+		try {
+			bd.Eliminar_video(aID);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -314,12 +358,23 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 
 	public Usuario_Administrador cargar_datos_admin(int aID_Admin) {
 		BD_Usuario_administrador bd = new BD_Usuario_administrador();
-		return bd.cargar_datos_admin(aID_Admin);
+		try {
+			return bd.cargar_datos_admin(aID_Admin);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void eliminar_Usuario(int aIDUsuario) {
 		BD_Usuario_administrador bd = new BD_Usuario_administrador();
-		bd.eliminar_Usuario(aIDUsuario);
+		try {
+			bd.eliminar_Usuario(aIDUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

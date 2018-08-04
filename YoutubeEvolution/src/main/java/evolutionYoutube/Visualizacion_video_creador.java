@@ -42,6 +42,6 @@ public class Visualizacion_video_creador extends Visualizacion_video_creador_ven
 
 	public void aniadir_a_lista() {
 		BD_general bd = new BD_general();
-		bd.aniade_a_lista(1, 1);//ID VIDEO E ID LISTA
+		bd.aniade_a_lista(1, 1,1);//ID VIDEO E ID LISTA
 	}
 }
