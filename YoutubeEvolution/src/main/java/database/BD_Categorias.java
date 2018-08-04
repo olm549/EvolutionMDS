@@ -36,7 +36,7 @@ public class BD_Categorias {
 		if(aConfirmacion == false) {
 			throw new RuntimeException("No se ha confirmado.");
 		}
-		Usuario_Administrador user = database.Usuario_AdministradorDAO.getUsuario_AdministradorByORMID(idAdmin);
+		Usuario_Administrador user = database.Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("ID = " +idAdmin , "1");
 		if(!user.getContrasenia().equals(aContrasenia)) {
 			throw new RuntimeException("Contrasenia no coincide");
 		}
