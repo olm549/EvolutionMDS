@@ -13,9 +13,10 @@ public class BD_Videos {
 	public BD_general _bd_PrincipalVideos;
 	public Vector<Videos> _contieneVideo = new Vector<Videos>();
 
-	public List Cargar_Videos_Megusta() throws PersistentException {
+	@SuppressWarnings("unchecked")
+	public List<Videos> Cargar_Videos_Megusta() throws PersistentException {
 	
-		List listaVideos=null;
+		List<Videos> listaVideos=null;
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
@@ -26,20 +27,22 @@ public class BD_Videos {
 		return listaVideos;
 	}
 
-	public List Cargar_Videos_Recientes() throws PersistentException {
-		List listaVideos=null;
+	@SuppressWarnings("unchecked")
+	public List<Videos> Cargar_Videos_Recientes() throws PersistentException {
+		List<Videos> listaVideos=null;
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
-	      listaVideos=VideosDAO.queryVideos("Fecha = 2018", "NumVisualizaciones");
+	      listaVideos =VideosDAO.queryVideos("Fecha = 2018", "NumVisualizaciones");
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
 		return listaVideos;
 	}
 
-	public List Cargar_Videos_Relacionados() throws PersistentException {
-		List listaVideos=null;
+	@SuppressWarnings("unchecked")
+	public List<Videos> Cargar_Videos_Relacionados() throws PersistentException {
+		List<Videos> listaVideos=null;
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
@@ -50,8 +53,9 @@ public class BD_Videos {
 		return listaVideos;
 	}
 
-	public List Cargar_Videos_Suscripciones() throws PersistentException {
-		List listaVideos=null;
+	@SuppressWarnings("unchecked")
+	public List<Videos> Cargar_Videos_Suscripciones() throws PersistentException {
+		List<Videos> listaVideos=null;
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
@@ -115,7 +119,7 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public List ver_etiquetas(int IDvideo) throws PersistentException {
+	public List<String> ver_etiquetas(int IDvideo) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		ArrayList<String> etq = new ArrayList<String>();
 		try {
@@ -145,9 +149,9 @@ public class BD_Videos {
 		}
 	}
 
-	public List buscar(String aTexto) throws PersistentException {
+	public List<Videos> buscar(String aTexto) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
-		ArrayList lista = new ArrayList();
+		ArrayList<Videos> lista = new ArrayList<Videos>();
 		try {
 			Videos[] listaVideos = VideosDAO.listVideosByQuery("titulo LIKE %"+aTexto+"%", "1");
 			for(Videos vid : listaVideos) {
@@ -159,28 +163,67 @@ public class BD_Videos {
 		}
 		return lista;
 	}
-
+	//Que hace esto aqui?
 	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice) {
 		
 	}
 
-	public List cargar_Videos_Subidos(int aIDUsuario) {
-		throw new UnsupportedOperationException();
+	public List<Videos> cargar_Videos_Subidos(int aIDUsuario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		ArrayList<Videos> lista = new ArrayList<Videos>();
+		try {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDUsuario, "1");
+			for(Videos video : user.video_subido.toArray()) {
+				lista.add(video);
+			}
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		return lista;
 	}
-
-	public List cargar_Gestion_Videos_Subidos(int aIDUsuario) {
-		throw new UnsupportedOperationException();
+	//Mismo metodo que el de arriba?
+	public List<Videos> cargar_Gestion_Videos_Subidos(int aIDUsuario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		ArrayList<Videos> lista = new ArrayList<Videos>();
+		try {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDUsuario, "1");
+			for(Videos video : user.video_subido.toArray()) {
+				lista.add(video);
+			}
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 	public void modificar_video(String aTitulo, String aDescripcion, int[] aId_categorias, String aEtiquetas) {
-		throw new UnsupportedOperationException();
+		//?? array categorias, revisar, solo puede tener 1 categoria, mas faltan atributos.
 	}
 
-	public void eliminarVideo(int aIDVideo) {
-		throw new UnsupportedOperationException();
+	public void eliminarVideo(int aIDVideo) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Videos video = VideosDAO.loadVideosByQuery("id_video = "+aIDVideo,"1");
+			VideosDAO.delete(video);
+			transaccion.commit();
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
 	}
 
-	public void editar_Miniatura(int aIDVideo) {
-		throw new UnsupportedOperationException();
+	public void editar_Miniatura(int aIDVideo, String miniatura) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Videos video = VideosDAO.loadVideosByQuery("id_video = "+aIDVideo, "1");
+			video.setMiniatura(miniatura);
+			VideosDAO.save(video);
+			transaccion.commit();
+		}catch(Exception e ) {
+			e.printStackTrace();
+			transaccion.rollback();
+		}
 	}
 }

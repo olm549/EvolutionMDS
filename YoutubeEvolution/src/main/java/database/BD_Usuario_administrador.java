@@ -10,8 +10,16 @@ public class BD_Usuario_administrador {
 	public Vector<Usuario_Administrador> _contieneAdministradores = new Vector<Usuario_Administrador>();
 
 	public Usuario_Administrador cargar_datos_admin(int aID_Admin) throws PersistentException {
-		
-		return database.Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("id_admin = "+aID_Admin, "1");
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		Usuario_Administrador admin = null;
+		try {
+			admin = database.Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("id_admin = "+aID_Admin, "1");
+			return admin;
+		}catch(Exception e ) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		return admin;
 		
 	}
 	public void modificar_datosAdmin(int idAdmin, String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia) throws PersistentException {

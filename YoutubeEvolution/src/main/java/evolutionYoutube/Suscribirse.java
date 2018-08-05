@@ -7,6 +7,6 @@ public class Suscribirse extends Suscribirse_invitado {
 
 	public void suscribirse() {
 		BD_general bd = new BD_general();
-		bd.suscribirse(1);//IDUSUARIO
+		bd.suscribirse(1,1);//IDUSUARIO
 	}
 }

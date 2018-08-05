@@ -10,8 +10,9 @@ public class BD_Comentarios {
 	public BD_general _bd_PrincipalComentarios;
 	public Vector<Comentarios> _contieneComentarios = new Vector<Comentarios>();
 	
-	public List cargar_Comentarios(int aID) throws PersistentException {
-		List listaComentarios = null;
+	@SuppressWarnings("unchecked")
+	public List<Comentarios> cargar_Comentarios(int aID) throws PersistentException {
+		List<Comentarios> listaComentarios = null;
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			

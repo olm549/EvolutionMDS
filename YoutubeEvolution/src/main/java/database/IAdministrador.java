@@ -6,11 +6,11 @@ public interface IAdministrador {
 
 	public void crear_categoria(int idAdmin, String aNombre, String aContrasenia, int aEdad, String aImagen, boolean aConfirmacion);
 
-	public List cargar_Lista_De_Categorias();
+	public List<Categorias2> cargar_Lista_De_Categorias();
 
 	public void eliminar_categoria(int aId_categoria);
 
-	public List cargar_Lista_Usuarios();
+	public List<Usuario_registrado> cargar_Lista_Usuarios();
 
 	public void modificar_datosAdmin(int idAdmin, String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia);
 	

@@ -11,9 +11,9 @@ public class BD_Categorias {
 	public BD_general _bd_principalCategorias;
 	public Vector<Categorias2> _contieneCategorias = new Vector<Categorias2>();
 
-	public List Cargar_Categorias() throws PersistentException {
+	public List<Categorias2> Cargar_Categorias() throws PersistentException {
 		Categorias2[] lista = null;
-		ArrayList<Categorias2> listaCateg = new ArrayList();
+		ArrayList<Categorias2> listaCateg = new ArrayList<Categorias2>();
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Categorias2Criteria crit = new Categorias2Criteria();

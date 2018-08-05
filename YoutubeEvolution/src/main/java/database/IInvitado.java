@@ -4,16 +4,17 @@ import java.util.List;
 
 public interface IInvitado {
 
-	public List Cargar_Videos_Megusta();
+	public List<Videos> Cargar_Videos_Megusta();
 
-	public List Cargar_Videos_Recientes();
+	public List<Videos> Cargar_Videos_Recientes();
 
-	public List Cargar_Categorias();
+	public List<Categorias2> Cargar_Categorias();
 
-	public List ver_etiquetas(int idVideo);
+	public List<String> ver_etiquetas(int idVideo);
 
 	public void recuperar_contrasenia(String aEmail);
 
+	@SuppressWarnings("rawtypes")
 	public List buscar(String aTexto, String aTipo);
 
 	public void iniciar_sesion(String aEmail, String aContrasenia);
