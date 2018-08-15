@@ -9,14 +9,14 @@ import org.orm.PersistentTransaction;
 
 public class BD_listas {
 	public BD_general _bd_PrincipalListas;
-	public Vector<Listas_de_reproduccion2> _contieneListas = new Vector<Listas_de_reproduccion2>();
+	public Vector<Listas_de_reproduccion> _contieneListas = new Vector<Listas_de_reproduccion>();
 
 	public void aniade_a_lista(int IDusuario, int aIDvideo, int aIDlista) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+IDusuario,"1");
 			Videos video = VideosDAO.loadVideosByQuery("id_video = "+aIDvideo, "1");
-			for(Listas_de_reproduccion2 lista : user.listas_de_reproduccion.toArray()) {
+			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
 				if(lista.getId_lista()==aIDlista) {
 					lista.videos_en_lista.add(video);
 					break;
@@ -49,7 +49,7 @@ public class BD_listas {
 		ArrayList<Videos> listaVideos = new ArrayList<Videos>();
 		try {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+id_usuario,"1");
-			for(Listas_de_reproduccion2 lista : user.listas_de_reproduccion.toArray()) {
+			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
 				if(lista.getId_lista()==aId_Lista) {
 					for(Videos video : lista.videos_en_lista.toArray()) {
 						listaVideos.add(video);
@@ -68,7 +68,7 @@ public class BD_listas {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+IDusuario,"1");
-			for(Listas_de_reproduccion2 lista : user.listas_de_reproduccion.toArray()) {
+			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
 				if(lista.getId_lista()==aID_lista) {
 					user.listas_de_reproduccion.remove(lista);
 					break;
@@ -86,13 +86,13 @@ public class BD_listas {
 		
 	}
 
-	public List<Listas_de_reproduccion2> cargar_Listas_Reproduccion(int aID_Usuario) throws PersistentException {
+	public List<Listas_de_reproduccion> cargar_Listas_Reproduccion(int aID_Usuario) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
-		ArrayList<Listas_de_reproduccion2> listalistas=new ArrayList<Listas_de_reproduccion2>();
+		ArrayList<Listas_de_reproduccion> listalistas=new ArrayList<Listas_de_reproduccion>();
 		try {
 			
 	      Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aID_Usuario, "1");
-	      for(Listas_de_reproduccion2 foo : user.listas_de_reproduccion.toArray()) {
+	      for(Listas_de_reproduccion foo : user.listas_de_reproduccion.toArray()) {
 	    	  listalistas.add(foo);
 	      }
 		} catch(Exception e) {

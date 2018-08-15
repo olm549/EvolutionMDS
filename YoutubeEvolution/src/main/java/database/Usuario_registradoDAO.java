@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -323,25 +323,17 @@ public class Usuario_registradoDAO {
 	
 	public static boolean deleteAndDissociate(database.Usuario_registrado usuario_registrado)throws PersistentException {
 		try {
-			if (usuario_registrado.getSuscrito() != null) {
-				usuario_registrado.getSuscrito().suscriptor.remove(usuario_registrado);
+			database.Usuario_registrado[] lSuscritos = usuario_registrado.suscrito.toArray();
+			for(int i = 0; i < lSuscritos.length; i++) {
+				lSuscritos[i].suscriptor.remove(usuario_registrado);
 			}
-			
-			if (usuario_registrado.getSuscribe() != null) {
-				usuario_registrado.getSuscribe().suscripcion.remove(usuario_registrado);
-			}
-			
-			if (usuario_registrado.getVideos_que_gustan() != null) {
-				usuario_registrado.getVideos_que_gustan().usuarios_que_dan_me_gusta.remove(usuario_registrado);
-			}
-			
 			database.Comentarios[] lComentarioss = usuario_registrado.comentarios.toArray();
 			for(int i = 0; i < lComentarioss.length; i++) {
 				lComentarioss[i].setUsuarios_que_comentan(null);
 			}
-			database.Usuario_registrado[] lSuscripcions = usuario_registrado.suscripcion.toArray();
-			for(int i = 0; i < lSuscripcions.length; i++) {
-				lSuscripcions[i].setSuscribe(null);
+			database.Videos[] lVideos_que_gustans = usuario_registrado.videos_que_gustan.toArray();
+			for(int i = 0; i < lVideos_que_gustans.length; i++) {
+				lVideos_que_gustans[i].usuarios_que_dan_me_gusta.remove(usuario_registrado);
 			}
 			database.Videos[] lVideo_subidos = usuario_registrado.video_subido.toArray();
 			for(int i = 0; i < lVideo_subidos.length; i++) {
@@ -351,13 +343,13 @@ public class Usuario_registradoDAO {
 			for(int i = 0; i < lVideo_visualizados.length; i++) {
 				lVideo_visualizados[i].usuario_visualizador.remove(usuario_registrado);
 			}
-			database.Listas_de_reproduccion2[] lListas_de_reproduccions = usuario_registrado.listas_de_reproduccion.toArray();
+			database.Listas_de_reproduccion[] lListas_de_reproduccions = usuario_registrado.listas_de_reproduccion.toArray();
 			for(int i = 0; i < lListas_de_reproduccions.length; i++) {
 				lListas_de_reproduccions[i].setUsuario_registrado(null);
 			}
 			database.Usuario_registrado[] lSuscriptors = usuario_registrado.suscriptor.toArray();
 			for(int i = 0; i < lSuscriptors.length; i++) {
-				lSuscriptors[i].setSuscrito(null);
+				lSuscriptors[i].suscrito.remove(usuario_registrado);
 			}
 			if (usuario_registrado.getHistorial_usuario() != null) {
 				usuario_registrado.getHistorial_usuario().setUsuario_que_consulta_historial(null);
@@ -373,25 +365,17 @@ public class Usuario_registradoDAO {
 	
 	public static boolean deleteAndDissociate(database.Usuario_registrado usuario_registrado, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (usuario_registrado.getSuscrito() != null) {
-				usuario_registrado.getSuscrito().suscriptor.remove(usuario_registrado);
+			database.Usuario_registrado[] lSuscritos = usuario_registrado.suscrito.toArray();
+			for(int i = 0; i < lSuscritos.length; i++) {
+				lSuscritos[i].suscriptor.remove(usuario_registrado);
 			}
-			
-			if (usuario_registrado.getSuscribe() != null) {
-				usuario_registrado.getSuscribe().suscripcion.remove(usuario_registrado);
-			}
-			
-			if (usuario_registrado.getVideos_que_gustan() != null) {
-				usuario_registrado.getVideos_que_gustan().usuarios_que_dan_me_gusta.remove(usuario_registrado);
-			}
-			
 			database.Comentarios[] lComentarioss = usuario_registrado.comentarios.toArray();
 			for(int i = 0; i < lComentarioss.length; i++) {
 				lComentarioss[i].setUsuarios_que_comentan(null);
 			}
-			database.Usuario_registrado[] lSuscripcions = usuario_registrado.suscripcion.toArray();
-			for(int i = 0; i < lSuscripcions.length; i++) {
-				lSuscripcions[i].setSuscribe(null);
+			database.Videos[] lVideos_que_gustans = usuario_registrado.videos_que_gustan.toArray();
+			for(int i = 0; i < lVideos_que_gustans.length; i++) {
+				lVideos_que_gustans[i].usuarios_que_dan_me_gusta.remove(usuario_registrado);
 			}
 			database.Videos[] lVideo_subidos = usuario_registrado.video_subido.toArray();
 			for(int i = 0; i < lVideo_subidos.length; i++) {
@@ -401,13 +385,13 @@ public class Usuario_registradoDAO {
 			for(int i = 0; i < lVideo_visualizados.length; i++) {
 				lVideo_visualizados[i].usuario_visualizador.remove(usuario_registrado);
 			}
-			database.Listas_de_reproduccion2[] lListas_de_reproduccions = usuario_registrado.listas_de_reproduccion.toArray();
+			database.Listas_de_reproduccion[] lListas_de_reproduccions = usuario_registrado.listas_de_reproduccion.toArray();
 			for(int i = 0; i < lListas_de_reproduccions.length; i++) {
 				lListas_de_reproduccions[i].setUsuario_registrado(null);
 			}
 			database.Usuario_registrado[] lSuscriptors = usuario_registrado.suscriptor.toArray();
 			for(int i = 0; i < lSuscriptors.length; i++) {
-				lSuscriptors[i].setSuscrito(null);
+				lSuscriptors[i].suscrito.remove(usuario_registrado);
 			}
 			if (usuario_registrado.getHistorial_usuario() != null) {
 				usuario_registrado.getHistorial_usuario().setUsuario_que_consulta_historial(null);

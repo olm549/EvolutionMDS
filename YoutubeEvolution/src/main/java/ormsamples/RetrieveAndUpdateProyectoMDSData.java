@@ -1,5 +1,5 @@
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -18,15 +18,15 @@ public class RetrieveAndUpdateProyectoMDSData {
 			database.Videos ldatabaseVideos = database.VideosDAO.loadVideosByQuery(null, null);
 			// Update the properties of the persistent object
 			database.VideosDAO.save(ldatabaseVideos);
-			database.Listas_de_reproduccion2 ldatabaseListas_de_reproduccion2 = database.Listas_de_reproduccion2DAO.loadListas_de_reproduccion2ByQuery(null, null);
+			database.Listas_de_reproduccion ldatabaseListas_de_reproduccion = database.Listas_de_reproduccionDAO.loadListas_de_reproduccionByQuery(null, null);
 			// Update the properties of the persistent object
-			database.Listas_de_reproduccion2DAO.save(ldatabaseListas_de_reproduccion2);
+			database.Listas_de_reproduccionDAO.save(ldatabaseListas_de_reproduccion);
 			database.Usuario_Administrador ldatabaseUsuario_Administrador = database.Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery(null, null);
 			// Update the properties of the persistent object
 			database.Usuario_AdministradorDAO.save(ldatabaseUsuario_Administrador);
-			database.Categorias2 ldatabaseCategorias2 = database.Categorias2DAO.loadCategorias2ByQuery(null, null);
+			database.Categorias ldatabaseCategorias = database.CategoriasDAO.loadCategoriasByQuery(null, null);
 			// Update the properties of the persistent object
-			database.Categorias2DAO.save(ldatabaseCategorias2);
+			database.CategoriasDAO.save(ldatabaseCategorias);
 			database.Comentarios ldatabaseComentarios = database.ComentariosDAO.loadComentariosByQuery(null, null);
 			// Update the properties of the persistent object
 			database.ComentariosDAO.save(ldatabaseComentarios);
@@ -57,11 +57,11 @@ public class RetrieveAndUpdateProyectoMDSData {
 		//ldatabaseVideosCriteria.id_video.eq();
 		System.out.println(ldatabaseVideosCriteria.uniqueVideos());
 		
-		System.out.println("Retrieving Listas_de_reproduccion2 by Listas_de_reproduccion2Criteria");
-		database.Listas_de_reproduccion2Criteria ldatabaseListas_de_reproduccion2Criteria = new database.Listas_de_reproduccion2Criteria();
+		System.out.println("Retrieving Listas_de_reproduccion by Listas_de_reproduccionCriteria");
+		database.Listas_de_reproduccionCriteria ldatabaseListas_de_reproduccionCriteria = new database.Listas_de_reproduccionCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//ldatabaseListas_de_reproduccion2Criteria.id_lista.eq();
-		System.out.println(ldatabaseListas_de_reproduccion2Criteria.uniqueListas_de_reproduccion2());
+		//ldatabaseListas_de_reproduccionCriteria.id_lista.eq();
+		System.out.println(ldatabaseListas_de_reproduccionCriteria.uniqueListas_de_reproduccion());
 		
 		System.out.println("Retrieving Usuario_Administrador by Usuario_AdministradorCriteria");
 		database.Usuario_AdministradorCriteria ldatabaseUsuario_AdministradorCriteria = new database.Usuario_AdministradorCriteria();
@@ -69,11 +69,11 @@ public class RetrieveAndUpdateProyectoMDSData {
 		//ldatabaseUsuario_AdministradorCriteria.ID.eq();
 		System.out.println(ldatabaseUsuario_AdministradorCriteria.uniqueUsuario_Administrador());
 		
-		System.out.println("Retrieving Categorias2 by Categorias2Criteria");
-		database.Categorias2Criteria ldatabaseCategorias2Criteria = new database.Categorias2Criteria();
+		System.out.println("Retrieving Categorias by CategoriasCriteria");
+		database.CategoriasCriteria ldatabaseCategoriasCriteria = new database.CategoriasCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//ldatabaseCategorias2Criteria.id_categoria.eq();
-		System.out.println(ldatabaseCategorias2Criteria.uniqueCategorias2());
+		//ldatabaseCategoriasCriteria.id_categoria.eq();
+		System.out.println(ldatabaseCategoriasCriteria.uniqueCategorias());
 		
 		System.out.println("Retrieving Comentarios by ComentariosCriteria");
 		database.ComentariosCriteria ldatabaseComentariosCriteria = new database.ComentariosCriteria();

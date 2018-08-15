@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;

@@ -36,6 +36,6 @@ public class Aniadir_Categoria extends Aniadir_Categoria_ventana implements View
 	}
 	public void crear_categoria() {
 		BD_general bd = new BD_general();//1 = idcateg
-		bd.crear_categoria(Integer.parseInt(categoria.getId()),categoria.getValue(), contrasenia.getValue(),Integer.valueOf(edad.getValue()), urlImagen.getValue(), check.getValue());
+		bd.crear_categoria(1,categoria.getValue(), contrasenia.getValue(),18, urlImagen.getValue(), check.getValue());
 	}
 }

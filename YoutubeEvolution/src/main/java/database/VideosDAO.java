@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -323,10 +323,10 @@ public class VideosDAO {
 	
 	public static boolean deleteAndDissociate(database.Videos videos)throws PersistentException {
 		try {
-			if (videos.getAutor() != null) {
-				videos.getAutor().video_subido.remove(videos);
+			database.Usuario_registrado[] lUsuarios_que_dan_me_gustas = videos.usuarios_que_dan_me_gusta.toArray();
+			for(int i = 0; i < lUsuarios_que_dan_me_gustas.length; i++) {
+				lUsuarios_que_dan_me_gustas[i].videos_que_gustan.remove(videos);
 			}
-			
 			if (videos.getCategoria() != null) {
 				videos.getCategoria().videos.remove(videos);
 			}
@@ -335,11 +335,11 @@ public class VideosDAO {
 			for(int i = 0; i < lComentarios_en_videoss.length; i++) {
 				lComentarios_en_videoss[i].setVideosComentados(null);
 			}
-			database.Usuario_registrado[] lUsuarios_que_dan_me_gustas = videos.usuarios_que_dan_me_gusta.toArray();
-			for(int i = 0; i < lUsuarios_que_dan_me_gustas.length; i++) {
-				lUsuarios_que_dan_me_gustas[i].setVideos_que_gustan(null);
+			if (videos.getAutor() != null) {
+				videos.getAutor().video_subido.remove(videos);
 			}
-			database.Listas_de_reproduccion2[] lListas_de_videoss = videos.listas_de_videos.toArray();
+			
+			database.Listas_de_reproduccion[] lListas_de_videoss = videos.listas_de_videos.toArray();
 			for(int i = 0; i < lListas_de_videoss.length; i++) {
 				lListas_de_videoss[i].videos_en_lista.remove(videos);
 			}
@@ -357,10 +357,10 @@ public class VideosDAO {
 	
 	public static boolean deleteAndDissociate(database.Videos videos, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (videos.getAutor() != null) {
-				videos.getAutor().video_subido.remove(videos);
+			database.Usuario_registrado[] lUsuarios_que_dan_me_gustas = videos.usuarios_que_dan_me_gusta.toArray();
+			for(int i = 0; i < lUsuarios_que_dan_me_gustas.length; i++) {
+				lUsuarios_que_dan_me_gustas[i].videos_que_gustan.remove(videos);
 			}
-			
 			if (videos.getCategoria() != null) {
 				videos.getCategoria().videos.remove(videos);
 			}
@@ -369,11 +369,11 @@ public class VideosDAO {
 			for(int i = 0; i < lComentarios_en_videoss.length; i++) {
 				lComentarios_en_videoss[i].setVideosComentados(null);
 			}
-			database.Usuario_registrado[] lUsuarios_que_dan_me_gustas = videos.usuarios_que_dan_me_gusta.toArray();
-			for(int i = 0; i < lUsuarios_que_dan_me_gustas.length; i++) {
-				lUsuarios_que_dan_me_gustas[i].setVideos_que_gustan(null);
+			if (videos.getAutor() != null) {
+				videos.getAutor().video_subido.remove(videos);
 			}
-			database.Listas_de_reproduccion2[] lListas_de_videoss = videos.listas_de_videos.toArray();
+			
+			database.Listas_de_reproduccion[] lListas_de_videoss = videos.listas_de_videos.toArray();
 			for(int i = 0; i < lListas_de_videoss.length; i++) {
 				lListas_de_videoss[i].videos_en_lista.remove(videos);
 			}

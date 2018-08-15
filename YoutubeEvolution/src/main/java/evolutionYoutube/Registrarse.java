@@ -44,10 +44,10 @@ public class Registrarse extends Registrarse_ventana implements View{
 		*DE REGISTRARSE
 		*/
 		BD_general bd = new BD_general();
-		if(!(contrasenia.getCaption().equals(confirmar.getCaption())))return;
+		if(!(contrasenia.getValue().equals(confirmar.getValue())))return;
 		try {
 			bd.Registrarse(nombre.getValue(), apellidos.getValue(), apodo.getValue(), 
-					Integer.valueOf(edad.getValue()), email.getValue(), contrasenia.getValue(), confirmar.getValue());
+					/**Integer.valueOf(edad.getValue())**/18, email.getValue(), contrasenia.getValue(), confirmar.getValue());
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}

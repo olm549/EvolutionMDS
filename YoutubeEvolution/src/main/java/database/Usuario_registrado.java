@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -28,11 +28,14 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 		if (key == ORMConstants.KEY_USUARIO_REGISTRADO_COMENTARIOS) {
 			return ORM_comentarios;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRIPCION) {
-			return ORM_suscripcion;
+		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_VIDEOS_QUE_GUSTAN) {
+			return ORM_videos_que_gustan;
 		}
 		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_VIDEO_SUBIDO) {
 			return ORM_video_subido;
+		}
+		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRITO) {
+			return ORM_suscrito;
 		}
 		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_VIDEO_VISUALIZADO) {
 			return ORM_video_visualizado;
@@ -48,20 +51,8 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_USUARIO_REGISTRADO_VIDEOS_QUE_GUSTAN) {
-			this.videos_que_gustan = (database.Videos) owner;
-		}
-		
-		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRITO) {
-			this.suscrito = (database.Usuario_registrado) owner;
-		}
-		
-		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRIBE) {
-			this.suscribe = (database.Usuario_registrado) owner;
-		}
-		
-		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_HISTORIAL_USUARIO) {
-			this.historial_usuario = (database.Listas_de_reproduccion2) owner;
+		if (key == ORMConstants.KEY_USUARIO_REGISTRADO_HISTORIAL_USUARIO) {
+			this.historial_usuario = (database.Listas_de_reproduccion) owner;
 		}
 	}
 	
@@ -92,30 +83,22 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	@Column(name="Edad", nullable=false, length=10)	
 	private int edad;
 	
-	@ManyToOne(targetEntity=database.Usuario_registrado.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="Usuario_registradoUsuariosID2", referencedColumnName="UsuariosID", nullable=false) })	
-	private database.Usuario_registrado suscrito;
-	
-	@ManyToOne(targetEntity=database.Usuario_registrado.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="Usuario_registradoUsuariosID", referencedColumnName="UsuariosID", nullable=false) })	
-	private database.Usuario_registrado suscribe;
-	
-	@ManyToOne(targetEntity=database.Videos.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="VideosId_video", referencedColumnName="Id_video", nullable=false) })	
-	private database.Videos videos_que_gustan;
+	@ManyToMany(targetEntity=database.Usuario_registrado.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinTable(name="Usuario_registrado_Usuario_registrado", joinColumns={ @JoinColumn(name="Usuario_registradoUsuariosID2") }, inverseJoinColumns={ @JoinColumn(name="Usuario_registradoUsuariosID") })	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_suscrito = new java.util.HashSet();
 	
 	@OneToMany(mappedBy="usuarios_que_comentan", targetEntity=database.Comentarios.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_comentarios = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="suscribe", targetEntity=database.Usuario_registrado.class)	
+	@ManyToMany(targetEntity=database.Videos.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinTable(name="Videos_Usuario_registrado2", joinColumns={ @JoinColumn(name="Usuario_registradoUsuariosID") }, inverseJoinColumns={ @JoinColumn(name="VideosId_video") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_suscripcion = new java.util.HashSet();
+	private java.util.Set ORM_videos_que_gustan = new java.util.HashSet();
 	
 	@OneToMany(mappedBy="autor", targetEntity=database.Videos.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -128,19 +111,20 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_video_visualizado = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="usuario_registrado", targetEntity=database.Listas_de_reproduccion2.class)	
+	@OneToMany(mappedBy="usuario_registrado", targetEntity=database.Listas_de_reproduccion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_listas_de_reproduccion = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="suscrito", targetEntity=database.Usuario_registrado.class)	
+	@ManyToMany(mappedBy="ORM_suscrito", targetEntity=database.Usuario_registrado.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_suscriptor = new java.util.HashSet();
 	
-	@OneToOne(mappedBy="usuario_que_consulta_historial", targetEntity=database.Listas_de_reproduccion2.class, fetch=FetchType.LAZY)	
+	@OneToOne(mappedBy="usuario_que_consulta_historial", targetEntity=database.Listas_de_reproduccion.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	private database.Listas_de_reproduccion2 historial_usuario;
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private database.Listas_de_reproduccion historial_usuario;
 	
 	public void setId_Usuario_registrado(int value) {
 		this.id_Usuario_registrado = value;
@@ -193,40 +177,16 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	@Transient	
 	public final database.ComentariosSetCollection comentarios = new database.ComentariosSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_COMENTARIOS, ORMConstants.KEY_COMENTARIOS_USUARIOS_QUE_COMENTAN, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	public void setVideos_que_gustan(database.Videos value) {
-		if (videos_que_gustan != null) {
-			videos_que_gustan.usuarios_que_dan_me_gusta.remove(this);
-		}
-		if (value != null) {
-			value.usuarios_que_dan_me_gusta.add(this);
-		}
+	private void setORM_Videos_que_gustan(java.util.Set value) {
+		this.ORM_videos_que_gustan = value;
 	}
 	
-	public database.Videos getVideos_que_gustan() {
-		return videos_que_gustan;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Videos_que_gustan(database.Videos value) {
-		this.videos_que_gustan = value;
-	}
-	
-	private database.Videos getORM_Videos_que_gustan() {
-		return videos_que_gustan;
-	}
-	
-	private void setORM_Suscripcion(java.util.Set value) {
-		this.ORM_suscripcion = value;
-	}
-	
-	private java.util.Set getORM_Suscripcion() {
-		return ORM_suscripcion;
+	private java.util.Set getORM_Videos_que_gustan() {
+		return ORM_videos_que_gustan;
 	}
 	
 	@Transient	
-	public final database.Usuario_registradoSetCollection suscripcion = new database.Usuario_registradoSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRIPCION, ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRIBE, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final database.VideosSetCollection videos_que_gustan = new database.VideosSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_VIDEOS_QUE_GUSTAN, ORMConstants.KEY_VIDEOS_USUARIOS_QUE_DAN_ME_GUSTA, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	private void setORM_Video_subido(java.util.Set value) {
 		this.ORM_video_subido = value;
@@ -239,29 +199,16 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	@Transient	
 	public final database.VideosSetCollection video_subido = new database.VideosSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_VIDEO_SUBIDO, ORMConstants.KEY_VIDEOS_AUTOR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	public void setSuscrito(database.Usuario_registrado value) {
-		if (suscrito != null) {
-			suscrito.suscriptor.remove(this);
-		}
-		if (value != null) {
-			value.suscriptor.add(this);
-		}
+	private void setORM_Suscrito(java.util.Set value) {
+		this.ORM_suscrito = value;
 	}
 	
-	public database.Usuario_registrado getSuscrito() {
-		return suscrito;
+	private java.util.Set getORM_Suscrito() {
+		return ORM_suscrito;
 	}
 	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Suscrito(database.Usuario_registrado value) {
-		this.suscrito = value;
-	}
-	
-	private database.Usuario_registrado getORM_Suscrito() {
-		return suscrito;
-	}
+	@Transient	
+	public final database.Usuario_registradoSetCollection suscrito = new database.Usuario_registradoSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRITO, ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRIPTOR, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	private void setORM_Video_visualizado(java.util.Set value) {
 		this.ORM_video_visualizado = value;
@@ -283,31 +230,7 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	}
 	
 	@Transient	
-	public final database.Listas_de_reproduccion2SetCollection listas_de_reproduccion = new database.Listas_de_reproduccion2SetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_LISTAS_DE_REPRODUCCION, ORMConstants.KEY_LISTAS_DE_REPRODUCCION2_USUARIO_REGISTRADO, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	public void setSuscribe(database.Usuario_registrado value) {
-		if (suscribe != null) {
-			suscribe.suscripcion.remove(this);
-		}
-		if (value != null) {
-			value.suscripcion.add(this);
-		}
-	}
-	
-	public database.Usuario_registrado getSuscribe() {
-		return suscribe;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Suscribe(database.Usuario_registrado value) {
-		this.suscribe = value;
-	}
-	
-	private database.Usuario_registrado getORM_Suscribe() {
-		return suscribe;
-	}
+	public final database.Listas_de_reproduccionSetCollection listas_de_reproduccion = new database.Listas_de_reproduccionSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_LISTAS_DE_REPRODUCCION, ORMConstants.KEY_LISTAS_DE_REPRODUCCION_USUARIO_REGISTRADO, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Suscriptor(java.util.Set value) {
 		this.ORM_suscriptor = value;
@@ -318,11 +241,11 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	}
 	
 	@Transient	
-	public final database.Usuario_registradoSetCollection suscriptor = new database.Usuario_registradoSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRIPTOR, ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRITO, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final database.Usuario_registradoSetCollection suscriptor = new database.Usuario_registradoSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRIPTOR, ORMConstants.KEY_USUARIO_REGISTRADO_SUSCRITO, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
-	public void setHistorial_usuario(database.Listas_de_reproduccion2 value) {
+	public void setHistorial_usuario(database.Listas_de_reproduccion value) {
 		if (this.historial_usuario != value) {
-			database.Listas_de_reproduccion2 lhistorial_usuario = this.historial_usuario;
+			database.Listas_de_reproduccion lhistorial_usuario = this.historial_usuario;
 			this.historial_usuario = value;
 			if (value != null) {
 				historial_usuario.setUsuario_que_consulta_historial(this);
@@ -333,7 +256,7 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 		}
 	}
 	
-	public database.Listas_de_reproduccion2 getHistorial_usuario() {
+	public database.Listas_de_reproduccion getHistorial_usuario() {
 		return historial_usuario;
 	}
 	

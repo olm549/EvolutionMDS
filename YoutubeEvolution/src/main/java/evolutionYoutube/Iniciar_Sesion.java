@@ -49,9 +49,9 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 		bd.iniciar_sesion(email.getValue(), contrasenia.getValue());**/
 		
 		//ESTO VA EN LA BD
-		((MyUI) UI.getCurrent()).usuario_registrado();
+		//((MyUI) UI.getCurrent()).usuario_registrado();
 
-		//((MyUI) UI.getCurrent()).administrador();
+		((MyUI) UI.getCurrent()).administrador();
 		//o
 		//((MyUI) UI.getCurrent()).invitado();
 		//((MyUI) UI.getCurrent()).ver_perfil_usuario();

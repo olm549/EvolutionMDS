@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -20,8 +20,7 @@ import org.orm.criteria.*;
 
 public class VideosCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id_video;
-	public final IntegerExpression autorId;
-	public final AssociationExpression autor;
+	public final CollectionExpression usuarios_que_dan_me_gusta;
 	public final IntegerExpression categoriaId;
 	public final AssociationExpression categoria;
 	public final StringExpression miniatura;
@@ -33,15 +32,15 @@ public class VideosCriteria extends AbstractORMCriteria {
 	public final StringExpression etiquetas;
 	public final IntegerExpression duracion;
 	public final CollectionExpression comentarios_en_videos;
-	public final CollectionExpression usuarios_que_dan_me_gusta;
+	public final IntegerExpression autorId;
+	public final AssociationExpression autor;
 	public final CollectionExpression listas_de_videos;
 	public final CollectionExpression usuario_visualizador;
 	
 	public VideosCriteria(Criteria criteria) {
 		super(criteria);
 		id_video = new IntegerExpression("id_video", this);
-		autorId = new IntegerExpression("autor.", this);
-		autor = new AssociationExpression("autor", this);
+		usuarios_que_dan_me_gusta = new CollectionExpression("ORM_usuarios_que_dan_me_gusta", this);
 		categoriaId = new IntegerExpression("categoria.id_categoria", this);
 		categoria = new AssociationExpression("categoria", this);
 		miniatura = new StringExpression("miniatura", this);
@@ -53,7 +52,8 @@ public class VideosCriteria extends AbstractORMCriteria {
 		etiquetas = new StringExpression("etiquetas", this);
 		duracion = new IntegerExpression("duracion", this);
 		comentarios_en_videos = new CollectionExpression("ORM_comentarios_en_videos", this);
-		usuarios_que_dan_me_gusta = new CollectionExpression("ORM_usuarios_que_dan_me_gusta", this);
+		autorId = new IntegerExpression("autor.", this);
+		autor = new AssociationExpression("autor", this);
 		listas_de_videos = new CollectionExpression("ORM_listas_de_videos", this);
 		usuario_visualizador = new CollectionExpression("ORM_usuario_visualizador", this);
 	}
@@ -66,24 +66,24 @@ public class VideosCriteria extends AbstractORMCriteria {
 		this(ProyectoMDSPersistentManager.instance().getSession());
 	}
 	
-	public Usuario_registradoCriteria createAutorCriteria() {
-		return new Usuario_registradoCriteria(createCriteria("autor"));
+	public Usuario_registradoCriteria createUsuarios_que_dan_me_gustaCriteria() {
+		return new Usuario_registradoCriteria(createCriteria("ORM_usuarios_que_dan_me_gusta"));
 	}
 	
-	public Categorias2Criteria createCategoriaCriteria() {
-		return new Categorias2Criteria(createCriteria("categoria"));
+	public CategoriasCriteria createCategoriaCriteria() {
+		return new CategoriasCriteria(createCriteria("categoria"));
 	}
 	
 	public ComentariosCriteria createComentarios_en_videosCriteria() {
 		return new ComentariosCriteria(createCriteria("ORM_comentarios_en_videos"));
 	}
 	
-	public Usuario_registradoCriteria createUsuarios_que_dan_me_gustaCriteria() {
-		return new Usuario_registradoCriteria(createCriteria("ORM_usuarios_que_dan_me_gusta"));
+	public Usuario_registradoCriteria createAutorCriteria() {
+		return new Usuario_registradoCriteria(createCriteria("autor"));
 	}
 	
-	public Listas_de_reproduccion2Criteria createListas_de_videosCriteria() {
-		return new Listas_de_reproduccion2Criteria(createCriteria("ORM_listas_de_videos"));
+	public Listas_de_reproduccionCriteria createListas_de_videosCriteria() {
+		return new Listas_de_reproduccionCriteria(createCriteria("ORM_listas_de_videos"));
 	}
 	
 	public Usuario_registradoCriteria createUsuario_visualizadorCriteria() {

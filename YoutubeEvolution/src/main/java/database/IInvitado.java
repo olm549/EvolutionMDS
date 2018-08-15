@@ -8,7 +8,7 @@ public interface IInvitado {
 
 	public List<Videos> Cargar_Videos_Recientes();
 
-	public List<Categorias2> Cargar_Categorias();
+	public List<Categorias> Cargar_Categorias();
 
 	public List<String> ver_etiquetas(int idVideo);
 

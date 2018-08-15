@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -49,11 +49,13 @@ public class Comentarios implements Serializable {
 	@ManyToOne(targetEntity=database.Videos.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns({ @JoinColumn(name="VideosId_video", referencedColumnName="Id_video", nullable=false) })	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private database.Videos videosComentados;
 	
 	@ManyToOne(targetEntity=database.Usuario_registrado.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns({ @JoinColumn(name="Usuario_registradoUsuariosID", referencedColumnName="UsuariosID", nullable=false) })	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private database.Usuario_registrado usuarios_que_comentan;
 	
 	@Column(name="Contenido_comentario", nullable=true, length=255)	

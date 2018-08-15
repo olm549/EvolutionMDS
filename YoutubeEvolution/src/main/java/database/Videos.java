@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -41,7 +41,7 @@ public class Videos implements Serializable {
 	
 	private void this_setOwner(Object owner, int key) {
 		if (key == ORMConstants.KEY_VIDEOS_CATEGORIA) {
-			this.categoria = (database.Categorias2) owner;
+			this.categoria = (database.Categorias) owner;
 		}
 		
 		else if (key == ORMConstants.KEY_VIDEOS_AUTOR) {
@@ -67,15 +67,16 @@ public class Videos implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="DATABASE_VIDEOS_ID_VIDEO_GENERATOR", strategy="native")	
 	private int id_video;
 	
-	@ManyToOne(targetEntity=database.Usuario_registrado.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="Usuario_registradoUsuariosID", referencedColumnName="UsuariosID", nullable=false) })	
-	private database.Usuario_registrado autor;
+	@ManyToMany(mappedBy="ORM_videos_que_gustan", targetEntity=database.Usuario_registrado.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_usuarios_que_dan_me_gusta = new java.util.HashSet();
 	
-	@ManyToOne(targetEntity=database.Categorias2.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=database.Categorias.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns({ @JoinColumn(name="Categorias2Id_categoria", referencedColumnName="Id_categoria", nullable=false) })	
-	private database.Categorias2 categoria;
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private database.Categorias categoria;
 	
 	@Column(name="Miniatura", nullable=true, length=255)	
 	private String miniatura;
@@ -106,12 +107,13 @@ public class Videos implements Serializable {
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_comentarios_en_videos = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="videos_que_gustan", targetEntity=database.Usuario_registrado.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_usuarios_que_dan_me_gusta = new java.util.HashSet();
+	@ManyToOne(targetEntity=database.Usuario_registrado.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns({ @JoinColumn(name="Usuario_registradoUsuariosID", referencedColumnName="UsuariosID", nullable=false) })	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private database.Usuario_registrado autor;
 	
-	@ManyToMany(mappedBy="ORM_videos_en_lista", targetEntity=database.Listas_de_reproduccion2.class)	
+	@ManyToMany(mappedBy="ORM_videos_en_lista", targetEntity=database.Listas_de_reproduccion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_listas_de_videos = new java.util.HashSet();
@@ -217,9 +219,9 @@ public class Videos implements Serializable {
 	}
 	
 	@Transient	
-	public final database.Usuario_registradoSetCollection usuarios_que_dan_me_gusta = new database.Usuario_registradoSetCollection(this, _ormAdapter, ORMConstants.KEY_VIDEOS_USUARIOS_QUE_DAN_ME_GUSTA, ORMConstants.KEY_USUARIO_REGISTRADO_VIDEOS_QUE_GUSTAN, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final database.Usuario_registradoSetCollection usuarios_que_dan_me_gusta = new database.Usuario_registradoSetCollection(this, _ormAdapter, ORMConstants.KEY_VIDEOS_USUARIOS_QUE_DAN_ME_GUSTA, ORMConstants.KEY_USUARIO_REGISTRADO_VIDEOS_QUE_GUSTAN, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
-	public void setCategoria(database.Categorias2 value) {
+	public void setCategoria(database.Categorias value) {
 		if (categoria != null) {
 			categoria.videos.remove(this);
 		}
@@ -228,18 +230,18 @@ public class Videos implements Serializable {
 		}
 	}
 	
-	public database.Categorias2 getCategoria() {
+	public database.Categorias getCategoria() {
 		return categoria;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Categoria(database.Categorias2 value) {
+	public void setORM_Categoria(database.Categorias value) {
 		this.categoria = value;
 	}
 	
-	private database.Categorias2 getORM_Categoria() {
+	private database.Categorias getORM_Categoria() {
 		return categoria;
 	}
 	
@@ -276,7 +278,7 @@ public class Videos implements Serializable {
 	}
 	
 	@Transient	
-	public final database.Listas_de_reproduccion2SetCollection listas_de_videos = new database.Listas_de_reproduccion2SetCollection(this, _ormAdapter, ORMConstants.KEY_VIDEOS_LISTAS_DE_VIDEOS, ORMConstants.KEY_LISTAS_DE_REPRODUCCION2_VIDEOS_EN_LISTA, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final database.Listas_de_reproduccionSetCollection listas_de_videos = new database.Listas_de_reproduccionSetCollection(this, _ormAdapter, ORMConstants.KEY_VIDEOS_LISTAS_DE_VIDEOS, ORMConstants.KEY_LISTAS_DE_REPRODUCCION_VIDEOS_EN_LISTA, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	private void setORM_Usuario_visualizador(java.util.Set value) {
 		this.ORM_usuario_visualizador = value;

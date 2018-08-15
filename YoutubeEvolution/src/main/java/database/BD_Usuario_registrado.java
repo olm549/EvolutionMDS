@@ -29,12 +29,12 @@ public class BD_Usuario_registrado {
 			registrado.setEmail(aEmail);
 			registrado.setContrasenia(aContrasenia);
 			registrado.setNumeroVisitas(0);
-			Listas_de_reproduccion2 lrd = database.Listas_de_reproduccion2DAO.createListas_de_reproduccion2();
+			Listas_de_reproduccion lrd = database.Listas_de_reproduccionDAO.createListas_de_reproduccion();
 			lrd.setUsuario_registrado(registrado);
 			lrd.setUsuario_que_consulta_historial(registrado);
 			registrado.listas_de_reproduccion.add(lrd);
 			Usuario_registradoDAO.save(registrado);
-			Listas_de_reproduccion2DAO.save(lrd);
+			Listas_de_reproduccionDAO.save(lrd);
 			transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
@@ -177,7 +177,7 @@ public class BD_Usuario_registrado {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aID_Usuario, "1");
 			Usuario_registrado seguido = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+ID_Usuarioseguido, "1");
 			user.suscriptor.remove(seguido);
-			seguido.suscripcion.remove(user);
+			seguido.suscrito.remove(user);
 			Usuario_registradoDAO.save(user);
 			Usuario_registradoDAO.save(seguido);
 			transaccion.commit();
@@ -209,7 +209,7 @@ public class BD_Usuario_registrado {
 		try {
 			
 	      Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aID_Usuario, "1");
-	      for(Usuario_registrado foo : user.suscripcion.toArray()) {
+	      for(Usuario_registrado foo : user.suscrito.toArray()) {
 	    	  listaSeguidos.add(foo);
 	      }
 		} catch(Exception e) {
@@ -225,7 +225,7 @@ public class BD_Usuario_registrado {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aID_Usuario, "1");
 			Usuario_registrado seguido = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+ID_Usuariosusc, "1");
 			user.suscriptor.add(seguido);
-			seguido.suscripcion.add(user);
+			seguido.suscrito.add(user);
 			Usuario_registradoDAO.save(user);
 			Usuario_registradoDAO.save(seguido);
 			transaccion.commit();

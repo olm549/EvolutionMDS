@@ -1,5 +1,5 @@
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -33,11 +33,11 @@ public class ListProyectoMDSData {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
-		System.out.println("Listing Listas_de_reproduccion2...");
-		database.Listas_de_reproduccion2[] databaseListas_de_reproduccion2s = database.Listas_de_reproduccion2DAO.listListas_de_reproduccion2ByQuery(null, null);
-		length = Math.min(databaseListas_de_reproduccion2s.length, ROW_COUNT);
+		System.out.println("Listing Listas_de_reproduccion...");
+		database.Listas_de_reproduccion[] databaseListas_de_reproduccions = database.Listas_de_reproduccionDAO.listListas_de_reproduccionByQuery(null, null);
+		length = Math.min(databaseListas_de_reproduccions.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
-			System.out.println(databaseListas_de_reproduccion2s[i]);
+			System.out.println(databaseListas_de_reproduccions[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -49,11 +49,11 @@ public class ListProyectoMDSData {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
-		System.out.println("Listing Categorias2...");
-		database.Categorias2[] databaseCategorias2s = database.Categorias2DAO.listCategorias2ByQuery(null, null);
-		length = Math.min(databaseCategorias2s.length, ROW_COUNT);
+		System.out.println("Listing Categorias...");
+		database.Categorias[] databaseCategoriases = database.CategoriasDAO.listCategoriasByQuery(null, null);
+		length = Math.min(databaseCategoriases.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
-			System.out.println(databaseCategorias2s[i]);
+			System.out.println(databaseCategoriases[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -104,17 +104,17 @@ public class ListProyectoMDSData {
 		}
 		System.out.println(length + " Videos record(s) retrieved."); 
 		
-		System.out.println("Listing Listas_de_reproduccion2 by Criteria...");
-		database.Listas_de_reproduccion2Criteria ldatabaseListas_de_reproduccion2Criteria = new database.Listas_de_reproduccion2Criteria();
+		System.out.println("Listing Listas_de_reproduccion by Criteria...");
+		database.Listas_de_reproduccionCriteria ldatabaseListas_de_reproduccionCriteria = new database.Listas_de_reproduccionCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
-		//ldatabaseListas_de_reproduccion2Criteria.id_lista.eq();
-		ldatabaseListas_de_reproduccion2Criteria.setMaxResults(ROW_COUNT);
-		database.Listas_de_reproduccion2[] databaseListas_de_reproduccion2s = ldatabaseListas_de_reproduccion2Criteria.listListas_de_reproduccion2();
-		length =databaseListas_de_reproduccion2s== null ? 0 : Math.min(databaseListas_de_reproduccion2s.length, ROW_COUNT); 
+		//ldatabaseListas_de_reproduccionCriteria.id_lista.eq();
+		ldatabaseListas_de_reproduccionCriteria.setMaxResults(ROW_COUNT);
+		database.Listas_de_reproduccion[] databaseListas_de_reproduccions = ldatabaseListas_de_reproduccionCriteria.listListas_de_reproduccion();
+		length =databaseListas_de_reproduccions== null ? 0 : Math.min(databaseListas_de_reproduccions.length, ROW_COUNT); 
 		for (int i = 0; i < length; i++) {
-			 System.out.println(databaseListas_de_reproduccion2s[i]);
+			 System.out.println(databaseListas_de_reproduccions[i]);
 		}
-		System.out.println(length + " Listas_de_reproduccion2 record(s) retrieved."); 
+		System.out.println(length + " Listas_de_reproduccion record(s) retrieved."); 
 		
 		System.out.println("Listing Usuario_Administrador by Criteria...");
 		database.Usuario_AdministradorCriteria ldatabaseUsuario_AdministradorCriteria = new database.Usuario_AdministradorCriteria();
@@ -128,17 +128,17 @@ public class ListProyectoMDSData {
 		}
 		System.out.println(length + " Usuario_Administrador record(s) retrieved."); 
 		
-		System.out.println("Listing Categorias2 by Criteria...");
-		database.Categorias2Criteria ldatabaseCategorias2Criteria = new database.Categorias2Criteria();
+		System.out.println("Listing Categorias by Criteria...");
+		database.CategoriasCriteria ldatabaseCategoriasCriteria = new database.CategoriasCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
-		//ldatabaseCategorias2Criteria.id_categoria.eq();
-		ldatabaseCategorias2Criteria.setMaxResults(ROW_COUNT);
-		database.Categorias2[] databaseCategorias2s = ldatabaseCategorias2Criteria.listCategorias2();
-		length =databaseCategorias2s== null ? 0 : Math.min(databaseCategorias2s.length, ROW_COUNT); 
+		//ldatabaseCategoriasCriteria.id_categoria.eq();
+		ldatabaseCategoriasCriteria.setMaxResults(ROW_COUNT);
+		database.Categorias[] databaseCategoriases = ldatabaseCategoriasCriteria.listCategorias();
+		length =databaseCategoriases== null ? 0 : Math.min(databaseCategoriases.length, ROW_COUNT); 
 		for (int i = 0; i < length; i++) {
-			 System.out.println(databaseCategorias2s[i]);
+			 System.out.println(databaseCategoriases[i]);
 		}
-		System.out.println(length + " Categorias2 record(s) retrieved."); 
+		System.out.println(length + " Categorias record(s) retrieved."); 
 		
 		System.out.println("Listing Comentarios by Criteria...");
 		database.ComentariosCriteria ldatabaseComentariosCriteria = new database.ComentariosCriteria();

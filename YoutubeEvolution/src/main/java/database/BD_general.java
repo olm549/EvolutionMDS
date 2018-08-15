@@ -236,9 +236,9 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		}
 	}
 
-	public List<Listas_de_reproduccion2> cargar_Listas_Reproduccion(int aID_Usuario) {
+	public List<Listas_de_reproduccion> cargar_Listas_Reproduccion(int aID_Usuario) {
 		BD_listas bd = new BD_listas();
-		List<Listas_de_reproduccion2> lista = null;
+		List<Listas_de_reproduccion> lista = null;
 		try {
 			lista = bd.cargar_Listas_Reproduccion(aID_Usuario);
 		} catch (PersistentException e) {
@@ -331,7 +331,7 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return lista;
 	}
 
-	public List<Categorias2> Cargar_Categorias() {
+	public List<Categorias> Cargar_Categorias() {
 		BD_Categorias bd = new BD_Categorias();
 		try {
 			return bd.Cargar_Categorias();
@@ -419,7 +419,7 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		}
 	}
 
-	public List<Categorias2> cargar_Lista_De_Categorias() {
+	public List<Categorias> cargar_Lista_De_Categorias() {
 		BD_Categorias bd = new BD_Categorias();
 		try {
 			return bd.Cargar_Categorias();

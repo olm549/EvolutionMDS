@@ -69,37 +69,13 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="Usuario_registradoUsuariosID2">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Usuario_registrado.UsuariosID</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
     <Column name="Usuario_registradoUsuariosID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Usuario_registrado.UsuariosID</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="VideosId_video">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Videos.Id_video</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -133,7 +109,7 @@
     <Column name="Categorias2Id_categoria">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Categorias2.Id_categoria</ReferencedColumn>
+      <ReferencedColumn>Categorias.Id_categoria</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -231,7 +207,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Listas_de_reproduccion2" Unlogged="false" PKClustered="0">
+  <Entity name="Listas_de_reproduccion" Unlogged="false" PKClustered="0">
     <Column name="Id_lista">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -249,7 +225,7 @@
       <ReferencedColumn>Usuario_registrado.UsuariosID</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>false</Nullable>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -372,7 +348,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Categorias2" Unlogged="false" PKClustered="0">
+  <Entity name="Categorias" Unlogged="false" PKClustered="0">
     <Column name="Id_categoria">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -482,7 +458,7 @@
     <Column name="Listas_de_reproduccion2Id_lista">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Listas_de_reproduccion2.Id_lista</ReferencedColumn>
+      <ReferencedColumn>Listas_de_reproduccion.Id_lista</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -493,6 +469,58 @@
     </Column>
   </Entity>
   <Entity name="Videos_Usuario_registrado" Unlogged="false" PKClustered="0">
+    <Column name="VideosId_video">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Videos.Id_video</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Usuario_registradoUsuariosID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Usuario_registrado.UsuariosID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Usuario_registrado_Usuario_registrado" Unlogged="false" PKClustered="0">
+    <Column name="Usuario_registradoUsuariosID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Usuario_registrado.UsuariosID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Usuario_registradoUsuariosID2">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Usuario_registrado.UsuariosID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Videos_Usuario_registrado2" Unlogged="false" PKClustered="0">
     <Column name="VideosId_video">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -548,18 +576,8 @@
       <Column>UsuariosID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKUsuario_re470633">
-    <ReferenceTable>Usuario_registrado</ReferenceTable>
-    <ReferencedTable>Videos</ReferencedTable>
-    <Columns>
-      <Column>VideosId_video</Column>
-    </Columns>
-    <RefColumns>
-      <Column>Id_video</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKListas_de_130296">
-    <ReferenceTable>Listas_de_reproduccion2</ReferenceTable>
+  <ForeignKey name="FKListas_de_502848">
+    <ReferenceTable>Listas_de_reproduccion</ReferenceTable>
     <ReferencedTable>Usuario_registrado</ReferencedTable>
     <Columns>
       <Column>Usuario_registradoUsuariosID</Column>
@@ -568,9 +586,9 @@
       <Column>UsuariosID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKVideos204145">
+  <ForeignKey name="FKVideos10708">
     <ReferenceTable>Videos</ReferenceTable>
-    <ReferencedTable>Categorias2</ReferencedTable>
+    <ReferencedTable>Categorias</ReferencedTable>
     <Columns>
       <Column>Categorias2Id_categoria</Column>
     </Columns>
@@ -608,9 +626,9 @@
       <Column>Id_video</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKVideos_Lis573155">
+  <ForeignKey name="FKVideos_Lis200603">
     <ReferenceTable>Videos_Listas_de_reproduccion2</ReferenceTable>
-    <ReferencedTable>Listas_de_reproduccion2</ReferencedTable>
+    <ReferencedTable>Listas_de_reproduccion</ReferencedTable>
     <Columns>
       <Column>Listas_de_reproduccion2Id_lista</Column>
     </Columns>
@@ -618,18 +636,8 @@
       <Column>Id_lista</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKUsuario_re877356">
-    <ReferenceTable>Usuario_registrado</ReferenceTable>
-    <ReferencedTable>Usuario_registrado</ReferencedTable>
-    <Columns>
-      <Column>Usuario_registradoUsuariosID2</Column>
-    </Columns>
-    <RefColumns>
-      <Column>UsuariosID</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKListas_de_677320">
-    <ReferenceTable>Listas_de_reproduccion2</ReferenceTable>
+  <ForeignKey name="FKListas_de_695231">
+    <ReferenceTable>Listas_de_reproduccion</ReferenceTable>
     <ReferencedTable>Usuario_registrado</ReferencedTable>
     <Columns>
       <Column>Usuario_registradoUsuariosID2</Column>
@@ -660,6 +668,46 @@
   </ForeignKey>
   <ForeignKey name="FKVideos_Usu615402">
     <ReferenceTable>Videos_Usuario_registrado</ReferenceTable>
+    <ReferencedTable>Usuario_registrado</ReferencedTable>
+    <Columns>
+      <Column>Usuario_registradoUsuariosID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuariosID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_re650086">
+    <ReferenceTable>Usuario_registrado_Usuario_registrado</ReferenceTable>
+    <ReferencedTable>Usuario_registrado</ReferencedTable>
+    <Columns>
+      <Column>Usuario_registradoUsuariosID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuariosID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_re513887">
+    <ReferenceTable>Usuario_registrado_Usuario_registrado</ReferenceTable>
+    <ReferencedTable>Usuario_registrado</ReferencedTable>
+    <Columns>
+      <Column>Usuario_registradoUsuariosID2</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuariosID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKVideos_Usu676931">
+    <ReferenceTable>Videos_Usuario_registrado2</ReferenceTable>
+    <ReferencedTable>Videos</ReferencedTable>
+    <Columns>
+      <Column>VideosId_video</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_video</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKVideos_Usu217305">
+    <ReferenceTable>Videos_Usuario_registrado2</ReferenceTable>
     <ReferencedTable>Usuario_registrado</ReferencedTable>
     <Columns>
       <Column>Usuario_registradoUsuariosID</Column>
