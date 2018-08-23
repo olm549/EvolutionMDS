@@ -40,6 +40,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Zéin/Desktop/modelado2vfinal/lib/orm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Zéin/git/EvolutionMDS/YoutubeEvolution/src/lib/orm.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
