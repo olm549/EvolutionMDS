@@ -46,7 +46,7 @@ public interface IRegistrado {
 
 	public void suscribirse(int aID_Usuario, int ID_Usuariosusc);
 
-	public List<Listas_de_reproduccion2> cargar_Listas_Reproduccion(int aID_Usuario);
+	public List<Listas_de_reproduccion> cargar_Listas_Reproduccion(int aID_Usuario);
 
 	public List<Videos> cargar_Videos_Subidos(int aIDUsuario);
 

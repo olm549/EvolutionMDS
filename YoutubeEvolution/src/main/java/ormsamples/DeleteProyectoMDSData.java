@@ -1,5 +1,5 @@
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -18,15 +18,15 @@ public class DeleteProyectoMDSData {
 			database.Videos ldatabaseVideos = database.VideosDAO.loadVideosByQuery(null, null);
 			// Delete the persistent object
 			database.VideosDAO.delete(ldatabaseVideos);
-			database.Listas_de_reproduccion2 ldatabaseListas_de_reproduccion2 = database.Listas_de_reproduccion2DAO.loadListas_de_reproduccion2ByQuery(null, null);
+			database.Listas_de_reproduccion ldatabaseListas_de_reproduccion = database.Listas_de_reproduccionDAO.loadListas_de_reproduccionByQuery(null, null);
 			// Delete the persistent object
-			database.Listas_de_reproduccion2DAO.delete(ldatabaseListas_de_reproduccion2);
+			database.Listas_de_reproduccionDAO.delete(ldatabaseListas_de_reproduccion);
 			database.Usuario_Administrador ldatabaseUsuario_Administrador = database.Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery(null, null);
 			// Delete the persistent object
 			database.Usuario_AdministradorDAO.delete(ldatabaseUsuario_Administrador);
-			database.Categorias2 ldatabaseCategorias2 = database.Categorias2DAO.loadCategorias2ByQuery(null, null);
+			database.Categorias ldatabaseCategorias = database.CategoriasDAO.loadCategoriasByQuery(null, null);
 			// Delete the persistent object
-			database.Categorias2DAO.delete(ldatabaseCategorias2);
+			database.CategoriasDAO.delete(ldatabaseCategorias);
 			database.Comentarios ldatabaseComentarios = database.ComentariosDAO.loadComentariosByQuery(null, null);
 			// Delete the persistent object
 			database.ComentariosDAO.delete(ldatabaseComentarios);

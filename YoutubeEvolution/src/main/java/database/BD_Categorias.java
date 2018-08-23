@@ -9,17 +9,17 @@ import org.orm.PersistentTransaction;
 
 public class BD_Categorias {
 	public BD_general _bd_principalCategorias;
-	public Vector<Categorias2> _contieneCategorias = new Vector<Categorias2>();
+	public Vector<Categorias> _contieneCategorias = new Vector<Categorias>();
 
-	public List<Categorias2> Cargar_Categorias() throws PersistentException {
-		Categorias2[] lista = null;
-		ArrayList<Categorias2> listaCateg = new ArrayList<Categorias2>();
+	public List<Categorias> Cargar_Categorias() throws PersistentException {
+		Categorias[] lista = null;
+		ArrayList<Categorias> listaCateg = new ArrayList<Categorias>();
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Categorias2Criteria crit = new Categorias2Criteria();
+			CategoriasCriteria crit = new CategoriasCriteria();
 			crit.id_categoria.ge(0);
-			lista = Categorias2DAO.listCategorias2ByCriteria(crit);
-			for(Categorias2 cat : lista) {
+			lista = CategoriasDAO.listCategoriasByCriteria(crit);
+			for(Categorias cat : lista) {
 				listaCateg.add(cat);
 			}
 			
@@ -39,11 +39,11 @@ public class BD_Categorias {
 		if(!user.getContrasenia().equals(aContrasenia)) {
 			throw new RuntimeException("Contrasenia no coincide");
 		}
-		Categorias2 categ = database.Categorias2DAO.createCategorias2();
+		Categorias categ = database.CategoriasDAO.createCategorias();
 		categ.setEdad(aEdad);
 		categ.setIcono(aImagen);
 		categ.setNombre(aNombre);
-		Categorias2DAO.save(categ);
+		CategoriasDAO.save(categ);
 		transaccion.commit();
 			
 		} catch (Exception e) {
@@ -55,11 +55,11 @@ public class BD_Categorias {
 	public void eliminar_categoria(int aId_categoria) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try{
-			Categorias2 cat = database.Categorias2DAO.loadCategorias2ByQuery("id_categoria = "+aId_categoria , "1");
+			Categorias cat = database.CategoriasDAO.loadCategoriasByQuery("id_categoria = "+aId_categoria , "1");
 			if(cat==null) {
 				throw new RuntimeException("NO SE ENCONTRÓ EL ID");
 			}
-			database.Categorias2DAO.delete(cat);
+			database.CategoriasDAO.delete(cat);
 			transaccion.commit();
 		}catch(Exception e) {
 			transaccion.rollback();
@@ -70,11 +70,11 @@ public class BD_Categorias {
 	public void editarCategoria(int id_Categoria, String aNombre_categoria, String aIcono_categoria, int aEdad_categoria) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try{
-			Categorias2 cat = database.Categorias2DAO.loadCategorias2ByQuery("id_categoria ="+id_Categoria , "1");
+			Categorias cat = database.CategoriasDAO.loadCategoriasByQuery("id_categoria ="+id_Categoria , "1");
 		cat.setNombre(aNombre_categoria);
 		cat.setIcono(aIcono_categoria);
 		cat.setEdad(aEdad_categoria);
-		Categorias2DAO.save(cat);
+		CategoriasDAO.save(cat);
 		transaccion.commit();
 		}catch(Exception e ) {
 			transaccion.rollback();

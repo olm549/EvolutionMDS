@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -20,8 +20,7 @@ import org.orm.criteria.*;
 
 public class VideosDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id_video;
-	public final IntegerExpression autorId;
-	public final AssociationExpression autor;
+	public final CollectionExpression usuarios_que_dan_me_gusta;
 	public final IntegerExpression categoriaId;
 	public final AssociationExpression categoria;
 	public final StringExpression miniatura;
@@ -33,15 +32,15 @@ public class VideosDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression etiquetas;
 	public final IntegerExpression duracion;
 	public final CollectionExpression comentarios_en_videos;
-	public final CollectionExpression usuarios_que_dan_me_gusta;
+	public final IntegerExpression autorId;
+	public final AssociationExpression autor;
 	public final CollectionExpression listas_de_videos;
 	public final CollectionExpression usuario_visualizador;
 	
 	public VideosDetachedCriteria() {
 		super(database.Videos.class, database.VideosCriteria.class);
 		id_video = new IntegerExpression("id_video", this.getDetachedCriteria());
-		autorId = new IntegerExpression("autor.", this.getDetachedCriteria());
-		autor = new AssociationExpression("autor", this.getDetachedCriteria());
+		usuarios_que_dan_me_gusta = new CollectionExpression("ORM_usuarios_que_dan_me_gusta", this.getDetachedCriteria());
 		categoriaId = new IntegerExpression("categoria.id_categoria", this.getDetachedCriteria());
 		categoria = new AssociationExpression("categoria", this.getDetachedCriteria());
 		miniatura = new StringExpression("miniatura", this.getDetachedCriteria());
@@ -53,7 +52,8 @@ public class VideosDetachedCriteria extends AbstractORMDetachedCriteria {
 		etiquetas = new StringExpression("etiquetas", this.getDetachedCriteria());
 		duracion = new IntegerExpression("duracion", this.getDetachedCriteria());
 		comentarios_en_videos = new CollectionExpression("ORM_comentarios_en_videos", this.getDetachedCriteria());
-		usuarios_que_dan_me_gusta = new CollectionExpression("ORM_usuarios_que_dan_me_gusta", this.getDetachedCriteria());
+		autorId = new IntegerExpression("autor.", this.getDetachedCriteria());
+		autor = new AssociationExpression("autor", this.getDetachedCriteria());
 		listas_de_videos = new CollectionExpression("ORM_listas_de_videos", this.getDetachedCriteria());
 		usuario_visualizador = new CollectionExpression("ORM_usuario_visualizador", this.getDetachedCriteria());
 	}
@@ -61,8 +61,7 @@ public class VideosDetachedCriteria extends AbstractORMDetachedCriteria {
 	public VideosDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, database.VideosCriteria.class);
 		id_video = new IntegerExpression("id_video", this.getDetachedCriteria());
-		autorId = new IntegerExpression("autor.", this.getDetachedCriteria());
-		autor = new AssociationExpression("autor", this.getDetachedCriteria());
+		usuarios_que_dan_me_gusta = new CollectionExpression("ORM_usuarios_que_dan_me_gusta", this.getDetachedCriteria());
 		categoriaId = new IntegerExpression("categoria.id_categoria", this.getDetachedCriteria());
 		categoria = new AssociationExpression("categoria", this.getDetachedCriteria());
 		miniatura = new StringExpression("miniatura", this.getDetachedCriteria());
@@ -74,29 +73,30 @@ public class VideosDetachedCriteria extends AbstractORMDetachedCriteria {
 		etiquetas = new StringExpression("etiquetas", this.getDetachedCriteria());
 		duracion = new IntegerExpression("duracion", this.getDetachedCriteria());
 		comentarios_en_videos = new CollectionExpression("ORM_comentarios_en_videos", this.getDetachedCriteria());
-		usuarios_que_dan_me_gusta = new CollectionExpression("ORM_usuarios_que_dan_me_gusta", this.getDetachedCriteria());
+		autorId = new IntegerExpression("autor.", this.getDetachedCriteria());
+		autor = new AssociationExpression("autor", this.getDetachedCriteria());
 		listas_de_videos = new CollectionExpression("ORM_listas_de_videos", this.getDetachedCriteria());
 		usuario_visualizador = new CollectionExpression("ORM_usuario_visualizador", this.getDetachedCriteria());
-	}
-	
-	public Usuario_registradoDetachedCriteria createAutorCriteria() {
-		return new Usuario_registradoDetachedCriteria(createCriteria("autor"));
-	}
-	
-	public Categorias2DetachedCriteria createCategoriaCriteria() {
-		return new Categorias2DetachedCriteria(createCriteria("categoria"));
-	}
-	
-	public ComentariosDetachedCriteria createComentarios_en_videosCriteria() {
-		return new ComentariosDetachedCriteria(createCriteria("ORM_comentarios_en_videos"));
 	}
 	
 	public Usuario_registradoDetachedCriteria createUsuarios_que_dan_me_gustaCriteria() {
 		return new Usuario_registradoDetachedCriteria(createCriteria("ORM_usuarios_que_dan_me_gusta"));
 	}
 	
-	public Listas_de_reproduccion2DetachedCriteria createListas_de_videosCriteria() {
-		return new Listas_de_reproduccion2DetachedCriteria(createCriteria("ORM_listas_de_videos"));
+	public CategoriasDetachedCriteria createCategoriaCriteria() {
+		return new CategoriasDetachedCriteria(createCriteria("categoria"));
+	}
+	
+	public ComentariosDetachedCriteria createComentarios_en_videosCriteria() {
+		return new ComentariosDetachedCriteria(createCriteria("ORM_comentarios_en_videos"));
+	}
+	
+	public Usuario_registradoDetachedCriteria createAutorCriteria() {
+		return new Usuario_registradoDetachedCriteria(createCriteria("autor"));
+	}
+	
+	public Listas_de_reproduccionDetachedCriteria createListas_de_videosCriteria() {
+		return new Listas_de_reproduccionDetachedCriteria(createCriteria("ORM_listas_de_videos"));
 	}
 	
 	public Usuario_registradoDetachedCriteria createUsuario_visualizadorCriteria() {

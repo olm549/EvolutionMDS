@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -39,9 +39,9 @@ public class ProyectoMDSPersistentManager extends PersistentManager {
 		configuration.addAnnotatedClass(database.Usuarios.class);
 		configuration.addAnnotatedClass(database.Usuario_registrado.class);
 		configuration.addAnnotatedClass(database.Videos.class);
-		configuration.addAnnotatedClass(database.Listas_de_reproduccion2.class);
+		configuration.addAnnotatedClass(database.Listas_de_reproduccion.class);
 		configuration.addAnnotatedClass(database.Usuario_Administrador.class);
-		configuration.addAnnotatedClass(database.Categorias2.class);
+		configuration.addAnnotatedClass(database.Categorias.class);
 		configuration.addAnnotatedClass(database.Comentarios.class);
 		configuration.buildMappings();
 		return configuration;

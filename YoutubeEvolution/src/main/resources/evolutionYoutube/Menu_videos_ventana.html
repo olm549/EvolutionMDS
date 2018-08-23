@@ -3,36 +3,34 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-horizontal-layout size-full>
-   <vaadin-horizontal-layout size-full>
-    <vaadin-image source="https://image.ibb.co/d4Y7YT/logo.png" width="90%"></vaadin-image>
-    <vaadin-vertical-layout height="70%" margin="false">
-     <vaadin-text-field width-full height="70%" value="Buscador" _id="texto"></vaadin-text-field>
-     <vaadin-horizontal-layout width-full height="40%">
+  <vaadin-css-layout responsive width-full height="350px">
+   <vaadin-css-layout responsive width="30%" height-full>
+    <vaadin-image source="https://image.ibb.co/d4Y7YT/logo.png" responsive size-full></vaadin-image>
+   </vaadin-css-layout>
+   <vaadin-vertical-layout responsive width="70%">
+    <vaadin-horizontal-layout responsive width-full>
+     <vaadin-text-field responsive width-full value="Buscador" _id="texto"></vaadin-text-field>
+     <vaadin-combo-box responsive data-item-type="java.lang.String" _id="tipoB">
+      <option item="Option1">Option 1</option>
+      <option item="Option2">Option 2</option>
+      <option item="Option3">Option 3</option>
+     </vaadin-combo-box>
+     <vaadin-button responsive plain-text>
+       Buscar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout responsive width-full>
+     <vaadin-horizontal-layout responsive width="30%">
       <vaadin-label plain-text>
         Categorías: 
       </vaadin-label>
-      <vaadin-horizontal-layout size-full>
-       <vaadin-image source="https://image.ibb.co/e8R0no/futbol.png" size-full></vaadin-image>
-       <vaadin-image source="https://image.ibb.co/e8R0no/futbol.png" size-full></vaadin-image>
-       <vaadin-image source="https://image.ibb.co/e8R0no/futbol.png" size-full></vaadin-image>
-      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout responsive width-full _id="categoria"></vaadin-horizontal-layout>
      </vaadin-horizontal-layout>
-    </vaadin-vertical-layout>
-   </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width="70.06%" height-full>
-    <vaadin-combo-box width="90%" height="60%" data-item-type="java.lang.String" _id="tipoB">
-     <option item="Option1">Option 1</option>
-     <option item="Option2">Option 2</option>
-     <option item="Option3">Option 3</option>
-    </vaadin-combo-box>
-    <vaadin-button width="60%" plain-text>
-      Buscar 
-    </vaadin-button>
-   </vaadin-horizontal-layout>
-  </vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+  </vaadin-css-layout>
  </body>
 </html>

@@ -66,6 +66,22 @@
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
 		</dependency>
+		
+		
+		<dependency>
+         <groupId>orm</groupId>
+         <artifactId>orm</artifactId>
+         <scope>system</scope>
+         <version>1.0</version>
+         <systemPath>${basedir}\src\lib\orm.jar</systemPath>
+       </dependency>
+       <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.33</version>
+</dependency>
+       
 	</dependencies>
 
 	<build>

@@ -1,5 +1,5 @@
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -13,20 +13,20 @@ public class CreateProyectoMDSData {
 			// Initialize the properties of the persistent object here
 			database.UsuariosDAO.save(ldatabaseUsuarios);
 			database.Usuario_registrado ldatabaseUsuario_registrado = database.Usuario_registradoDAO.createUsuario_registrado();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : historial_usuario, suscriptor, listas_de_reproduccion, video_visualizado, video_subido, suscripcion, comentarios, videos_que_gustan, suscribe, suscrito, edad, numeroVisitas, id_Usuario_registrado
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : suscriptor, listas_de_reproduccion, video_visualizado, video_subido, videos_que_gustan, comentarios, suscrito, edad, numeroVisitas, id_Usuario_registrado
 			database.Usuario_registradoDAO.save(ldatabaseUsuario_registrado);
 			database.Videos ldatabaseVideos = database.VideosDAO.createVideos();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuario_visualizador, listas_de_videos, usuarios_que_dan_me_gusta, comentarios_en_videos, duracion, numVisualizaciones, categoria, autor
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuario_visualizador, listas_de_videos, autor, comentarios_en_videos, duracion, numVisualizaciones, categoria, usuarios_que_dan_me_gusta
 			database.VideosDAO.save(ldatabaseVideos);
-			database.Listas_de_reproduccion2 ldatabaseListas_de_reproduccion2 = database.Listas_de_reproduccion2DAO.createListas_de_reproduccion2();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : videos_en_lista, num_videos, usuario_registrado, usuario_que_consulta_historial
-			database.Listas_de_reproduccion2DAO.save(ldatabaseListas_de_reproduccion2);
+			database.Listas_de_reproduccion ldatabaseListas_de_reproduccion = database.Listas_de_reproduccionDAO.createListas_de_reproduccion();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : videos_en_lista, num_videos, usuario_registrado
+			database.Listas_de_reproduccionDAO.save(ldatabaseListas_de_reproduccion);
 			database.Usuario_Administrador ldatabaseUsuario_Administrador = database.Usuario_AdministradorDAO.createUsuario_Administrador();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : id_Usuario_Administrador
 			database.Usuario_AdministradorDAO.save(ldatabaseUsuario_Administrador);
-			database.Categorias2 ldatabaseCategorias2 = database.Categorias2DAO.createCategorias2();
+			database.Categorias ldatabaseCategorias = database.CategoriasDAO.createCategorias();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : videos, edad
-			database.Categorias2DAO.save(ldatabaseCategorias2);
+			database.CategoriasDAO.save(ldatabaseCategorias);
 			database.Comentarios ldatabaseComentarios = database.ComentariosDAO.createComentarios();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuarios_que_comentan, videosComentados
 			database.ComentariosDAO.save(ldatabaseComentarios);

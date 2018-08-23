@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: OLM(University of Almeria)
+ * Licensee: Juan José(University of Almeria)
  * License Type: Academic
  */
 package database;
@@ -30,14 +30,9 @@ public class Usuario_registradoCriteria extends AbstractORMCriteria {
 	public final StringExpression avatar;
 	public final IntegerExpression numeroVisitas;
 	public final IntegerExpression edad;
-	public final IntegerExpression suscritoId;
-	public final AssociationExpression suscrito;
-	public final IntegerExpression suscribeId;
-	public final AssociationExpression suscribe;
-	public final IntegerExpression videos_que_gustanId;
-	public final AssociationExpression videos_que_gustan;
+	public final CollectionExpression suscrito;
 	public final CollectionExpression comentarios;
-	public final CollectionExpression suscripcion;
+	public final CollectionExpression videos_que_gustan;
 	public final CollectionExpression video_subido;
 	public final CollectionExpression video_visualizado;
 	public final CollectionExpression listas_de_reproduccion;
@@ -58,14 +53,9 @@ public class Usuario_registradoCriteria extends AbstractORMCriteria {
 		avatar = new StringExpression("avatar", this);
 		numeroVisitas = new IntegerExpression("numeroVisitas", this);
 		edad = new IntegerExpression("edad", this);
-		suscritoId = new IntegerExpression("suscrito.", this);
-		suscrito = new AssociationExpression("suscrito", this);
-		suscribeId = new IntegerExpression("suscribe.", this);
-		suscribe = new AssociationExpression("suscribe", this);
-		videos_que_gustanId = new IntegerExpression("videos_que_gustan.id_video", this);
-		videos_que_gustan = new AssociationExpression("videos_que_gustan", this);
+		suscrito = new CollectionExpression("ORM_suscrito", this);
 		comentarios = new CollectionExpression("ORM_comentarios", this);
-		suscripcion = new CollectionExpression("ORM_suscripcion", this);
+		videos_que_gustan = new CollectionExpression("ORM_videos_que_gustan", this);
 		video_subido = new CollectionExpression("ORM_video_subido", this);
 		video_visualizado = new CollectionExpression("ORM_video_visualizado", this);
 		listas_de_reproduccion = new CollectionExpression("ORM_listas_de_reproduccion", this);
@@ -83,23 +73,15 @@ public class Usuario_registradoCriteria extends AbstractORMCriteria {
 	}
 	
 	public Usuario_registradoCriteria createSuscritoCriteria() {
-		return new Usuario_registradoCriteria(createCriteria("suscrito"));
-	}
-	
-	public Usuario_registradoCriteria createSuscribeCriteria() {
-		return new Usuario_registradoCriteria(createCriteria("suscribe"));
-	}
-	
-	public VideosCriteria createVideos_que_gustanCriteria() {
-		return new VideosCriteria(createCriteria("videos_que_gustan"));
+		return new Usuario_registradoCriteria(createCriteria("ORM_suscrito"));
 	}
 	
 	public ComentariosCriteria createComentariosCriteria() {
 		return new ComentariosCriteria(createCriteria("ORM_comentarios"));
 	}
 	
-	public Usuario_registradoCriteria createSuscripcionCriteria() {
-		return new Usuario_registradoCriteria(createCriteria("ORM_suscripcion"));
+	public VideosCriteria createVideos_que_gustanCriteria() {
+		return new VideosCriteria(createCriteria("ORM_videos_que_gustan"));
 	}
 	
 	public VideosCriteria createVideo_subidoCriteria() {
@@ -110,16 +92,16 @@ public class Usuario_registradoCriteria extends AbstractORMCriteria {
 		return new VideosCriteria(createCriteria("ORM_video_visualizado"));
 	}
 	
-	public Listas_de_reproduccion2Criteria createListas_de_reproduccionCriteria() {
-		return new Listas_de_reproduccion2Criteria(createCriteria("ORM_listas_de_reproduccion"));
+	public Listas_de_reproduccionCriteria createListas_de_reproduccionCriteria() {
+		return new Listas_de_reproduccionCriteria(createCriteria("ORM_listas_de_reproduccion"));
 	}
 	
 	public Usuario_registradoCriteria createSuscriptorCriteria() {
 		return new Usuario_registradoCriteria(createCriteria("ORM_suscriptor"));
 	}
 	
-	public Listas_de_reproduccion2Criteria createHistorial_usuarioCriteria() {
-		return new Listas_de_reproduccion2Criteria(createCriteria("historial_usuario"));
+	public Listas_de_reproduccionCriteria createHistorial_usuarioCriteria() {
+		return new Listas_de_reproduccionCriteria(createCriteria("historial_usuario"));
 	}
 	
 	public Usuario_registrado uniqueUsuario_registrado() {
