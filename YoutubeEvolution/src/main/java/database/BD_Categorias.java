@@ -12,17 +12,11 @@ public class BD_Categorias {
 	public Vector<Categorias> _contieneCategorias = new Vector<Categorias>();
 
 	public List<Categorias> Cargar_Categorias() throws PersistentException {
-		Categorias[] lista = null;
-		ArrayList<Categorias> listaCateg = new ArrayList<Categorias>();
+		List<Categorias> listaCateg = new ArrayList<Categorias>();
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			CategoriasCriteria crit = new CategoriasCriteria();
-			crit.id_categoria.ge(0);
-			lista = CategoriasDAO.listCategoriasByCriteria(crit);
-			for(Categorias cat : lista) {
-				listaCateg.add(cat);
-			}
-			
+			listaCateg = CategoriasDAO.queryCategorias(null, null);
+			transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
