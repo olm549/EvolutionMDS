@@ -14,6 +14,8 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+import database.Usuario_registrado;
+
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
  * (or tab) or some part of an HTML page where a Vaadin application is embedded.
@@ -23,12 +25,19 @@ import com.vaadin.ui.VerticalLayout;
  */
 @Theme("mytheme")
 public class MyUI extends UI implements View{
-
+	public static Usuario_registrado usuario;
     @Override
     protected void init(VaadinRequest vaadinRequest) {
     	setNavigator(new Navigator(this, this));
     	getNavigator().addView("", new Invitado());
     }
+    public static Usuario_registrado getUsuarioLogged() {
+		return usuario;
+	}
+
+	public static void setUsuarioLogged(Usuario_registrado user) {
+		usuario = user;
+	}
     public void registrarse() {
     	getNavigator().addView("Registro", new Registrarse());
 		getNavigator().navigateTo("Registro");
