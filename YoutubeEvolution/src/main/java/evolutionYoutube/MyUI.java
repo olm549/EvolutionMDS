@@ -25,7 +25,7 @@ import database.Usuario_registrado;
  */
 @Theme("mytheme")
 public class MyUI extends UI implements View{
-	
+
 	public static Usuario_registrado usuario;
 
     @Override
@@ -33,7 +33,7 @@ public class MyUI extends UI implements View{
     	setNavigator(new Navigator(this, this));
     	getNavigator().addView("", new Invitado());
     }
-    
+
     public static Usuario_registrado getUsuarioLogged() {
 		return usuario;
 	}
@@ -41,7 +41,7 @@ public class MyUI extends UI implements View{
 	public static void setUsuarioLogged(Usuario_registrado user) {
 		usuario = user;
 	}
-	
+
     public void registrarse() {
     	getNavigator().addView("Registro", new Registrarse());
 		getNavigator().navigateTo("Registro");

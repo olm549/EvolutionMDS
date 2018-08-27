@@ -34,6 +34,7 @@ public class Invitado extends Invitado_ventana implements View{
 			}
 			
 		});
+	
 		
 	}
 }

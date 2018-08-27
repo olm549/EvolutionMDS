@@ -6,7 +6,7 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full margin="false">
+  <vaadin-vertical-layout size-full>
    <vaadin-vertical-layout responsive size-auto margin="false">
     <vaadin-label responsive>
      <h2><b>Añadir categoria</b></h2>
@@ -40,11 +40,11 @@
     </vaadin-label>
     <vaadin-text-field height="25px" _id="urlImagen"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width="50%" margin>
+   <vaadin-horizontal-layout width-full margin>
     <vaadin-label plain-text>
       ¿Está seguro de añadir la categoria? 
     </vaadin-label>
-    <vaadin-check-box _id="check" :middle :right></vaadin-check-box>
+    <vaadin-check-box _id="check" :middle></vaadin-check-box>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
    <vaadin-horizontal-layout height-full :middle :right>
