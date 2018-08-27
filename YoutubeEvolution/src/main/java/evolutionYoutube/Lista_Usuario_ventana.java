@@ -20,10 +20,8 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Lista_Usuario_ventana extends VerticalLayout {
 	protected CssLayout listausuarios;
-	protected Button vervideo;
-	protected Button vervideo1;
-	protected Button vervideo2;
-	protected Button vervideo3;
+	protected Button vervideos;
+	protected VerticalLayout contenido;
 
 	public Lista_Usuario_ventana() {
 		Design.read(this);

@@ -6,6 +6,9 @@ import java.util.Vector;
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
+
+import database.Usuario_registrado;
+
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Lista_Video_Usuario extends Lista_Video_Usuario_ventana implements View{
@@ -13,7 +16,7 @@ public class Lista_Video_Usuario extends Lista_Video_Usuario_ventana implements 
 	//public Vector<Video_Usuario> _unnamed_Video_Usuario_ = new Vector<Video_Usuario>();
 	
 	
-	public Lista_Video_Usuario() {
+	public Lista_Video_Usuario(Usuario_registrado usuario_registrado) {
 		atras.addClickListener(new Button.ClickListener() {
 
 			@Override

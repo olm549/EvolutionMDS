@@ -2,6 +2,10 @@ package evolutionYoutube;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
+
+import database.BD_general;
+import database.Usuario_Administrador;
+
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Datos_personales extends Datos_personales_ventana{
@@ -19,6 +23,14 @@ public class Datos_personales extends Datos_personales_ventana{
 			}
 			
 		});
+		BD_general bd = new BD_general();
+		Usuario_Administrador admin= bd.cargar_datos_admin(MyUI.getUsuarioLogged().getID());
+	    nombre.setValue(""+admin.getNombre());
+		apellido.setValue(""+admin.getApellido());
+		apodo.setValue(""+admin.getApodo());
+		email.setValue(""+admin.getEmail());
+		contrasenia.setValue(""+admin.getContrasenia());
+		
 	}
 	public void editar_avatar() {
 		throw new UnsupportedOperationException();

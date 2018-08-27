@@ -3,6 +3,7 @@ package evolutionYoutube;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Vector;
 //import evolutionYoutube.Categoria;
 
@@ -24,6 +25,8 @@ public class Lista_Categoria extends Lista_Categoria_ventana {
 	//public Vector<Categoria> _unnamed_Categoria_ = new Vector<Categoria>();
 	
 	@SuppressWarnings("unchecked")
+	
+   
 	public Lista_Categoria() {
         
 		BD_general bd = new BD_general();
@@ -36,7 +39,9 @@ public class Lista_Categoria extends Lista_Categoria_ventana {
 		grid.setWidth("100%");
 
 		contenido.addComponent(grid);
-		grid.getSelectedItems(); //ES UN Set<database.Categorías> Así que hay que obtener la única categoría seleccionada (porque solo devolverá una), y eliminarla de la bd
+		MyUI.setGrid(grid);
+	
+		
 		
 		crearcategoria.addClickListener(new Button.ClickListener() {
 
@@ -60,7 +65,10 @@ public class Lista_Categoria extends Lista_Categoria_ventana {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				database.Categorias categoria = new database.Categorias();
+				BD_general bd = new BD_general();
+				bd.eliminar_categoria(grid.getSelectionModel().getFirstSelectedItem().get().getId_categoria());
+				((MyUI) UI.getCurrent()).Categorias();
+				
 				
 				
 			}
@@ -68,6 +76,7 @@ public class Lista_Categoria extends Lista_Categoria_ventana {
 		});
 		
 		
-		
 	}
+	
+	
 }

@@ -19,13 +19,14 @@
      <vaadin-css-layout width-full>
       <vaadin-horizontal-layout spacing="false" width-full margin>
        <vaadin-horizontal-layout width-full :center>
-        <vaadin-image source="https://image.ibb.co/cKsvL8/avatar.png" width="50%" height="200px" :center></vaadin-image>
+        <vaadin-image source="https://image.ibb.co/cKsvL8/avatar.png" width="50%" height="200px" _id="avatar" :center></vaadin-image>
        </vaadin-horizontal-layout>
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full>
-       <vaadin-button plain-text :center>
+       <vaadin-button plain-text _id="editaravatar" :center>
          EDITAR AVATAR 
        </vaadin-button>
+       <vaadin-text-field _id="url"></vaadin-text-field>
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full>
@@ -37,7 +38,7 @@
        <vaadin-label plain-text :right>
          NOMBRE: 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="nombre">
          nombre 
        </vaadin-label>
       </vaadin-horizontal-layout>
@@ -45,7 +46,7 @@
        <vaadin-label plain-text :right>
          APELLIDO: 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="apellido">
          apellido 
        </vaadin-label>
       </vaadin-horizontal-layout>
@@ -53,7 +54,7 @@
        <vaadin-label plain-text :right>
          APODO: 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="apodo">
          apodo 
        </vaadin-label>
       </vaadin-horizontal-layout>
@@ -61,7 +62,7 @@
        <vaadin-label plain-text :right>
          AÑO NACIMIENTO: 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="anio">
          año 
        </vaadin-label>
       </vaadin-horizontal-layout>
@@ -69,7 +70,7 @@
        <vaadin-label plain-text :right>
          EMAIL: 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="email">
          email@servidor.com 
        </vaadin-label>
       </vaadin-horizontal-layout>
@@ -77,7 +78,7 @@
        <vaadin-label plain-text :right>
          CONTRASEÑA: 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="contrasenia">
          ********** 
        </vaadin-label>
       </vaadin-horizontal-layout>
@@ -85,7 +86,7 @@
        <vaadin-label plain-text :right>
          CONTRASEÑA (repetir): 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="repetircontrasenia">
          ********** 
        </vaadin-label>
       </vaadin-horizontal-layout>

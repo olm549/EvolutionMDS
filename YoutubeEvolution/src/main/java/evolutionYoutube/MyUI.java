@@ -9,11 +9,13 @@ import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+import database.Usuario_Administrador;
 import database.Usuario_registrado;
 
 /**
@@ -26,6 +28,10 @@ import database.Usuario_registrado;
 @Theme("mytheme")
 public class MyUI extends UI implements View{
 	public static Usuario_registrado usuario;
+	public static Grid<database.Categorias> grid;
+	public static Grid<database.Usuario_registrado> gridListaUsuarios;
+	public static Usuario_Administrador admin;
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
     	setNavigator(new Navigator(this, this));
@@ -34,9 +40,26 @@ public class MyUI extends UI implements View{
     public static Usuario_registrado getUsuarioLogged() {
 		return usuario;
 	}
+   
+    
 
 	public static void setUsuarioLogged(Usuario_registrado user) {
 		usuario = user;
+	}
+	
+	public static database.Categorias getCategoria(){
+		return grid.getSelectionModel().getFirstSelectedItem().get();
+	}
+	public static void setGrid(Grid<database.Categorias> tabla) {
+		grid=tabla;
+		
+	}
+	public static void setGridListaUsuarios(Grid<database.Usuario_registrado> tabla) {
+		gridListaUsuarios=tabla;
+		
+	}
+	public static database.Usuario_registrado getUsuario(){
+		return gridListaUsuarios.getSelectionModel().getFirstSelectedItem().get();
 	}
     public void registrarse() {
     	getNavigator().addView("Registro", new Registrarse());
@@ -136,8 +159,8 @@ public class MyUI extends UI implements View{
 		getNavigator().navigateTo("categorias");
 		
 	}
-	public void Lista_Video_Usuario() {
-		getNavigator().addView("lista video usuario", new Lista_Video_Usuario());
+	public void Lista_Video_Usuario(Usuario_registrado usuario_registrado) {
+		getNavigator().addView("lista video usuario", new Lista_Video_Usuario(usuario_registrado));
 		getNavigator().navigateTo("lista video usuario");
 		
 	}

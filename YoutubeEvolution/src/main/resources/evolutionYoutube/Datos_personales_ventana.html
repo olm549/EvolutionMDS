@@ -3,19 +3,20 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
   <vaadin-vertical-layout margin="false">
    <vaadin-vertical-layout _id="datos_personales">
     <vaadin-vertical-layout>
      <vaadin-horizontal-layout width-full>
-      <vaadin-image source="https://image.ibb.co/cKsvL8/avatar.png" width="50%" height-full :center></vaadin-image>
+      <vaadin-image source="https://image.ibb.co/cKsvL8/avatar.png" width="50%" height-full _id="avatar" :center></vaadin-image>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full>
-      <vaadin-button plain-text :center>
+      <vaadin-button plain-text _id="editaravatar" :center>
         EDITAR AVATAR 
       </vaadin-button>
+      <vaadin-text-field _id="url"></vaadin-text-field>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full>
@@ -27,57 +28,37 @@
       <vaadin-label plain-text :right>
         NOMBRE: 
       </vaadin-label>
-      <vaadin-label plain-text>
-        nombre 
-      </vaadin-label>
+      <vaadin-text-field _id="nombre"></vaadin-text-field>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full>
       <vaadin-label plain-text :right>
         APELLIDO: 
       </vaadin-label>
-      <vaadin-label plain-text>
-        apellido 
-      </vaadin-label>
+      <vaadin-text-field _id="apellido"></vaadin-text-field>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full>
       <vaadin-label plain-text :right>
         APODO: 
       </vaadin-label>
-      <vaadin-label plain-text>
-        apodo 
-      </vaadin-label>
-     </vaadin-horizontal-layout>
-     <vaadin-horizontal-layout width-full>
-      <vaadin-label plain-text :right>
-        AÑO NACIMIENTO: 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        año 
-      </vaadin-label>
+      <vaadin-text-field _id="apodo"></vaadin-text-field>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full>
       <vaadin-label plain-text :right>
         EMAIL: 
       </vaadin-label>
-      <vaadin-label plain-text>
-        email@servidor.com 
-      </vaadin-label>
+      <vaadin-text-field _id="email"></vaadin-text-field>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full>
       <vaadin-label plain-text :right>
         CONTRASEÑA: 
       </vaadin-label>
-      <vaadin-label plain-text>
-        ********** 
-      </vaadin-label>
+      <vaadin-text-field _id="contrasenia"></vaadin-text-field>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full>
       <vaadin-label plain-text :right>
         CONTRASEÑA (repetir): 
       </vaadin-label>
-      <vaadin-label plain-text>
-        ********** 
-      </vaadin-label>
+      <vaadin-text-field _id="repetircontrasenia"></vaadin-text-field>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout width-full>
       <vaadin-button plain-text _id="modificar" :center>

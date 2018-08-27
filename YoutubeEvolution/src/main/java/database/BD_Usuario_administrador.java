@@ -13,7 +13,7 @@ public class BD_Usuario_administrador {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		Usuario_Administrador admin = null;
 		try {
-			admin = database.Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("id_admin = "+aID_Admin, "1");
+			admin = database.Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("Id_Usuario_Administrador = "+aID_Admin, "1");
 			return admin;
 		}catch(Exception e ) {
 			transaccion.rollback();

@@ -1,12 +1,16 @@
 package evolutionYoutube;
 
+import java.util.List;
 import java.util.Vector;
 //import evolutionYoutube.Usuario_Comentario;
 
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
+
+import database.BD_general;
 
 public class Lista_Usuario extends Lista_Usuario_ventana implements View {
 	public Lista_Usuarios _unnamed_Lista_Usuarios_;
@@ -14,42 +18,29 @@ public class Lista_Usuario extends Lista_Usuario_ventana implements View {
 
 	
 	public Lista_Usuario() {
-		vervideo.addClickListener(new Button.ClickListener() {
+		vervideos.addClickListener(new Button.ClickListener() {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).Lista_Video_Usuario();
+				((MyUI) UI.getCurrent()).Lista_Video_Usuario(MyUI.getUsuario());
 				
 			}
 			
 		});
-		vervideo1.addClickListener(new Button.ClickListener() {
+		
+		BD_general bd = new BD_general();
+		List<database.Usuario_registrado> user = bd.cargar_Lista_Usuarios();
+		Grid<database.Usuario_registrado> grid = new Grid<>();
+		grid.setItems(user);
+		grid.addColumn(database.Usuario_registrado::getAvatar).setCaption("Avatar");
+		grid.addColumn(database.Usuario_registrado::getApodo).setCaption("Apodo");
+		grid.addColumn(database.Usuario_registrado::getAnio).setCaption("Fecha");
+		grid.setWidth("100%");
 
-			@Override
-			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).Lista_Video_Usuario();
-				
-			}
-			
-		});
-		vervideo2.addClickListener(new Button.ClickListener() {
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).Lista_Video_Usuario();
-				
-			}
-			
-		});
-		vervideo3.addClickListener(new Button.ClickListener() {
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).Lista_Video_Usuario();
-				
-			}
-			
-		});
+		contenido.addComponent(grid);
+		MyUI.setGridListaUsuarios(grid);
+	
+		
 	}
 	public void buscar() {
 		throw new UnsupportedOperationException();
