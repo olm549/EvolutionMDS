@@ -11,6 +11,7 @@ import org.orm.PersistentException;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
+import com.vaadin.ui.components.grid.SingleSelectionModel;
 
 import database.BD_Categorias;
 import database.BD_general;
@@ -36,8 +37,8 @@ public class Lista_Categoria extends Lista_Categoria_ventana {
 		grid.setWidth("100%");
 
 		contenido.addComponent(grid);
-		grid.getSelectedItems(); //ES UN Set<database.Categorías> Así que hay que obtener la única categoría seleccionada (porque solo devolverá una), y eliminarla de la bd
-		
+		//grid.getSelectedItems(); //ES UN Set<database.Categorías> Así que hay que obtener la única categoría seleccionada (porque solo devolverá una), y eliminarla de la bd
+		grid.getSelectionModel().getFirstSelectedItem();
 		crearcategoria.addClickListener(new Button.ClickListener() {
 
 			@Override
