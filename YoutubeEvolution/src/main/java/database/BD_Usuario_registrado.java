@@ -64,9 +64,7 @@ public class BD_Usuario_registrado {
 	}
 
 	public void iniciar_sesion(String aEmail, String aContrasenia) throws PersistentException {
-		if(comprobar_inicio(aEmail,aContrasenia) == true) {
-			
-		}else {
+		if(comprobar_inicio(aEmail,aContrasenia) == false) {
 			
 		}
 		
@@ -115,11 +113,25 @@ public class BD_Usuario_registrado {
 			return false;
 		}
 	}
-
 	@SuppressWarnings("unchecked")
+	public List<Usuario_registrado> cargar_Lista_Usuarios() throws PersistentException {
+		  List<Usuario_registrado> listaU = new ArrayList<Usuario_registrado>();
+	      PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+	      try {
+		              listaU = Usuario_registradoDAO.queryUsuario_registrado(null, null);
+		              transaccion.commit();
+	      }catch (PersistentException e) {
+	               	transaccion.rollback();
+		            return null;
+	      }
+         return listaU;    
+ 		
+    }
+	/**@SuppressWarnings("unchecked")
 	public List<Usuario_registrado> cargar_Lista_Usuarios() throws PersistentException {
 		List<Usuario_registrado> listaUsers=null;
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		
 		try {
 			
 	      listaUsers=Usuario_registradoDAO.queryUsuario_registrado("ID > 0", "1");
@@ -127,7 +139,7 @@ public class BD_Usuario_registrado {
 			transaccion.rollback();			
 		}
 		return listaUsers;
-	}
+	}**/
 
 	public Usuario_registrado cargar_Datos_Registrado(int aID_Registrado) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();

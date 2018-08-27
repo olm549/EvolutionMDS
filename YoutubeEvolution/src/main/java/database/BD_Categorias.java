@@ -11,7 +11,7 @@ public class BD_Categorias {
 	public BD_general _bd_principalCategorias;
 	public Vector<Categorias> _contieneCategorias = new Vector<Categorias>();
 
-	public List<Categorias> Cargar_Categorias() throws PersistentException {
+	/**public List<Categorias> Cargar_Categorias() throws PersistentException {
 		Categorias[] lista = null;
 		ArrayList<Categorias> listaCateg = new ArrayList<Categorias>();
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
@@ -23,6 +23,18 @@ public class BD_Categorias {
 				listaCateg.add(cat);
 			}
 			
+		} catch(Exception e) {
+			transaccion.rollback();			
+		}
+		return listaCateg;
+	}**/
+	@SuppressWarnings("unchecked")
+	public List<Categorias> Cargar_Categorias() throws PersistentException {
+		List<Categorias> listaCateg = new ArrayList<Categorias>();
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			listaCateg = CategoriasDAO.queryCategorias(null, null);
+			transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
