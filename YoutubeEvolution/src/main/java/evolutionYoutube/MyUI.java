@@ -14,6 +14,7 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+import database.Usuario_Administrador;
 import database.Usuario_registrado;
 
 /**
@@ -27,7 +28,8 @@ import database.Usuario_registrado;
 public class MyUI extends UI implements View{
 
 	public static Usuario_registrado usuario;
-
+	public static Usuario_Administrador admin;
+	
     @Override
     protected void init(VaadinRequest vaadinRequest) {
     	setNavigator(new Navigator(this, this));
@@ -41,7 +43,15 @@ public class MyUI extends UI implements View{
 	public static void setUsuarioLogged(Usuario_registrado user) {
 		usuario = user;
 	}
+	
+    public static Usuario_Administrador getAdminLogged() {
+		return admin;
+	}
 
+    public static void setAdminLogged(Usuario_Administrador administrador) {
+		admin = administrador;
+	}
+    
     public void registrarse() {
     	getNavigator().addView("Registro", new Registrarse());
 		getNavigator().navigateTo("Registro");
