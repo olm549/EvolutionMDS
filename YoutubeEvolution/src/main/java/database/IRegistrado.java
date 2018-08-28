@@ -6,9 +6,9 @@ import com.vaadin.ui.TextArea;
 
 public interface IRegistrado {
 
-	public List<Videos> Cargar_Videos_Relacionados();
+	public List<Videos> Cargar_Videos_Relacionados(int aIDUsuario);
 
-	public List<Videos> Cargar_Videos_Suscripciones();
+	public List<Videos> Cargar_Videos_Suscripciones(int aIDUsuario);
 
 	public void Registrarse(String aNombre, String aApellidos, String aApodo, int aEdad, String aEmail, String aContrasenia, String aConfirmacion);
 
