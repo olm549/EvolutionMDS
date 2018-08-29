@@ -48,7 +48,7 @@ public class BD_Usuario_registrado {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		ArrayList<Usuario_registrado> lista = new ArrayList<Usuario_registrado>();
 		try {
-			Usuario_registrado[] listaUsers = Usuario_registradoDAO.listUsuario_registradoByQuery("apodo LIKE %"+aTexto+"%", "1");
+			Usuario_registrado[] listaUsers = Usuario_registradoDAO.listUsuario_registradoByQuery("apodo LIKE '%"+aTexto+"%'", "1");
 			for(Usuario_registrado user : listaUsers) {
 				lista.add(user);
 		}

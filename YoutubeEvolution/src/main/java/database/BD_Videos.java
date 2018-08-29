@@ -40,9 +40,9 @@ public class BD_Videos {
 		List<Videos> listaVideos=null;
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			
-	      listaVideos =VideosDAO.queryVideos("fecha = 2018", null);
-	      transaccion.commit();
+			Calendar fecha = Calendar.getInstance();
+			listaVideos =VideosDAO.queryVideos("fecha LIKE '%"+fecha.MONTH+"%'", null);
+			transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
@@ -128,6 +128,7 @@ public class BD_Videos {
 			transaccion.rollback();
 			e.printStackTrace();
 		}
+	    
 	}
 
 	public void Eliminar_video(int aID) throws PersistentException {
@@ -181,7 +182,7 @@ public class BD_Videos {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		ArrayList<Videos> lista = new ArrayList<Videos>();
 		try {
-			Videos[] listaVideos = VideosDAO.listVideosByQuery("titulo LIKE %"+aTexto+"%", "1");
+			Videos[] listaVideos = VideosDAO.listVideosByQuery("titulo LIKE '%"+aTexto+"%'", "1");
 			for(Videos vid : listaVideos) {
 				lista.add(vid);
 		}
@@ -204,6 +205,24 @@ public class BD_Videos {
 			for(Videos video : user.video_subido.toArray()) {
 				lista.add(video);
 			}
+			
+			
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+	public List<Videos> buscarPorCategoria(String aTexto) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		ArrayList<Videos> lista = new ArrayList<Videos>();
+		try {
+			Videos[] listaVideos = VideosDAO.listVideosByQuery(null,null);
+			for(Videos vid : listaVideos) {
+				if(vid.getCategoria().getNombre().equals(aTexto))
+				lista.add(vid);
+		}
 		}catch(Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();

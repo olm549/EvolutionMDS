@@ -376,10 +376,20 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 			}
 			return lista;
 		}
-		else {
+		if(aTipo.equals("usuario")) {
 			BD_Usuario_registrado bd = new BD_Usuario_registrado();
 			try {
 				lista =  bd.buscar(aTexto);
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return lista;
+		}
+		else {
+			BD_Videos bd = new BD_Videos();
+			try {
+				lista =  bd.buscarPorCategoria(aTexto);
 			} catch (PersistentException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
