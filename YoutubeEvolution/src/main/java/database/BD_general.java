@@ -15,11 +15,11 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 	public BD_Usuario_administrador _bd_Administradores;
 	public BD_Comentarios _bd_Comentarios;
 
-	public List<Videos> Cargar_Videos_Relacionados() {
+	public List<Videos> Cargar_Videos_Relacionados(int aIDUsuario) {
 		BD_Videos bd = new BD_Videos();
 		List<Videos> lista = null;
 		try {
-			lista = bd.Cargar_Videos_Relacionados();
+			lista = bd.Cargar_Videos_Relacionados(aIDUsuario);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,11 +27,11 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return lista;
 	}
 
-	public List<Videos> Cargar_Videos_Suscripciones() {
+	public List<Videos> Cargar_Videos_Suscripciones(int aIDUsuario) {
 		BD_Videos bd = new BD_Videos();
 		List<Videos> lista = null;
 		try {
-			lista = bd.Cargar_Videos_Suscripciones();
+			lista = bd.Cargar_Videos_Suscripciones(aIDUsuario);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

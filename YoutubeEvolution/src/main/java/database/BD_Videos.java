@@ -2,6 +2,7 @@ package database;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.TreeMap;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -16,11 +17,17 @@ public class BD_Videos {
 	@SuppressWarnings("unchecked")
 	public List<Videos> Cargar_Videos_Megusta() throws PersistentException {
 	
-		List<Videos> listaVideos=null;
+		List<Videos> listaVideos= new ArrayList<Videos>();
+		TreeMap<Integer, Videos> treemap = new TreeMap();
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			
-	      listaVideos=VideosDAO.queryVideos("NumVisualizaciones > 0", "NumVisualizaciones");
+			for(Videos video :VideosDAO.listVideosByQuery(null, null)) {
+				treemap.put(video.usuarios_que_dan_me_gusta.size(), video);
+			}
+			for(Videos video : treemap.values()) {
+				listaVideos.add(video);
+			}
+			transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
@@ -33,7 +40,8 @@ public class BD_Videos {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
-	      listaVideos =VideosDAO.queryVideos("Fecha = 2018", "NumVisualizaciones");
+	      listaVideos =VideosDAO.queryVideos("fecha = 2018", null);
+	      transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
@@ -41,12 +49,24 @@ public class BD_Videos {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Videos> Cargar_Videos_Relacionados() throws PersistentException {
-		List<Videos> listaVideos=null;
+	public List<Videos> Cargar_Videos_Relacionados(int aIDUsuario) throws PersistentException {
+		List<Videos> listaVideos= new ArrayList<Videos>();
+		List<Categorias> listaCategorias = new ArrayList<Categorias>();
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			
-	      listaVideos=VideosDAO.queryVideos("NumVisualizaciones > 0", "NumVisualizaciones");
+		  Usuario_registrado user= Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDUsuario, "1");
+		  for(Videos videosLike : user.videos_que_gustan.toArray()) {
+			  if(!listaCategorias.contains(videosLike.getCategoria()))
+			  listaCategorias.add(videosLike.getCategoria());
+		  }
+		  
+		  for(Categorias cat : listaCategorias) {
+			  for(Videos video : cat.videos.toArray()) {
+				  if(!listaVideos.contains(video))
+					  listaVideos.add(video);
+			  }
+		  }
+	      transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
@@ -54,12 +74,17 @@ public class BD_Videos {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Videos> Cargar_Videos_Suscripciones() throws PersistentException {
-		List<Videos> listaVideos=null;
+	public List<Videos> Cargar_Videos_Suscripciones(int aIDUsuario) throws PersistentException {
+		List<Videos> listaVideos= new ArrayList<Videos>();
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			
-	      listaVideos=VideosDAO.queryVideos("NumVisualizaciones > 0", "NumVisualizaciones");
+		  Usuario_registrado user= Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDUsuario, "1");
+		  for(Usuario_registrado suscritoA : user.suscriptor.toArray()) {
+			  for(Videos video : suscritoA.video_subido.toArray()) {
+				  listaVideos.add(video);
+			  }
+		  }
+	     transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
@@ -74,14 +99,13 @@ public class BD_Videos {
 		/*vc.titulo.eq(aTitulo);
 		if(vc.uniqueVideos()!=null) {
 			throw new RuntimeException("Titulo en uso");
-
 		}
 		*/
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
 		Videos vid = database.VideosDAO.createVideos();
-		Categorias categ = database.CategoriasDAO.loadCategoriasByQuery("nombre = categoria", "1");
+		Categorias categ = database.CategoriasDAO.loadCategoriasByQuery("nombre = '"+categoria+"'", "1");
 		Listas_de_reproduccion list = database.Listas_de_reproduccionDAO.loadListas_de_reproduccionByQuery("id_lista = "+lista, "1");
 		Usuario_registrado autor = database.Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = " +idAutor, "1");
 		vid.setTitulo(aTitulo);
@@ -141,6 +165,7 @@ public class BD_Videos {
 		try{
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDusuario, "1");
 			Videos vid = VideosDAO.loadVideosByQuery("id_video = "+aIDvideo , "1");
+			user.videos_que_gustan.add(vid);
 			vid.usuarios_que_dan_me_gusta.add(user);
 			transaccion.commit();
 		}catch(Exception e) {

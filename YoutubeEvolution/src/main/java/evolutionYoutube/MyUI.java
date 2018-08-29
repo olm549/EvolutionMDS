@@ -50,6 +50,13 @@ public class MyUI extends UI implements View{
 	public static database.Categorias getCategoria(){
 		return grid.getSelectionModel().getFirstSelectedItem().get();
 	}
+	public static Usuario_Administrador getAdminLogged() {
+		return admin;
+	}
+
+    public static void setAdminLogged(Usuario_Administrador administrador) {
+		admin = administrador;
+	}
 	public static void setGrid(Grid<database.Categorias> tabla) {
 		grid=tabla;
 		

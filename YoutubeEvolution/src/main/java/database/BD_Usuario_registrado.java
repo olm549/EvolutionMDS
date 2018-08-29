@@ -7,7 +7,10 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import com.vaadin.ui.UI;
+
 import database.Usuario_registrado;
+import evolutionYoutube.MyUI;
 
 public class BD_Usuario_registrado {
 	public BD_general _bd_principalRegistrados;
@@ -64,24 +67,48 @@ public class BD_Usuario_registrado {
 	}
 
 	public void iniciar_sesion(String aEmail, String aContrasenia) throws PersistentException {
-		if(comprobar_inicio(aEmail,aContrasenia) == false) {
-			
+		if(comprobar_inicio(aEmail,aContrasenia) == "user") {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("email = "+aEmail, null);
+			MyUI.setUsuarioLogged(user);
+			MyUI.setAdminLogged(null);
+			((MyUI) UI.getCurrent()).usuario_registrado();
 		}
-		
+		else if(comprobar_inicio(aEmail,aContrasenia) == "admin") {
+			Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("email = "+aEmail, null);
+			MyUI.setAdminLogged(admin);
+			MyUI.setUsuarioLogged(null);
+			((MyUI) UI.getCurrent()).administrador();
+		}
+		else {
+			MyUI.setAdminLogged(null);
+			MyUI.setUsuarioLogged(null);
+			((MyUI) UI.getCurrent()).invitado();
+		}
 	}
 
-	public boolean comprobar_inicio(String aEmail, String aContrasenia) throws PersistentException {
+	public String comprobar_inicio(String aEmail, String aContrasenia) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("email = "+aEmail, "1");
-			if(user.getContrasenia().equals(aContrasenia)) {
-				return true;
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("email = "+aEmail, null);
+			if(user != null) {
+
+				if(user.getContrasenia().equals(aContrasenia)) {
+					return "user";
+				}
 			}
-			return false;
+			else{
+				Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("email = "+aEmail,null);
+				if(admin != null ) {
+					if(admin.getContrasenia().equals(aContrasenia)) {
+						return "admin";
+					}
+				}
+			}
+			return null;
 		}catch(Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 	}
 
