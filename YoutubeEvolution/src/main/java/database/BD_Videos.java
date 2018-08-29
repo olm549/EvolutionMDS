@@ -192,6 +192,21 @@ public class BD_Videos {
 		}
 		return lista;
 	}
+	public List<Videos> buscarPorCategoria(String aTexto) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		ArrayList<Videos> lista = new ArrayList<Videos>();
+		try {
+			Videos[] listaVideos = VideosDAO.listVideosByQuery(null,null);
+			for(Videos vid : listaVideos) {
+				if(vid.getCategoria().getNombre().equals(aTexto))
+				lista.add(vid);
+		}
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		return lista;
+	}
 	//Que hace esto aqui?
 	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice) {
 		
