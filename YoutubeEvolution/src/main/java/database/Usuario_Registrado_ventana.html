@@ -6,10 +6,10 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-css-layout width-full>
-   <vaadin-vertical-layout>
-    <vaadin-horizontal-layout>
-     <vaadin-button plain-text _id="subirVideo">
+  <vaadin-vertical-layout spacing="false" margin="false">
+   <vaadin-vertical-layout height="125px" :center>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-button plain-text _id="subirVideo" :right>
        Subir Video 
      </vaadin-button>
      <vaadin-button plain-text _id="miPerfil">
@@ -19,6 +19,6 @@
     </vaadin-horizontal-layout>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout _id="paginaInicio"></vaadin-vertical-layout>
-  </vaadin-css-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>

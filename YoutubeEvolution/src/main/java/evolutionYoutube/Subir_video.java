@@ -33,7 +33,7 @@ public class Subir_video extends Subir_video_ventana implements View {
 	}
 	public void subir_video() {
 		BD_general bd = new BD_general();
-	     bd.subir_video(titulo.getValue(), miniatura.getValue(), url.getValue(), MyUI.getUsuarioLogged().getId_Usuario_registrado(),comentarios.getValue(), descripcion,etiquetas.getValue(), select.getValue().getNombre(), 1);
+	     bd.subir_video(titulo.getValue(), miniatura.getValue(), url.getValue(), MyUI.getUsuarioLogged().getID(),comentarios.getValue(), descripcion,etiquetas.getValue(),select.getValue().getNombre(), 1);
 		((MyUI) UI.getCurrent()).usuario_registrado();
 	}
     //Hace falta?

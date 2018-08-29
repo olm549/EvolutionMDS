@@ -1,4 +1,5 @@
 package database;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -114,7 +115,9 @@ public class BD_Videos {
 		vid.setDescrVideo(aDescripcion.toString());
 		vid.setContenidoVideo(aContenido);
 		vid.setEtiquetas(aEtiquetas);
-		vid.setFecha(Calendar.getInstance().toString());
+		Calendar fecha = Calendar.getInstance();
+        String año = fecha.get(Calendar.DAY_OF_MONTH)+"-"+fecha.get(Calendar.MONTH)+"-"+fecha.get(Calendar.YEAR);
+		vid.setFecha(año);
 		vid.setCategoria(categ);
 		vid.listas_de_videos.add(list);
 		vid.setNumVisualizaciones(0);

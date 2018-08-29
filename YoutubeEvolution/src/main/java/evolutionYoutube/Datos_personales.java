@@ -5,6 +5,7 @@ import com.vaadin.ui.UI;
 
 import database.BD_general;
 import database.Usuario_Administrador;
+import database.Usuario_registrado;
 
 import com.vaadin.ui.Button.ClickEvent;
 
@@ -24,7 +25,7 @@ public class Datos_personales extends Datos_personales_ventana{
 			
 		});
 		BD_general bd = new BD_general();
-		Usuario_Administrador admin= bd.cargar_datos_admin(MyUI.getUsuarioLogged().getID());
+		Usuario_registrado admin= bd.cargar_Datos_Registrado(MyUI.getUsuarioLogged().getID());
 	    nombre.setValue(""+admin.getNombre());
 		apellido.setValue(""+admin.getApellido());
 		apodo.setValue(""+admin.getApodo());
