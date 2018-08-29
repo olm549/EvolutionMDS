@@ -40,9 +40,9 @@ public class BD_Videos {
 		List<Videos> listaVideos=null;
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			
-	      listaVideos =VideosDAO.queryVideos("fecha = 2018", null);
-	      transaccion.commit();
+			Calendar fecha = Calendar.getInstance();
+			listaVideos =VideosDAO.queryVideos("fecha LIKE '%"+fecha.MONTH+"%'", null);
+			transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
@@ -182,7 +182,7 @@ public class BD_Videos {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		ArrayList<Videos> lista = new ArrayList<Videos>();
 		try {
-			Videos[] listaVideos = VideosDAO.listVideosByQuery("titulo LIKE %"+aTexto+"%", "1");
+			Videos[] listaVideos = VideosDAO.listVideosByQuery("titulo LIKE '%"+aTexto+"%'", "1");
 			for(Videos vid : listaVideos) {
 				lista.add(vid);
 		}
