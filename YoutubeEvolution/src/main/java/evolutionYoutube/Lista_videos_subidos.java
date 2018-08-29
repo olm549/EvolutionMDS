@@ -38,7 +38,7 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventana {
 
 			
 		});
-		eliminar2.addClickListener(new Button.ClickListener() {
+		/**eliminar2.addClickListener(new Button.ClickListener() {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -51,7 +51,7 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventana {
 				
 			}
 
-		});
+		});**/
 		
 	}
 	

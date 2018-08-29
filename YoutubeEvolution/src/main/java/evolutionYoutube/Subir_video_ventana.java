@@ -25,8 +25,9 @@ public class Subir_video_ventana extends HorizontalLayout {
 	protected TextField titulo;
 	protected TextField miniatura;
 	protected ComboBox<java.lang.String> lista;
-	protected CheckBox deshCom;
-	protected ComboBox<java.lang.String> categoria;
+	protected CheckBox comentarios;
+	protected HorizontalLayout categoria1;
+	protected TextField url;
 	protected TextArea descripcion;
 	protected TextArea etiquetas;
 	protected Button subir;

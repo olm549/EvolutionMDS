@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
   <vaadin-horizontal-layout width-full margin>
@@ -32,16 +32,16 @@
       <vaadin-label plain-text>
         Deshabilitar comentarios 
       </vaadin-label>
-      <vaadin-check-box _id="deshCom"></vaadin-check-box>
+      <vaadin-check-box _id="comentarios"></vaadin-check-box>
      </vaadin-horizontal-layout>
      <vaadin-label plain-text>
        Categoria 
      </vaadin-label>
-     <vaadin-combo-box data-item-type="java.lang.String" _id="categoria">
-      <option item="Option1">Option 1</option>
-      <option item="Option2">Option 2</option>
-      <option item="Option3">Option 3</option>
-     </vaadin-combo-box>
+     <vaadin-horizontal-layout _id="categoria1"></vaadin-horizontal-layout>
+     <vaadin-label plain-text>
+       URL Video 
+     </vaadin-label>
+     <vaadin-text-field _id="url"></vaadin-text-field>
     </vaadin-vertical-layout>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout>

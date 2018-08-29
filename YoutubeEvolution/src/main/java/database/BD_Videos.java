@@ -1,4 +1,5 @@
 package database;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -99,14 +100,14 @@ public class BD_Videos {
 		/*vc.titulo.eq(aTitulo);
 		if(vc.uniqueVideos()!=null) {
 			throw new RuntimeException("Titulo en uso");
-
 		}
 		*/
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
 		Videos vid = database.VideosDAO.createVideos();
-		Categorias categ = database.CategoriasDAO.loadCategoriasByQuery("nombre = "+categoria, "1");
+
+		Categorias categ = database.CategoriasDAO.loadCategoriasByQuery("nombre = '"+categoria+"'", "1");
 		Listas_de_reproduccion list = database.Listas_de_reproduccionDAO.loadListas_de_reproduccionByQuery("id_lista = "+lista, "1");
 		Usuario_registrado autor = database.Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = " +idAutor, "1");
 		vid.setTitulo(aTitulo);
@@ -115,7 +116,9 @@ public class BD_Videos {
 		vid.setDescrVideo(aDescripcion.toString());
 		vid.setContenidoVideo(aContenido);
 		vid.setEtiquetas(aEtiquetas);
-		vid.setFecha(Calendar.getInstance().toString());
+		Calendar fecha = Calendar.getInstance();
+        String año = fecha.get(Calendar.DAY_OF_MONTH)+"-"+fecha.get(Calendar.MONTH)+"-"+fecha.get(Calendar.YEAR);
+		vid.setFecha(año);
 		vid.setCategoria(categ);
 		vid.listas_de_videos.add(list);
 		vid.setNumVisualizaciones(0);
