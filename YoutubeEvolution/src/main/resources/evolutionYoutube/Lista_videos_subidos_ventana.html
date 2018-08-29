@@ -3,11 +3,11 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
   <vaadin-vertical-layout size-full>
-   <vaadin-css-layout width="75%" height="2500px">
+   <vaadin-css-layout width-full>
     <vaadin-vertical-layout>
      <vaadin-horizontal-layout width-full>
       <vaadin-label plain-text :center>
@@ -15,170 +15,90 @@
       </vaadin-label>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
-    <vaadin-horizontal-layout width-full height="260px">
-     <vaadin-vertical-layout width="50%" height-full>
-      <vaadin-button width="200%" plain-text>
-        &lt; 
-      </vaadin-button>
-     </vaadin-vertical-layout>
-     <vaadin-css-layout width-full>
+    <vaadin-panel>
+     <vaadin-horizontal-layout width="50%" _id="video">
       <vaadin-css-layout width-full>
-       <vaadin-image source="https://image.ibb.co/c6vbSo/miniatura.png" size-full></vaadin-image>
-       <vaadin-horizontal-layout width-full height="25px">
-        <vaadin-image source="https://image.ibb.co/nvegtT/visualizaciones.png" responsive width="30px"></vaadin-image>
-        <vaadin-label plain-text>
-          15 
-        </vaadin-label>
-        <vaadin-image source="https://image.ibb.co/fdvzf8/like.png" responsive width="30px"></vaadin-image>
-        <vaadin-label plain-text>
-          13 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full>
-        <vaadin-button width-full plain-text :center>
-          EDITAR MINIATURA 
-        </vaadin-button>
+        <vaadin-css-layout width-full>
+         <vaadin-vertical-layout size-full>
+          <vaadin-image source="https://image.ibb.co/c6vbSo/miniatura.png" width="50%" height-full :center></vaadin-image>
+         </vaadin-vertical-layout>
+         <vaadin-horizontal-layout width-full>
+          <vaadin-image source="https://image.ibb.co/nvegtT/visualizaciones.png" responsive width="30px"></vaadin-image>
+          <vaadin-label plain-text>
+            15 
+          </vaadin-label>
+          <vaadin-image source="https://image.ibb.co/fdvzf8/like.png" responsive width="30px"></vaadin-image>
+          <vaadin-label plain-text>
+            13 
+          </vaadin-label>
+         </vaadin-horizontal-layout>
+         <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
+         <vaadin-horizontal-layout width-full>
+          <vaadin-button width="50%" plain-text :center>
+            EDITAR MINIATURA 
+          </vaadin-button>
+         </vaadin-horizontal-layout>
+        </vaadin-css-layout>
        </vaadin-horizontal-layout>
+       <vaadin-vertical-layout>
+        <vaadin-label plain-text :center>
+          INFORMACIÓN DEL VIDEO 
+        </vaadin-label>
+       </vaadin-vertical-layout>
+       <vaadin-vertical-layout margin="false">
+        <vaadin-horizontal-layout>
+         <vaadin-label plain-text>
+           TÍTULO: 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           título 
+         </vaadin-label>
+        </vaadin-horizontal-layout>
+       </vaadin-vertical-layout>
+       <vaadin-vertical-layout margin="false">
+        <vaadin-horizontal-layout>
+         <vaadin-label plain-text>
+           DESCRIPCIÓN: 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           descripción 
+         </vaadin-label>
+        </vaadin-horizontal-layout>
+       </vaadin-vertical-layout>
+       <vaadin-vertical-layout margin="false">
+        <vaadin-horizontal-layout>
+         <vaadin-label plain-text>
+           CATEGORÍAS: 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           categorías 
+         </vaadin-label>
+        </vaadin-horizontal-layout>
+       </vaadin-vertical-layout>
+       <vaadin-vertical-layout margin="false">
+        <vaadin-horizontal-layout>
+         <vaadin-label plain-text>
+           ETIQUETAS: 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           etiquetas 
+         </vaadin-label>
+        </vaadin-horizontal-layout>
+       </vaadin-vertical-layout>
+       <vaadin-vertical-layout>
+        <vaadin-horizontal-layout>
+         <vaadin-button plain-text _id="modificar">
+           MODIFICAR &gt;&gt; 
+         </vaadin-button>
+         <vaadin-button plain-text _id="eliminar">
+           ELIMINAR 
+         </vaadin-button>
+        </vaadin-horizontal-layout>
+       </vaadin-vertical-layout>
       </vaadin-css-layout>
-      <vaadin-vertical-layout>
-       <vaadin-label plain-text>
-         INFORMACIÓN DEL VIDEO 
-       </vaadin-label>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-label plain-text>
-          TÍTULO: 
-        </vaadin-label>
-        <vaadin-label plain-text>
-          título 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-label plain-text>
-          DESCRIPCIÓN: 
-        </vaadin-label>
-        <vaadin-label plain-text>
-          descripción 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-label plain-text>
-          CATEGORÍAS: 
-        </vaadin-label>
-        <vaadin-label plain-text>
-          categorías 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-label plain-text>
-          ETIQUETAS: 
-        </vaadin-label>
-        <vaadin-label plain-text>
-          etiquetas 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-button plain-text _id="modificar">
-          MODIFICAR &gt;&gt; 
-        </vaadin-button>
-        <vaadin-button plain-text _id="eliminar">
-          ELIMINAR 
-        </vaadin-button>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-     </vaadin-css-layout>
-     <vaadin-css-layout width-full>
-      <vaadin-css-layout width-full>
-       <vaadin-image source="https://image.ibb.co/c6vbSo/miniatura.png" size-full></vaadin-image>
-       <vaadin-horizontal-layout width-full height="25px">
-        <vaadin-image source="https://image.ibb.co/nvegtT/visualizaciones.png" responsive width="30px"></vaadin-image>
-        <vaadin-label plain-text>
-          15 
-        </vaadin-label>
-        <vaadin-image source="https://image.ibb.co/fdvzf8/like.png" responsive width="30px"></vaadin-image>
-        <vaadin-label plain-text>
-          13 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
-       <vaadin-horizontal-layout width-full>
-        <vaadin-button width-full plain-text :center>
-          EDITAR MINIATURA 
-        </vaadin-button>
-       </vaadin-horizontal-layout>
-      </vaadin-css-layout>
-      <vaadin-vertical-layout>
-       <vaadin-label plain-text>
-         INFORMACIÓN DEL VIDEO 
-       </vaadin-label>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-label plain-text>
-          TÍTULO: 
-        </vaadin-label>
-        <vaadin-label plain-text>
-          título 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-label plain-text>
-          DESCRIPCIÓN: 
-        </vaadin-label>
-        <vaadin-label plain-text>
-          descripción 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-label plain-text>
-          CATEGORÍAS: 
-        </vaadin-label>
-        <vaadin-label plain-text>
-          categorías 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-label plain-text>
-          ETIQUETAS: 
-        </vaadin-label>
-        <vaadin-label plain-text>
-          etiquetas 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-      <vaadin-vertical-layout margin="false">
-       <vaadin-horizontal-layout>
-        <vaadin-button plain-text _id="modificar2">
-          MODIFICAR &gt;&gt; 
-        </vaadin-button>
-        <vaadin-button plain-text _id="eliminar2">
-          ELIMINAR 
-        </vaadin-button>
-       </vaadin-horizontal-layout>
-      </vaadin-vertical-layout>
-     </vaadin-css-layout>
-     <vaadin-vertical-layout width="50%" height-full :middle :center>
-      <vaadin-button width="200%" plain-text>
-        &gt; 
-      </vaadin-button>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-panel>
    </vaadin-css-layout>
   </vaadin-vertical-layout>
  </body>
