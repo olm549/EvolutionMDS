@@ -36,7 +36,7 @@ public class Subir_video extends Subir_video_ventana implements View {
 	     bd.subir_video(titulo.getValue(), miniatura.getValue(), url.getValue(), MyUI.getUsuarioLogged().getId_Usuario_registrado(),comentarios.getValue(), descripcion,etiquetas.getValue(), select.getValue().getNombre(), 1);
 		((MyUI) UI.getCurrent()).usuario_registrado();
 	}
-
+    //Hace falta?
 	public void miniatura() {
 		throw new UnsupportedOperationException();
 	}
