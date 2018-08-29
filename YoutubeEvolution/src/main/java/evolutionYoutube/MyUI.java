@@ -27,16 +27,20 @@ import database.Usuario_registrado;
  */
 @Theme("mytheme")
 public class MyUI extends UI implements View{
+
 	public static Usuario_registrado usuario;
+
 	public static Grid<database.Categorias> grid;
 	public static Grid<database.Usuario_registrado> gridListaUsuarios;
 	public static Usuario_Administrador admin;
+
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
     	setNavigator(new Navigator(this, this));
     	getNavigator().addView("", new Invitado());
     }
+
     public static Usuario_registrado getUsuarioLogged() {
 		return usuario;
 	}
@@ -47,16 +51,19 @@ public class MyUI extends UI implements View{
 		usuario = user;
 	}
 	
+
 	public static database.Categorias getCategoria(){
 		return grid.getSelectionModel().getFirstSelectedItem().get();
 	}
 	public static Usuario_Administrador getAdminLogged() {
+
 		return admin;
 	}
 
     public static void setAdminLogged(Usuario_Administrador administrador) {
 		admin = administrador;
 	}
+
 	public static void setGrid(Grid<database.Categorias> tabla) {
 		grid=tabla;
 		
@@ -68,6 +75,7 @@ public class MyUI extends UI implements View{
 	public static database.Usuario_registrado getUsuario(){
 		return gridListaUsuarios.getSelectionModel().getFirstSelectedItem().get();
 	}
+
     public void registrarse() {
     	getNavigator().addView("Registro", new Registrarse());
 		getNavigator().navigateTo("Registro");
