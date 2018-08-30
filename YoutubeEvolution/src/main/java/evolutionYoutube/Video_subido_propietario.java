@@ -16,9 +16,11 @@ public class Video_subido_propietario extends Video_subido_propietario_ventana {
 	public Visualizacion_video_creador _unnamed_Visualizacion_video_creador_;
 	public Modificar_video _unnamed_Modificar_video_;
 	public Image browser;
+	public Videos vide;
 
 	
 	public Video_subido_propietario(Videos vide) {
+		this.vide=vide;
 		reproducciones.setValue(""+vide.getNumVisualizaciones());
 		titulo.setValue(vide.getTitulo());
 		categorias.setValue(vide.getCategoria().getNombre()+"");
@@ -39,7 +41,7 @@ public class Video_subido_propietario extends Video_subido_propietario_ventana {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).modificar_video();
+				((MyUI) UI.getCurrent()).modificar_video(vide);
 				
 			}
 			
@@ -48,22 +50,27 @@ public class Video_subido_propietario extends Video_subido_propietario_ventana {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				eliminar();
-				
-			}
-
-			private void eliminar() {
-				// TODO Auto-generated method stub
+				eliminar_video();
 				
 			}
 
 			
 		});
+		editarminiatura.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				editar_miniatura();
+				browser = new Image("",new ExternalResource(vide.getMiniatura()));
+				
+			}
+			
+		});
 	}
-	/**public void editar_miniatura() {
+	public void editar_miniatura() {
 		BD_general bd = new BD_general();
-		bd.editar_Miniatura(1);//IDVIDEO
-	}**/
+		bd.editar_Miniatura(vide.getId_video(),url.getValue());//IDVIDEO
+	}
 
 	public void guardar_cambios() {
 		
@@ -71,6 +78,6 @@ public class Video_subido_propietario extends Video_subido_propietario_ventana {
 
 	public void eliminar_video() {
 		BD_general bd = new BD_general();
-		bd.Eliminar_video(1);//IDVIDEO
+		bd.Eliminar_video(vide.getId_video());//IDVIDEO
 	}
 }

@@ -31,6 +31,7 @@ public class Lista_Categoria extends Lista_Categoria_ventana {
         
 		BD_general bd = new BD_general();
 		List<database.Categorias> categ = bd.Cargar_Categorias();
+		System.out.println(categ);
 		Grid<database.Categorias> grid = new Grid<>();
 		grid.setItems(categ);
 		grid.addColumn(database.Categorias::getNombre).setCaption("Categoría");

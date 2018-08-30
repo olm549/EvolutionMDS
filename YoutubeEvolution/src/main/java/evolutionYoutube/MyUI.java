@@ -17,6 +17,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import database.Usuario_Administrador;
 import database.Usuario_registrado;
+import database.Videos;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -109,8 +110,8 @@ public class MyUI extends UI implements View{
     	getNavigator().addView("Modificar datos personales", new Modificar_datos_personales());
 		getNavigator().navigateTo("Modificar datos personales");
 	}
-	public void modificar_video() {
-    	getNavigator().addView("Modificar video", new Modificar_video());
+	public void modificar_video(Videos vide) {
+    	getNavigator().addView("Modificar video", new Modificar_video(vide));
 		getNavigator().navigateTo("Modificar video");
 	}
 	public void aniadir_categoria() {
@@ -166,8 +167,8 @@ public class MyUI extends UI implements View{
 		getNavigator().navigateTo("categorias");
 		
 	}
-	public void Lista_Video_Usuario(Usuario_registrado usuario_registrado) {
-		getNavigator().addView("lista video usuario", new Lista_Video_Usuario(usuario_registrado));
+	public void Lista_Video_Usuario(int i) {
+		getNavigator().addView("lista video usuario", new Lista_Video_Usuario(i));
 		getNavigator().navigateTo("lista video usuario");
 		
 	}

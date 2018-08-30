@@ -16,7 +16,7 @@ public class Lista_Video_Usuario extends Lista_Video_Usuario_ventana implements 
 	//public Vector<Video_Usuario> _unnamed_Video_Usuario_ = new Vector<Video_Usuario>();
 	
 	
-	public Lista_Video_Usuario(Usuario_registrado usuario_registrado) {
+	public Lista_Video_Usuario(int id_usuario) {
 		atras.addClickListener(new Button.ClickListener() {
 
 			@Override

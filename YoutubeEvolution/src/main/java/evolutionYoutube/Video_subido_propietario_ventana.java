@@ -5,6 +5,7 @@ import com.vaadin.annotations.DesignRoot;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.declarative.Design;
 
@@ -25,6 +26,7 @@ public class Video_subido_propietario_ventana extends HorizontalLayout {
 	protected Label reproducciones;
 	protected Label megusta;
 	protected Button editarminiatura;
+	protected TextField url;
 	protected Label titulo;
 	protected Label categorias;
 	protected Label etiquetas;

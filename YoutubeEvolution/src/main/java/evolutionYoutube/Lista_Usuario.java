@@ -18,15 +18,7 @@ public class Lista_Usuario extends Lista_Usuario_ventana implements View {
 
 	
 	public Lista_Usuario() {
-		vervideos.addClickListener(new Button.ClickListener() {
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).Lista_Video_Usuario(MyUI.getUsuario());
-				
-			}
-			
-		});
+		
 		
 		BD_general bd = new BD_general();
 		List<database.Usuario_registrado> user = bd.cargar_Lista_Usuarios();
@@ -39,7 +31,15 @@ public class Lista_Usuario extends Lista_Usuario_ventana implements View {
 
 		contenido.addComponent(grid);
 		MyUI.setGridListaUsuarios(grid);
-	
+		vervideos.addClickListener(new Button.ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).Lista_Video_Usuario(grid.getSelectionModel().getFirstSelectedItem().get().getID());
+				
+			}
+			
+		});
 		
 	}
 	public void buscar() {
