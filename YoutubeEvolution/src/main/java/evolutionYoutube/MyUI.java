@@ -8,15 +8,11 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-
 import database.Usuario_Administrador;
 import database.Usuario_registrado;
+import database.Videos;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -27,7 +23,10 @@ import database.Usuario_registrado;
  */
 @Theme("mytheme")
 public class MyUI extends UI implements View{
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static Usuario_registrado usuario;
 
 	public static Grid<database.Categorias> grid;
@@ -117,8 +116,8 @@ public class MyUI extends UI implements View{
     	getNavigator().addView("Modificar datos personales", new Modificar_datos_personales());
 		getNavigator().navigateTo("Modificar datos personales");
 	}
-	public void modificar_video() {
-    	getNavigator().addView("Modificar video", new Modificar_video());
+	public void modificar_video(Videos vide) {
+    	getNavigator().addView("Modificar video", new Modificar_video(vide));
 		getNavigator().navigateTo("Modificar video");
 	}
 	public void aniadir_categoria() {
@@ -146,11 +145,21 @@ public class MyUI extends UI implements View{
 		getNavigator().navigateTo("Ver_perfil_usuario");		
 		
 	}
+	public void visualizar_video_creador(Videos vide) {
+    	getNavigator().addView("Visualizar video", new Visualizacion_video_creador(vide));
+		getNavigator().navigateTo("Visualizar video");		
+		
+	}
 	
 	
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
     }
 
 
@@ -174,8 +183,8 @@ public class MyUI extends UI implements View{
 		getNavigator().navigateTo("categorias");
 		
 	}
-	public void Lista_Video_Usuario(Usuario_registrado usuario_registrado) {
-		getNavigator().addView("lista video usuario", new Lista_Video_Usuario(usuario_registrado));
+	public void Lista_Video_Usuario(int i) {
+		getNavigator().addView("lista video usuario", new Lista_Video_Usuario(i));
 		getNavigator().navigateTo("lista video usuario");
 		
 	}

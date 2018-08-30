@@ -1,11 +1,14 @@
 package evolutionYoutube;
 
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Vista_perfil_Registrado extends Vista_perfil_Registrado_ventana {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Usuario_Registrado _unnamed_Usuario_Registrado_;
 	public Suscribirse _unnamed_Suscribirse_;
 	
@@ -16,6 +19,11 @@ public class Vista_perfil_Registrado extends Vista_perfil_Registrado_ventana {
 		seguidores.addComponent(new Lista_Seguidores());
 		
 		volver.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

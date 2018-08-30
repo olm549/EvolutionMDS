@@ -1,14 +1,10 @@
 package evolutionYoutube;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.vaadin.server.ExternalResource;
-import com.vaadin.ui.Image;
-
-import database.BD_general;
-
 public class Inicio_Comun extends Inicio_comun_ventana{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Invitado _unnamed_Invitado_;
 	public Videos_con_mas_megusta videos_con_mas_megusta;
 	public Ultimos_videos ultimos_videos;

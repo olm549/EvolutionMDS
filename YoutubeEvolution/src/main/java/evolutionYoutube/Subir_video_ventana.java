@@ -31,6 +31,7 @@ public class Subir_video_ventana extends HorizontalLayout {
 	protected TextArea descripcion;
 	protected TextArea etiquetas;
 	protected Button subir;
+	protected Button atras;
 
 	public Subir_video_ventana() {
 		Design.read(this);

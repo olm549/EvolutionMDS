@@ -5,9 +5,11 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
-import database.BD_general;
-
 public class Suscripciones extends Suscripciones_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Mi_perfil _unnamed_Mi_perfil_;
 	public Lista_Suscriptores _unnamed_Lista_Suscriptores_;
 	public Lista_Seguidores _unnamed_Lista_Seguidores_;
@@ -16,6 +18,11 @@ public class Suscripciones extends Suscripciones_ventana implements View {
 		
 		seguidores.addComponent(new Lista_Seguidores_Suscriptores_ventana());
 		principal.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -26,6 +33,11 @@ public class Suscripciones extends Suscripciones_ventana implements View {
 		});
 		micuenta.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).mi_perfil_registrado();
@@ -34,6 +46,11 @@ public class Suscripciones extends Suscripciones_ventana implements View {
 			
 		});
 		videos_subidos.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -44,6 +61,11 @@ public class Suscripciones extends Suscripciones_ventana implements View {
 		});
 		mis_listas.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).mis_listas();
@@ -52,6 +74,11 @@ public class Suscripciones extends Suscripciones_ventana implements View {
 			
 		});
 		suscripciones.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

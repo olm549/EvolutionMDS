@@ -25,6 +25,7 @@ public class Usuario_AdministradorCriteria extends AbstractORMCriteria {
 	public final StringExpression email;
 	public final StringExpression contrasenia;
 	public final StringExpression apodo;
+	public final StringExpression avatar;
 	public final IntegerExpression id_Usuario_Administrador;
 	
 	public Usuario_AdministradorCriteria(Criteria criteria) {
@@ -35,6 +36,7 @@ public class Usuario_AdministradorCriteria extends AbstractORMCriteria {
 		email = new StringExpression("email", this);
 		contrasenia = new StringExpression("contrasenia", this);
 		apodo = new StringExpression("apodo", this);
+		avatar = new StringExpression("avatar", this);
 		id_Usuario_Administrador = new IntegerExpression("id_Usuario_Administrador", this);
 	}
 	

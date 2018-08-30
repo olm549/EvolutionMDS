@@ -1,19 +1,25 @@
 package evolutionYoutube;
 
+import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 
 import database.BD_general;
+import database.Videos;
 
 import com.vaadin.ui.Button.ClickEvent;
 
-public class Visualizacion_video_creador extends Visualizacion_video_creador_ventana {
+public class Visualizacion_video_creador extends Visualizacion_video_creador_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//public Video_subido_propietario _unnamed_Video_subido_propietario_;
 	public Ver_video _unnamed_Ver_video_;
 	
 	
-	public Visualizacion_video_creador() {
-		Visualizacion_video visu = new Visualizacion_video();
+	public Visualizacion_video_creador(Videos vide) {
+		Visualizacion_video visu = new Visualizacion_video(vide);
 		visu.descargar.setVisible(true);
 		visu.descargar.setEnabled(true);
 		visu.aniadeALista.setVisible(true);
@@ -25,6 +31,11 @@ public class Visualizacion_video_creador extends Visualizacion_video_creador_ven
 		visualizacionComun.addComponent(visu);
 		visu.volver.addClickListener(new Button.ClickListener() {
 			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).usuario_registrado();

@@ -5,7 +5,10 @@ import com.vaadin.annotations.DesignRoot;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Video;
 import com.vaadin.ui.declarative.Design;
 
 /** 
@@ -21,13 +24,21 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Visualizacion_video_ventana extends VerticalLayout {
 	protected Button volver;
+	protected Video video;
+	protected Label titulo;
 	protected HorizontalLayout botonesOpciones;
 	protected Button eliminarVideo;
 	protected Button meGusta;
 	protected Button descargar;
+	protected Label nombre;
+	protected HorizontalLayout avatar;
+	protected Label fecha;
+	protected Label visualizaciones;
+	protected Label categoria;
 	protected HorizontalLayout aniadirALista;
 	protected ComboBox<java.lang.String> comboBox;
 	protected Button aniadeALista;
+	protected TextArea descripcion;
 	protected VerticalLayout escribirComentario;
 	protected VerticalLayout listaComentarios;
 

@@ -74,9 +74,6 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	@Column(name="Anio", nullable=true, length=255)	
 	private String anio;
 	
-	@Column(name="Avatar", nullable=true, length=255)	
-	private String avatar;
-	
 	@Column(name="NumeroVisitas", nullable=false, length=10)	
 	private int numeroVisitas;
 	
@@ -140,14 +137,6 @@ public class Usuario_registrado extends database.Usuarios implements Serializabl
 	
 	public String getAnio() {
 		return anio;
-	}
-	
-	public void setAvatar(String value) {
-		this.avatar = value;
-	}
-	
-	public String getAvatar() {
-		return avatar;
 	}
 	
 	public void setNumeroVisitas(int value) {

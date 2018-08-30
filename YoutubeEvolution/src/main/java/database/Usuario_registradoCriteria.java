@@ -25,9 +25,9 @@ public class Usuario_registradoCriteria extends AbstractORMCriteria {
 	public final StringExpression email;
 	public final StringExpression contrasenia;
 	public final StringExpression apodo;
+	public final StringExpression avatar;
 	public final IntegerExpression id_Usuario_registrado;
 	public final StringExpression anio;
-	public final StringExpression avatar;
 	public final IntegerExpression numeroVisitas;
 	public final IntegerExpression edad;
 	public final CollectionExpression suscrito;
@@ -48,9 +48,9 @@ public class Usuario_registradoCriteria extends AbstractORMCriteria {
 		email = new StringExpression("email", this);
 		contrasenia = new StringExpression("contrasenia", this);
 		apodo = new StringExpression("apodo", this);
+		avatar = new StringExpression("avatar", this);
 		id_Usuario_registrado = new IntegerExpression("id_Usuario_registrado", this);
 		anio = new StringExpression("anio", this);
-		avatar = new StringExpression("avatar", this);
 		numeroVisitas = new IntegerExpression("numeroVisitas", this);
 		edad = new IntegerExpression("edad", this);
 		suscrito = new CollectionExpression("ORM_suscrito", this);

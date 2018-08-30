@@ -9,12 +9,21 @@ import database.BD_general;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Modificar_Datos_Admin extends Modificar_Datos_Admin_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//public Mi_cuenta_admin _unnamed_Mi_cuenta_admin_;
 	public Datos_Admin _unnamed_Mi_cuenta_admin_;
 
 	
 	public Modificar_Datos_Admin() {
 		guardar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -25,6 +34,11 @@ public class Modificar_Datos_Admin extends Modificar_Datos_Admin_ventana impleme
 			
 		});
 	    cancelar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

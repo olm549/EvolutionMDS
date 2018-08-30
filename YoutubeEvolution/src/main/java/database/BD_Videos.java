@@ -129,6 +129,7 @@ public class BD_Videos {
 			transaccion.rollback();
 			e.printStackTrace();
 		}
+	    
 	}
 
 	public void Eliminar_video(int aID) throws PersistentException {
@@ -227,6 +228,7 @@ public class BD_Videos {
 			transaccion.rollback();
 			e.printStackTrace();
 		}
+		
 		return lista;
 	}
 	//Mismo metodo que el de arriba?

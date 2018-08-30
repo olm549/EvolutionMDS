@@ -10,11 +10,20 @@ import database.BD_general;
 import evolutionYoutube.Administrador;
 
 public class Aniadir_Categoria extends Aniadir_Categoria_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//public Edicion_Categorias _unnamed_Edicion_Categorias_;
 	public Administrador _unnamed_Administrador_;
 
 	public Aniadir_Categoria() {
 	aniadirCategoria.addClickListener(new Button.ClickListener() {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void buttonClick(ClickEvent event) {
@@ -25,6 +34,11 @@ public class Aniadir_Categoria extends Aniadir_Categoria_ventana implements View
 		
 	});
 	cancelar.addClickListener(new Button.ClickListener() {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void buttonClick(ClickEvent event) {

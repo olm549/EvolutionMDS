@@ -1,23 +1,29 @@
 package evolutionYoutube;
 
-import org.orm.PersistentException;
-
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 
-import database.BD_Usuario_registrado;
 import database.BD_general;
 
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Registrarse extends Registrarse_ventana implements View{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Invitado _unnamed_Invitado_;
 	//public Enviar_Correo_Electronico _enviar_Correo_Electronico;
 
 	
 	public Registrarse() {
 		registrarseBoton.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -27,6 +33,11 @@ public class Registrarse extends Registrarse_ventana implements View{
 			
 		});
 		cancelarBoton.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

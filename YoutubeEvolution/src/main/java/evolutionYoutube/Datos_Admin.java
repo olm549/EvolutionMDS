@@ -9,12 +9,21 @@ import database.BD_general;
 import database.Usuario_Administrador;
 
 public class Datos_Admin extends Datos_Admin_ventana{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//public Mi_cuenta_admin _unnamed_Mi_cuenta_admin_;
 	public Mi_perfil_Admin _unnamed_Mi_cuenta_admin_;
 
 	
 	public Datos_Admin() {
 		modificar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -24,6 +33,11 @@ public class Datos_Admin extends Datos_Admin_ventana{
 			
 		});
 		editaravatar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

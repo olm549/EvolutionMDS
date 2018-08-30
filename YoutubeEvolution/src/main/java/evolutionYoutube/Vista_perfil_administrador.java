@@ -7,6 +7,10 @@ import com.vaadin.ui.Button.ClickEvent;
 import database.BD_general;
 
 public class Vista_perfil_administrador extends Vista_perfil_administrador_ventana {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Vista_perfil_administrador() {
 		
 		listas_reproduccion.addComponent(new Listas_creadas());
@@ -14,6 +18,11 @@ public class Vista_perfil_administrador extends Vista_perfil_administrador_venta
 		seguidores.addComponent(new Lista_Seguidores());
 		
 		volver.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
