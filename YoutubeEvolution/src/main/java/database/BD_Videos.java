@@ -186,6 +186,7 @@ public class BD_Videos {
 			for(Videos vid : listaVideos) {
 				lista.add(vid);
 		}
+			transaccion.commit();
 		}catch(Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();
@@ -205,6 +206,7 @@ public class BD_Videos {
 			for(Videos video : user.video_subido.toArray()) {
 				lista.add(video);
 			}
+			transaccion.commit();
 			
 			
 		}catch(Exception e) {
@@ -223,6 +225,7 @@ public class BD_Videos {
 				if(vid.getCategoria().getNombre().equals(aTexto))
 				lista.add(vid);
 		}
+			transaccion.commit();
 		}catch(Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();
@@ -238,6 +241,7 @@ public class BD_Videos {
 			for(Videos video : user.video_subido.toArray()) {
 				lista.add(video);
 			}
+			transaccion.commit();
 		}catch(Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();

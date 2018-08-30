@@ -25,6 +25,7 @@ public class Vista_video_comun extends Vista_video_comun_ventana{
 		fechaVideo.setValue(vide.getFecha());
 		visualizaciones.setValue(vide.getNumVisualizaciones()+"");
 		avatar.addComponent(new Image("",new ExternalResource(vide.getAutor().getAvatar())));
+		video.setSource(new ExternalResource(vide.getContenidoVideo()));
 		
 		
 		

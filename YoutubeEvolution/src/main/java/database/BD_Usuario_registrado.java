@@ -40,7 +40,8 @@ public class BD_Usuario_registrado {
 			Listas_de_reproduccionDAO.save(lrd);
 			transaccion.commit();
 		} catch(Exception e) {
-			transaccion.rollback();			
+			transaccion.rollback();		
+			e.printStackTrace();
 		}
 	}
 
@@ -52,6 +53,7 @@ public class BD_Usuario_registrado {
 			for(Usuario_registrado user : listaUsers) {
 				lista.add(user);
 		}
+			transaccion.commit();
 		}catch(Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();
@@ -67,6 +69,7 @@ public class BD_Usuario_registrado {
 	}
 
 	public void iniciar_sesion(String aEmail, String aContrasenia) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		if(comprobar_inicio(aEmail,aContrasenia) == "user") {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("email = "+aEmail, null);
 			MyUI.setUsuarioLogged(user);
@@ -93,6 +96,7 @@ public class BD_Usuario_registrado {
 			if(user != null) {
 
 				if(user.getContrasenia().equals(aContrasenia)) {
+					transaccion.commit();
 					return "user";
 				}
 			}
@@ -100,10 +104,12 @@ public class BD_Usuario_registrado {
 				Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("email = "+aEmail,null);
 				if(admin != null ) {
 					if(admin.getContrasenia().equals(aContrasenia)) {
+						transaccion.commit();
 						return "admin";
 					}
 				}
 			}
+			transaccion.commit();
 			return null;
 		}catch(Exception e) {
 			transaccion.rollback();
@@ -131,8 +137,10 @@ public class BD_Usuario_registrado {
 		try {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("email = "+aEmail, "1");
 			if(user==null) {
+				transaccion.commit();
 				return false;
 			}
+			transaccion.commit();
 			return true;
 		}catch(Exception e) {
 			transaccion.rollback();
@@ -173,6 +181,7 @@ public class BD_Usuario_registrado {
 		Usuario_registrado user = null;
 		try {
 			user = database.Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aID_Registrado, "1");
+			transaccion.commit();
 		}catch(Exception e ) {
 			transaccion.rollback();
 			e.printStackTrace();
@@ -235,6 +244,7 @@ public class BD_Usuario_registrado {
 	      for(Usuario_registrado foo : user.suscriptor.toArray()) {
 	    	  listaSeguidores.add(foo);
 	      }
+	      transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
@@ -251,6 +261,7 @@ public class BD_Usuario_registrado {
 	      for(Usuario_registrado foo : user.suscrito.toArray()) {
 	    	  listaSeguidos.add(foo);
 	      }
+	      transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}

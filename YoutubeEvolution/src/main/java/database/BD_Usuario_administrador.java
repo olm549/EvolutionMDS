@@ -14,7 +14,7 @@ public class BD_Usuario_administrador {
 		Usuario_Administrador admin = null;
 		try {
 			admin = database.Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("Id_Usuario_Administrador = "+aID_Admin, "1");
-			return admin;
+			transaccion.commit();
 		}catch(Exception e ) {
 			transaccion.rollback();
 			e.printStackTrace();

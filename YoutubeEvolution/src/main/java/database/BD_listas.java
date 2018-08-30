@@ -22,6 +22,7 @@ public class BD_listas {
 					break;
 				}
 			}
+			transaccion.commit();
 		}catch(Exception e ) {
 			transaccion.rollback();
 			e.printStackTrace();
@@ -57,6 +58,7 @@ public class BD_listas {
 					break;
 				}
 			}
+			transaccion.commit();
 		}catch(Exception e ) {
 			transaccion.rollback();
 			e.printStackTrace();
@@ -95,6 +97,7 @@ public class BD_listas {
 	      for(Listas_de_reproduccion foo : user.listas_de_reproduccion.toArray()) {
 	    	  listalistas.add(foo);
 	      }
+	      transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
