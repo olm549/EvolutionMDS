@@ -376,7 +376,7 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 			}
 			return lista;
 		}
-		if(aTipo.equals("usuario")) {
+		if(aTipo.equals("Usuario")) {
 			BD_Usuario_registrado bd = new BD_Usuario_registrado();
 			try {
 				lista =  bd.buscar(aTexto);

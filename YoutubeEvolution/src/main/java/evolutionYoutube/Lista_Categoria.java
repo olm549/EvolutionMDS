@@ -3,6 +3,7 @@ package evolutionYoutube;
 import java.util.List;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
+import com.vaadin.ui.components.grid.SingleSelectionModel;
 
 import database.BD_general;
 
@@ -30,10 +31,8 @@ public class Lista_Categoria extends Lista_Categoria_ventana {
 		grid.setWidth("100%");
 
 		contenido.addComponent(grid);
+
 		MyUI.setGrid(grid);
-	
-		
-		
 		crearcategoria.addClickListener(new Button.ClickListener() {
 
 			/**

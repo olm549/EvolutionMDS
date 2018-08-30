@@ -106,6 +106,7 @@ public class BD_Videos {
 		try {
 			
 		Videos vid = database.VideosDAO.createVideos();
+
 		Categorias categ = database.CategoriasDAO.loadCategoriasByQuery("nombre = '"+categoria+"'", "1");
 		Listas_de_reproduccion list = database.Listas_de_reproduccionDAO.loadListas_de_reproduccionByQuery("id_lista = "+lista, "1");
 		Usuario_registrado autor = database.Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = " +idAutor, "1");
@@ -193,29 +194,6 @@ public class BD_Videos {
 		}
 		return lista;
 	}
-	//Que hace esto aqui?
-	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice) {
-		
-	}
-
-	public List<Videos> cargar_Videos_Subidos(int aIDUsuario) throws PersistentException {
-		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
-		ArrayList<Videos> lista = new ArrayList<Videos>();
-		try {
-			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDUsuario, "1");
-			for(Videos video : user.video_subido.toArray()) {
-				lista.add(video);
-			}
-			transaccion.commit();
-			
-			
-		}catch(Exception e) {
-			transaccion.rollback();
-			e.printStackTrace();
-		}
-		
-		return lista;
-	}
 	public List<Videos> buscarPorCategoria(String aTexto) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		ArrayList<Videos> lista = new ArrayList<Videos>();
@@ -230,6 +208,27 @@ public class BD_Videos {
 			transaccion.rollback();
 			e.printStackTrace();
 		}
+		return lista;
+	}
+	//Que hace esto aqui?
+	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice) {
+		
+	}
+
+	public List<Videos> cargar_Videos_Subidos(int aIDUsuario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		ArrayList<Videos> lista = new ArrayList<Videos>();
+		try {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDUsuario, "1");
+			for(Videos video : user.video_subido.toArray()) {
+				lista.add(video);
+			}
+			transaccion.commit();
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		
 		return lista;
 	}
 	//Mismo metodo que el de arriba?
