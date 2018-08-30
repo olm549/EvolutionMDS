@@ -6,6 +6,10 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Mi_perfil extends Mi_perfil_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Usuario_Registrado _unnamed_Usuario_Registrado_;
 	public Suscripciones _unnamed_Suscripciones_;
 	public Mi_cuenta _unnamed_Mi_cuenta_;
@@ -19,6 +23,11 @@ public class Mi_perfil extends Mi_perfil_ventana implements View {
 	
 	principal.addClickListener(new Button.ClickListener() {
 
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public void buttonClick(ClickEvent event) {
 			((MyUI) UI.getCurrent()).usuario_registrado();
@@ -27,6 +36,11 @@ public class Mi_perfil extends Mi_perfil_ventana implements View {
 		
 	});
 	micuenta.addClickListener(new Button.ClickListener() {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void buttonClick(ClickEvent event) {
@@ -37,6 +51,11 @@ public class Mi_perfil extends Mi_perfil_ventana implements View {
 	});
 	videos_subidos.addClickListener(new Button.ClickListener() {
 
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public void buttonClick(ClickEvent event) {
 			((MyUI) UI.getCurrent()).videos_subidos();
@@ -46,6 +65,11 @@ public class Mi_perfil extends Mi_perfil_ventana implements View {
 	});
 	mis_listas.addClickListener(new Button.ClickListener() {
 
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public void buttonClick(ClickEvent event) {
 			((MyUI) UI.getCurrent()).mis_listas();
@@ -54,6 +78,11 @@ public class Mi_perfil extends Mi_perfil_ventana implements View {
 		
 	});
 	suscripciones.addClickListener(new Button.ClickListener() {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public void buttonClick(ClickEvent event) {

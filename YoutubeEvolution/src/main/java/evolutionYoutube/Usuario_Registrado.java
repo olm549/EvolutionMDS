@@ -7,6 +7,10 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Usuario_Registrado extends Usuario_Registrado_ventana implements View{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Cerrar_Sesion _unnamed_Cerrar_Sesion_;
 	public Pagina_de_inicio_registrado _unnamed_Pagina_de_inicio_registrado_;
 	public Vista_perfil_Registrado _unnamed_Vista_perfil_Registrado_;
@@ -18,6 +22,11 @@ public class Usuario_Registrado extends Usuario_Registrado_ventana implements Vi
 		cerrarSesion.addComponent(new Cerrar_Sesion());
 		subirVideo.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 
@@ -26,6 +35,11 @@ public class Usuario_Registrado extends Usuario_Registrado_ventana implements Vi
 			
 		});
 		miPerfil.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

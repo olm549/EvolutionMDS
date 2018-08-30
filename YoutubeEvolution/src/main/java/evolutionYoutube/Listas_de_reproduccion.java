@@ -6,6 +6,10 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Listas_de_reproduccion extends Listas_de_reproduccion_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Mi_perfil _unnamed_Mi_perfil_;
 	public Lista_de_listas _unnamed_Lista_de_listas_;
 	
@@ -13,6 +17,11 @@ public class Listas_de_reproduccion extends Listas_de_reproduccion_ventana imple
 		listas.addComponent(new Lista_de_listas());
 		
 		principal.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -23,6 +32,11 @@ public class Listas_de_reproduccion extends Listas_de_reproduccion_ventana imple
 		});
 		micuenta.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).mi_perfil_registrado();
@@ -31,6 +45,11 @@ public class Listas_de_reproduccion extends Listas_de_reproduccion_ventana imple
 			
 		});
 		videos_subidos.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -41,6 +60,11 @@ public class Listas_de_reproduccion extends Listas_de_reproduccion_ventana imple
 		});
 		mis_listas.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).mis_listas();
@@ -49,6 +73,11 @@ public class Listas_de_reproduccion extends Listas_de_reproduccion_ventana imple
 			
 		});
 		suscripciones.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

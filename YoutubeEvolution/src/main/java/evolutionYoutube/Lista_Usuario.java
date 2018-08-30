@@ -1,9 +1,6 @@
 package evolutionYoutube;
 
 import java.util.List;
-import java.util.Vector;
-//import evolutionYoutube.Usuario_Comentario;
-
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
@@ -13,6 +10,10 @@ import com.vaadin.ui.Button.ClickEvent;
 import database.BD_general;
 
 public class Lista_Usuario extends Lista_Usuario_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Lista_Usuarios _unnamed_Lista_Usuarios_;
 	//public Vector<Usuario_Comentario> _unnamed_Usuario_Comentario_ = new Vector<Usuario_Comentario>();
 
@@ -32,6 +33,11 @@ public class Lista_Usuario extends Lista_Usuario_ventana implements View {
 		contenido.addComponent(grid);
 		MyUI.setGridListaUsuarios(grid);
 		vervideos.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

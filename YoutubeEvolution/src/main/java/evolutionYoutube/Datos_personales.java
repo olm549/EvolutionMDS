@@ -17,6 +17,10 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Image;
 
 public class Datos_personales extends Datos_personales_ventana{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Mi_cuenta _unnamed_Mi_cuenta_;
 	public Modificar_datos_personales _unnamed_Modificar_datos_personales_;
 	public Usuario_registrado admin;
@@ -26,6 +30,11 @@ public class Datos_personales extends Datos_personales_ventana{
 	public Datos_personales() {
 		modificar.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).modificar_datos_personales();
@@ -34,6 +43,11 @@ public class Datos_personales extends Datos_personales_ventana{
 			
 		});
 		editaravatar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

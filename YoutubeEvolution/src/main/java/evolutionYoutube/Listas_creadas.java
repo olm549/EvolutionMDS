@@ -1,6 +1,10 @@
 package evolutionYoutube;
 
 public class Listas_creadas extends Listas_creadas_ventana {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Lista_de_listas _unnamed_Lista_de_listas_;
 	public Ver_perfil_usuario _unnamed_Ver_perfil_usuario_;
 	public Editar_listas_reproduccion _unnamed_Editar_listas_reproduccion_;

@@ -8,10 +8,19 @@ import com.vaadin.ui.Button.ClickEvent;
 import database.BD_general;
 
 public class Modificar_datos_personales extends Modificar_datos_personales_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Datos_personales _unnamed_Datos_personales_;
 
 	public Modificar_datos_personales() {
 		guardar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -22,6 +31,11 @@ public class Modificar_datos_personales extends Modificar_datos_personales_venta
 			
 		});
 	    cancelar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

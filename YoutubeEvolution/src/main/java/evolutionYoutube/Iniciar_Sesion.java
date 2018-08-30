@@ -5,25 +5,29 @@ import java.util.List;
 import org.orm.PersistentException;
 
 import com.vaadin.navigator.View;
-import com.vaadin.shared.ui.ValueChangeMode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
-import database.BD_Usuario_administrador;
 import database.BD_Usuario_registrado;
-import database.BD_general;
-import database.Usuario_Administrador;
 import database.Usuario_registrado;
-import database.Usuarios;
 
 public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Invitado _unnamed_Invitado_;
 	public Recordar_Contrasenia _unnamed_Recordar_Contrasenia_;
 
 	
 	public Iniciar_Sesion() {
 		olvidaPass.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -33,15 +37,30 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 		});
 		iniciarSesion.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 		
-					iniciar_sesion();
+					try {
+						iniciar_sesion();
+					} catch (PersistentException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				
 			}
 			
 		});
 		cancelarBoton.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -58,18 +77,16 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 		
 	}
 
-	public void iniciar_sesion()  {
+	public void iniciar_sesion() throws PersistentException  {
 	    
 		//bd.iniciar_sesion(email.getValue(), contrasenia.getValue());
 		//BD_general bd = new BD_general();
 		BD_Usuario_registrado bd = new BD_Usuario_registrado();
 		List<Usuario_registrado> usuarios = null;
-		try {
-			usuarios= bd.cargar_Lista_Usuarios();
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+		usuarios= bd.cargar_Lista_Usuarios();
+	
+	
 		
 		
 	
@@ -80,16 +97,20 @@ public class Iniciar_Sesion extends Iniciar_Sesion_ventana implements View{
 					
 					
 					((MyUI) UI.getCurrent()).administrador();
+					break;
 				}
 			}
 					
 			
-		    else if(email.getValue().equals(usuarios.get(i).getEmail())==true && contrasenia.getValue().equals(usuarios.get(i).getContrasenia())==true) {
+			else if(email.getValue().equals(usuarios.get(i).getApodo())==true && contrasenia.getValue().equals(usuarios.get(i).getContrasenia())==true) {
 		    	MyUI.setUsuarioLogged(usuarios.get(i));
+		    	
 				((MyUI) UI.getCurrent()).usuario_registrado();
+				break;
 		    }	
 		    else {
 		    	((MyUI) UI.getCurrent()).invitado();
+		    	break;
 		    }
 			
 		}

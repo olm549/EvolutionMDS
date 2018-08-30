@@ -6,6 +6,10 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Mi_perfil_Admin extends Mi_perfil_Admin_ventana implements View{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Administrador _unnamed_Administrador_;
 	//public Mi_cuenta_admin _unnamed_Mi_cuenta_admin_;
 	public Datos_Admin _unnamed_Datos_Admin_;
@@ -21,6 +25,11 @@ public class Mi_perfil_Admin extends Mi_perfil_Admin_ventana implements View{
 		
 		principal.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).administrador();
@@ -29,6 +38,11 @@ public class Mi_perfil_Admin extends Mi_perfil_Admin_ventana implements View{
 			
 		});
 		micuenta.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -39,6 +53,11 @@ public class Mi_perfil_Admin extends Mi_perfil_Admin_ventana implements View{
 		});
 		lista_usuarios.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).listausuarios();
@@ -47,6 +66,11 @@ public class Mi_perfil_Admin extends Mi_perfil_Admin_ventana implements View{
 			
 		});
 		categorias.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

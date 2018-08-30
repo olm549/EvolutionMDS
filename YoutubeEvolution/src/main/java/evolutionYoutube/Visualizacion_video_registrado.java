@@ -8,6 +8,10 @@ import com.vaadin.ui.Button.ClickEvent;
 import database.BD_general;
 
 public class Visualizacion_video_registrado extends Visualizacion_video_registrado_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Ver_video _unnamed_Ver_video_;
 	public Escribir_Comentario _unnamed_Escribir_Comentario_;
 	
@@ -17,6 +21,11 @@ public class Visualizacion_video_registrado extends Visualizacion_video_registra
 		visualizacionComun.addComponent(visu);
 		visu.volver.addClickListener(new Button.ClickListener() {
 			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).usuario_registrado();

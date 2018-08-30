@@ -4,14 +4,16 @@ import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.Video;
 import com.vaadin.ui.Button.ClickEvent;
 
 import database.BD_general;
-import database.Usuario_registrado;
 import database.Videos;
 
 public class Video_subido_propietario extends Video_subido_propietario_ventana {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Lista_videos_subidos _unnamed_Lista_videos_subidos_;
 	public Visualizacion_video_creador _unnamed_Visualizacion_video_creador_;
 	public Modificar_video _unnamed_Modificar_video_;
@@ -39,6 +41,11 @@ public class Video_subido_propietario extends Video_subido_propietario_ventana {
 		
 		modificar.addClickListener(new Button.ClickListener() {
 
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void buttonClick(ClickEvent event) {
 				((MyUI) UI.getCurrent()).modificar_video(vide);
@@ -47,6 +54,11 @@ public class Video_subido_propietario extends Video_subido_propietario_ventana {
 			
 		});
 		eliminar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -57,6 +69,11 @@ public class Video_subido_propietario extends Video_subido_propietario_ventana {
 			
 		});
 		editarminiatura.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

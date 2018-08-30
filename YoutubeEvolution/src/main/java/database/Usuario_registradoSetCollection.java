@@ -72,7 +72,6 @@ public class Usuario_registradoSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id_Usuario_registrado</li>
 	 * <li>anio</li>
-	 * <li>avatar</li>
 	 * <li>numeroVisitas</li>
 	 * <li>edad</li>
 	 * </ul>
@@ -87,7 +86,6 @@ public class Usuario_registradoSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id_Usuario_registrado</li>
 	 * <li>anio</li>
-	 * <li>avatar</li>
 	 * <li>numeroVisitas</li>
 	 * <li>edad</li>
 	 * </ul>

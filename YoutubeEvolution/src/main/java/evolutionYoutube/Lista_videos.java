@@ -1,10 +1,12 @@
 package evolutionYoutube;
 
-import java.util.Vector;
-//import evolutionYoutube.Video_subido;
-
 public class Lista_videos extends Lista_videos_ventana{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Lista_videos() {
 	}
 

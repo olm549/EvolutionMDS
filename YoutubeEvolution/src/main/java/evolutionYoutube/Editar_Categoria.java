@@ -2,7 +2,6 @@ package evolutionYoutube;
 
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Grid;
 import com.vaadin.ui.UI;
 
 import database.BD_general;
@@ -13,9 +12,18 @@ public class Editar_Categoria extends Editar_categoria_ventana implements View {
 	//public Edicion_Categorias _unnamed_Edicion_Categorias_;
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Editar_Categoria() {
 	
 		guardar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -26,6 +34,11 @@ public class Editar_Categoria extends Editar_categoria_ventana implements View {
 			
 		});
 		atras.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

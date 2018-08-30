@@ -25,6 +25,7 @@ public class Usuario_AdministradorDetachedCriteria extends AbstractORMDetachedCr
 	public final StringExpression email;
 	public final StringExpression contrasenia;
 	public final StringExpression apodo;
+	public final StringExpression avatar;
 	public final IntegerExpression id_Usuario_Administrador;
 	
 	public Usuario_AdministradorDetachedCriteria() {
@@ -35,6 +36,7 @@ public class Usuario_AdministradorDetachedCriteria extends AbstractORMDetachedCr
 		email = new StringExpression("email", this.getDetachedCriteria());
 		contrasenia = new StringExpression("contrasenia", this.getDetachedCriteria());
 		apodo = new StringExpression("apodo", this.getDetachedCriteria());
+		avatar = new StringExpression("avatar", this.getDetachedCriteria());
 		id_Usuario_Administrador = new IntegerExpression("id_Usuario_Administrador", this.getDetachedCriteria());
 	}
 	
@@ -46,6 +48,7 @@ public class Usuario_AdministradorDetachedCriteria extends AbstractORMDetachedCr
 		email = new StringExpression("email", this.getDetachedCriteria());
 		contrasenia = new StringExpression("contrasenia", this.getDetachedCriteria());
 		apodo = new StringExpression("apodo", this.getDetachedCriteria());
+		avatar = new StringExpression("avatar", this.getDetachedCriteria());
 		id_Usuario_Administrador = new IntegerExpression("id_Usuario_Administrador", this.getDetachedCriteria());
 	}
 	

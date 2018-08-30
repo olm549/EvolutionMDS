@@ -8,13 +8,8 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-
 import database.Usuario_Administrador;
 import database.Usuario_registrado;
 import database.Videos;
@@ -28,6 +23,10 @@ import database.Videos;
  */
 @Theme("mytheme")
 public class MyUI extends UI implements View{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static Usuario_registrado usuario;
 	public static Grid<database.Categorias> grid;
 	public static Grid<database.Usuario_registrado> gridListaUsuarios;
@@ -144,6 +143,11 @@ public class MyUI extends UI implements View{
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
     }
 
 

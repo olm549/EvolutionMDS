@@ -4,19 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
-import com.vaadin.ui.AbstractOrderedLayout;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-
 import database.BD_general;
 import database.Videos;
-
-import com.vaadin.ui.Button.ClickEvent;
 
 import evolutionYoutube.Video_subido_propietario;
 
 public class Lista_videos_subidos extends Lista_videos_subidos_ventana {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Videos_subidos _unnamed_Videos_subidos_;
 	public Vector<Video_subido_propietario> _unnamed_Video_subido_propietario_ = new Vector<Video_subido_propietario>();
 

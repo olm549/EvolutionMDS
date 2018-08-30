@@ -18,7 +18,6 @@ import org.hibernate.Query;
 import org.hibernate.LockMode;
 import java.util.List;
 
-@SuppressWarnings("unused")
 public class Usuario_registradoDAO {
 	public static Usuario_registrado loadUsuario_registradoByORMID(int ID) throws PersistentException {
 		try {
