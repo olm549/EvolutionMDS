@@ -39,6 +39,7 @@ public class Visualizacion_video extends Visualizacion_video_ventana {
 		
 		avatar.setWidth("20px");
 		avatar.setHeight("20px");
+		
 		FileResource resource = new FileResource(new File(vide.getContenidoVideo()));
 		video.setSource(resource);
 		
