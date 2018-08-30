@@ -106,6 +106,7 @@ public class BD_Videos {
 		try {
 			
 		Videos vid = database.VideosDAO.createVideos();
+
 		Categorias categ = database.CategoriasDAO.loadCategoriasByQuery("nombre = '"+categoria+"'", "1");
 		Listas_de_reproduccion list = database.Listas_de_reproduccionDAO.loadListas_de_reproduccionByQuery("id_lista = "+lista, "1");
 		Usuario_registrado autor = database.Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = " +idAutor, "1");
@@ -183,7 +184,10 @@ public class BD_Videos {
 		ArrayList<Videos> lista = new ArrayList<Videos>();
 		try {
 			Videos[] listaVideos = VideosDAO.listVideosByQuery("titulo LIKE '%"+aTexto+"%'", "1");
+
+
 			for(Videos vid : listaVideos) {
+				if(vid.getCategoria().getNombre().equals(aTexto))
 				lista.add(vid);
 		}
 			transaccion.commit();
@@ -207,6 +211,7 @@ public class BD_Videos {
 				lista.add(video);
 			}
 			transaccion.commit();
+
 			
 			
 		}catch(Exception e) {
@@ -226,6 +231,7 @@ public class BD_Videos {
 				lista.add(vid);
 		}
 			transaccion.commit();
+
 		}catch(Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();
