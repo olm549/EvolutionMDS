@@ -32,6 +32,7 @@ public class Video_subido_propietario_ventana extends HorizontalLayout {
 	protected Label etiquetas;
 	protected Button modificar;
 	protected Button eliminar;
+	protected Button vervideo;
 
 	public Video_subido_propietario_ventana() {
 		Design.read(this);

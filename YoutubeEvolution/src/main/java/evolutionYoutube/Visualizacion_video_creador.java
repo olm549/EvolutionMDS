@@ -1,13 +1,15 @@
 package evolutionYoutube;
 
+import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 
 import database.BD_general;
+import database.Videos;
 
 import com.vaadin.ui.Button.ClickEvent;
 
-public class Visualizacion_video_creador extends Visualizacion_video_creador_ventana {
+public class Visualizacion_video_creador extends Visualizacion_video_creador_ventana implements View {
 	/**
 	 * 
 	 */
@@ -16,8 +18,8 @@ public class Visualizacion_video_creador extends Visualizacion_video_creador_ven
 	public Ver_video _unnamed_Ver_video_;
 	
 	
-	public Visualizacion_video_creador() {
-		Visualizacion_video visu = new Visualizacion_video();
+	public Visualizacion_video_creador(Videos vide) {
+		Visualizacion_video visu = new Visualizacion_video(vide);
 		visu.descargar.setVisible(true);
 		visu.descargar.setEnabled(true);
 		visu.aniadeALista.setVisible(true);

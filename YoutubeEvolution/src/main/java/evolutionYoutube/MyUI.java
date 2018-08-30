@@ -138,6 +138,11 @@ public class MyUI extends UI implements View{
 		getNavigator().navigateTo("Ver_perfil_usuario");		
 		
 	}
+	public void visualizar_video_creador(Videos vide) {
+    	getNavigator().addView("Visualizar video", new Visualizacion_video_creador(vide));
+		getNavigator().navigateTo("Visualizar video");		
+		
+	}
 	
 	
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

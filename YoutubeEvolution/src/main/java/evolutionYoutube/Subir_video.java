@@ -35,6 +35,20 @@ public class Subir_video extends Subir_video_ventana implements View {
 		categoria1.addComponent(select);
 		select.setItemCaptionGenerator(database.Categorias::getNombre);
 		
+           atras.addClickListener(new Button.ClickListener() {
+			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).usuario_registrado();
+				
+			}
+		});
+		
 	}
 	public void subir_video() {
 		BD_general bd = new BD_general();

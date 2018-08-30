@@ -4,6 +4,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 
 import database.BD_general;
+import database.Videos;
 
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -18,8 +19,8 @@ public class Visualizacion_video_administrador extends Visualizacion_video_admin
 	public Escribir_Comentario _unnamed_Escribir_Comentario_;
 
 	
-	public Visualizacion_video_administrador() {
-		Visualizacion_video visu = new Visualizacion_video();
+	public Visualizacion_video_administrador(Videos vide) {
+		Visualizacion_video visu = new Visualizacion_video(vide);
 		visu.eliminarVideo.setVisible(true);
 		visu.eliminarVideo.setEnabled(true);
 		visu.descargar.setVisible(true);
@@ -51,7 +52,7 @@ public class Visualizacion_video_administrador extends Visualizacion_video_admin
 				
 			}
 		});
-		visualizacionComun.addComponent(new Visualizacion_video());
+		visualizacionComun.addComponent(new Visualizacion_video(vide));
 	}
 	
 	public void eliminar_video() {

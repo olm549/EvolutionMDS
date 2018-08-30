@@ -83,6 +83,20 @@ public class Video_subido_propietario extends Video_subido_propietario_ventana {
 			}
 			
 		});
+		vervideo.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).visualizar_video_creador(vide);
+				
+			}
+			
+		});
 	}
 	public void editar_miniatura() {
 		BD_general bd = new BD_general();
