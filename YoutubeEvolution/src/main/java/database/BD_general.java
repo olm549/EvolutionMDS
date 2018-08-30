@@ -272,9 +272,14 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return lista;
 	}
 
-	public void modificar_video(String aTitulo, String aDescripcion, int[] aId_categorias, String aEtiquetas) {
+	public void modificar_video(int aIDVideo, String aTitulo, String aDescripcion, int aId_categorias, String aEtiquetas) {
 		BD_Videos bd = new BD_Videos();
-		bd.modificar_video(aTitulo, aDescripcion, aId_categorias, aEtiquetas);
+		try {
+			bd.modificar_video(aIDVideo, aTitulo, aDescripcion, aId_categorias, aEtiquetas);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void eliminar_Video(int aIDVideo) {

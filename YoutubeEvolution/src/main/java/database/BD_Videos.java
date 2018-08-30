@@ -248,8 +248,20 @@ public class BD_Videos {
 		return lista;
 	}
 
-	public void modificar_video(String aTitulo, String aDescripcion, int[] aId_categorias, String aEtiquetas) {
-		//?? array categorias, revisar, solo puede tener 1 categoria, mas faltan atributos.
+	public void modificar_video(int aIDVideo, String aTitulo, String aDescripcion, int aId_categoria, String aEtiquetas) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Videos video = VideosDAO.loadVideosByQuery("id_video = "+aIDVideo, "1");
+			video.setTitulo(aTitulo);
+			video.setDescrVideo(aDescripcion);
+			video.setCategoria(CategoriasDAO.loadCategoriasByQuery("id_categoria = "+aId_categoria,null));
+			video.setEtiquetas(aEtiquetas);
+			VideosDAO.save(video);
+			transaccion.commit();
+		}catch(Exception e ) {
+			e.printStackTrace();
+			transaccion.rollback();
+		}
 	}
 
 	public void eliminarVideo(int aIDVideo) throws PersistentException {
