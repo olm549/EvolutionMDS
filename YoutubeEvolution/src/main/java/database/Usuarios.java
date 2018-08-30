@@ -44,6 +44,9 @@ public class Usuarios implements Serializable {
 	@Column(name="Apodo", nullable=true, length=255)	
 	private String apodo;
 	
+	@Column(name="Avatar", nullable=true, length=255)	
+	private String avatar;
+	
 	private void setID(int value) {
 		this.ID = value;
 	}
@@ -94,6 +97,14 @@ public class Usuarios implements Serializable {
 	
 	public String getApodo() {
 		return apodo;
+	}
+	
+	public void setAvatar(String value) {
+		this.avatar = value;
+	}
+	
+	public String getAvatar() {
+		return avatar;
 	}
 	
 	public String toString() {

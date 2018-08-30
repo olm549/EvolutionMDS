@@ -25,6 +25,7 @@ public class UsuariosCriteria extends AbstractORMCriteria {
 	public final StringExpression email;
 	public final StringExpression contrasenia;
 	public final StringExpression apodo;
+	public final StringExpression avatar;
 	
 	public UsuariosCriteria(Criteria criteria) {
 		super(criteria);
@@ -34,6 +35,7 @@ public class UsuariosCriteria extends AbstractORMCriteria {
 		email = new StringExpression("email", this);
 		contrasenia = new StringExpression("contrasenia", this);
 		apodo = new StringExpression("apodo", this);
+		avatar = new StringExpression("avatar", this);
 	}
 	
 	public UsuariosCriteria(PersistentSession session) {

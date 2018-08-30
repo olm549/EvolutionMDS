@@ -6,10 +6,19 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Cambiar_nombre extends Cambiar_nombre_ventana implements View{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Editar_listas_reproduccion _unnamed_Editar_listas_reproduccion_;
 	
 	public Cambiar_nombre() {
 		guardar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -19,6 +28,11 @@ public class Cambiar_nombre extends Cambiar_nombre_ventana implements View{
 			
 		});
 		cancelar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

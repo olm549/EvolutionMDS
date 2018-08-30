@@ -40,7 +40,8 @@ public class BD_Usuario_registrado {
 			Listas_de_reproduccionDAO.save(lrd);
 			transaccion.commit();
 		} catch(Exception e) {
-			transaccion.rollback();			
+			transaccion.rollback();		
+			e.printStackTrace();
 		}
 	}
 

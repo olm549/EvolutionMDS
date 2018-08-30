@@ -129,6 +129,7 @@ public class BD_Videos {
 			transaccion.rollback();
 			e.printStackTrace();
 		}
+	    
 	}
 
 	public void Eliminar_video(int aID) throws PersistentException {
@@ -183,21 +184,8 @@ public class BD_Videos {
 		ArrayList<Videos> lista = new ArrayList<Videos>();
 		try {
 			Videos[] listaVideos = VideosDAO.listVideosByQuery("titulo LIKE '%"+aTexto+"%'", "1");
-			for(Videos vid : listaVideos) {
-				lista.add(vid);
-		}
-			transaccion.commit();
-		}catch(Exception e) {
-			transaccion.rollback();
-			e.printStackTrace();
-		}
-		return lista;
-	}
-	public List<Videos> buscarPorCategoria(String aTexto) throws PersistentException {
-		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
-		ArrayList<Videos> lista = new ArrayList<Videos>();
-		try {
-			Videos[] listaVideos = VideosDAO.listVideosByQuery(null,null);
+
+
 			for(Videos vid : listaVideos) {
 				if(vid.getCategoria().getNombre().equals(aTexto))
 				lista.add(vid);
@@ -223,6 +211,27 @@ public class BD_Videos {
 				lista.add(video);
 			}
 			transaccion.commit();
+
+			
+			
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+	public List<Videos> buscarPorCategoria(String aTexto) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		ArrayList<Videos> lista = new ArrayList<Videos>();
+		try {
+			Videos[] listaVideos = VideosDAO.listVideosByQuery(null,null);
+			for(Videos vid : listaVideos) {
+				if(vid.getCategoria().getNombre().equals(aTexto))
+				lista.add(vid);
+		}
+			transaccion.commit();
+
 		}catch(Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();

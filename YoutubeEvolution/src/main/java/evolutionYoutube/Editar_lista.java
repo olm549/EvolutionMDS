@@ -7,8 +7,18 @@ import com.vaadin.ui.Button.ClickEvent;
 
 public class Editar_lista extends Editar_lista_ventana implements View{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Editar_lista() {
 		cambiarnombre.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {

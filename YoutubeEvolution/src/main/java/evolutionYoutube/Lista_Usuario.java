@@ -1,9 +1,6 @@
 package evolutionYoutube;
 
 import java.util.List;
-import java.util.Vector;
-//import evolutionYoutube.Usuario_Comentario;
-
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
@@ -13,20 +10,16 @@ import com.vaadin.ui.Button.ClickEvent;
 import database.BD_general;
 
 public class Lista_Usuario extends Lista_Usuario_ventana implements View {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Lista_Usuarios _unnamed_Lista_Usuarios_;
 	//public Vector<Usuario_Comentario> _unnamed_Usuario_Comentario_ = new Vector<Usuario_Comentario>();
 
 	
 	public Lista_Usuario() {
-		vervideos.addClickListener(new Button.ClickListener() {
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				((MyUI) UI.getCurrent()).Lista_Video_Usuario(MyUI.getUsuario());
-				
-			}
-			
-		});
+		
 		
 		BD_general bd = new BD_general();
 		List<database.Usuario_registrado> user = bd.cargar_Lista_Usuarios();
@@ -39,7 +32,20 @@ public class Lista_Usuario extends Lista_Usuario_ventana implements View {
 
 		contenido.addComponent(grid);
 		MyUI.setGridListaUsuarios(grid);
-	
+		vervideos.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				((MyUI) UI.getCurrent()).Lista_Video_Usuario(grid.getSelectionModel().getFirstSelectedItem().get().getID());
+				
+			}
+			
+		});
 		
 	}
 	public void buscar() {

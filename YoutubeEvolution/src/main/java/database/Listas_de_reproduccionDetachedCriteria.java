@@ -25,6 +25,7 @@ public class Listas_de_reproduccionDetachedCriteria extends AbstractORMDetachedC
 	public final IntegerExpression usuario_registradoId;
 	public final AssociationExpression usuario_registrado;
 	public final IntegerExpression num_videos;
+	public final StringExpression nombre;
 	public final CollectionExpression videos_en_lista;
 	
 	public Listas_de_reproduccionDetachedCriteria() {
@@ -35,6 +36,7 @@ public class Listas_de_reproduccionDetachedCriteria extends AbstractORMDetachedC
 		usuario_registradoId = new IntegerExpression("usuario_registrado.", this.getDetachedCriteria());
 		usuario_registrado = new AssociationExpression("usuario_registrado", this.getDetachedCriteria());
 		num_videos = new IntegerExpression("num_videos", this.getDetachedCriteria());
+		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		videos_en_lista = new CollectionExpression("ORM_videos_en_lista", this.getDetachedCriteria());
 	}
 	
@@ -46,6 +48,7 @@ public class Listas_de_reproduccionDetachedCriteria extends AbstractORMDetachedC
 		usuario_registradoId = new IntegerExpression("usuario_registrado.", this.getDetachedCriteria());
 		usuario_registrado = new AssociationExpression("usuario_registrado", this.getDetachedCriteria());
 		num_videos = new IntegerExpression("num_videos", this.getDetachedCriteria());
+		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		videos_en_lista = new CollectionExpression("ORM_videos_en_lista", this.getDetachedCriteria());
 	}
 	

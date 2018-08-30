@@ -72,6 +72,7 @@ public class Listas_de_reproduccionSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id_lista</li>
 	 * <li>num_videos</li>
+	 * <li>nombre</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -84,6 +85,7 @@ public class Listas_de_reproduccionSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id_lista</li>
 	 * <li>num_videos</li>
+	 * <li>nombre</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

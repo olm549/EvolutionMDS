@@ -3,23 +3,42 @@ package evolutionYoutube;
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
+
+import database.Videos;
+
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Modificar_video extends Modificar_video_ventana implements View {
-	//public Video_subido_propietario _unnamed_Video_subido_propietario_;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public Video_subido_propietario _unnamed_Video_subido_propietario_;
 	//public Lista_etiquetas _unnamed_Lista_etiquetas_;
 
-	public Modificar_video() {
+	public Modificar_video(Videos vide) {
+		
 		guardar.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
+				guardar_cambios();
 				((MyUI) UI.getCurrent()).videos_subidos();
 				
 			}
 			
 		});
 		atras.addClickListener(new Button.ClickListener() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -30,7 +49,8 @@ public class Modificar_video extends Modificar_video_ventana implements View {
 		});
 	}
 	public void guardar_cambios() {
-		throw new UnsupportedOperationException();
+		//BD_general bd = new BD_general();
+		//bd.modificar_video(aTitulo, aDescripcion, aId_categorias, aEtiquetas);
 	}
 
 	public void atras() {

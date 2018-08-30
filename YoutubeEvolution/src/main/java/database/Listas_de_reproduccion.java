@@ -73,6 +73,9 @@ public class Listas_de_reproduccion implements Serializable {
 	@Column(name="Num_videos", nullable=false, length=10)	
 	private int num_videos;
 	
+	@Column(name="Nombre", nullable=true, length=255)	
+	private String nombre;
+	
 	@ManyToMany(targetEntity=database.Videos.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinTable(name="Videos_Listas_de_reproduccion2", joinColumns={ @JoinColumn(name="Listas_de_reproduccion2Id_lista") }, inverseJoinColumns={ @JoinColumn(name="VideosId_video") })	
@@ -89,6 +92,14 @@ public class Listas_de_reproduccion implements Serializable {
 	
 	public int getORMID() {
 		return getId_lista();
+	}
+	
+	public void setNombre(String value) {
+		this.nombre = value;
+	}
+	
+	public String getNombre() {
+		return nombre;
 	}
 	
 	public void setNum_videos(int value) {

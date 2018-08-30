@@ -25,6 +25,7 @@ public class UsuariosDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression email;
 	public final StringExpression contrasenia;
 	public final StringExpression apodo;
+	public final StringExpression avatar;
 	
 	public UsuariosDetachedCriteria() {
 		super(database.Usuarios.class, database.UsuariosCriteria.class);
@@ -34,6 +35,7 @@ public class UsuariosDetachedCriteria extends AbstractORMDetachedCriteria {
 		email = new StringExpression("email", this.getDetachedCriteria());
 		contrasenia = new StringExpression("contrasenia", this.getDetachedCriteria());
 		apodo = new StringExpression("apodo", this.getDetachedCriteria());
+		avatar = new StringExpression("avatar", this.getDetachedCriteria());
 	}
 	
 	public UsuariosDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -44,6 +46,7 @@ public class UsuariosDetachedCriteria extends AbstractORMDetachedCriteria {
 		email = new StringExpression("email", this.getDetachedCriteria());
 		contrasenia = new StringExpression("contrasenia", this.getDetachedCriteria());
 		apodo = new StringExpression("apodo", this.getDetachedCriteria());
+		avatar = new StringExpression("avatar", this.getDetachedCriteria());
 	}
 	
 	public Usuarios uniqueUsuarios(PersistentSession session) {
