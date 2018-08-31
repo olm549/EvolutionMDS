@@ -16,6 +16,8 @@ public interface IRegistrado {
 		
 	public void descargar(int aID);
 
+	public Listas_de_reproduccion getVideosMeGusta(int idUsuario);
+		
 	public List<Comentarios> cargar_Comentarios(int aID);
 
 	public void aniade_a_lista(int IDusuario, int aIDvideo, int aIDlista);

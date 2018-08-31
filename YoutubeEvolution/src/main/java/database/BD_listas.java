@@ -116,5 +116,20 @@ public class BD_listas {
 		}
 		return listalistas;
 	}
+	public Listas_de_reproduccion getVideosMeGusta(int idUsuario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		Listas_de_reproduccion lista = new Listas_de_reproduccion();
+		try {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+idUsuario, "1");
+			for(Videos video :user.videos_que_gustan.toArray()) {
+				lista.videos_en_lista.add(video);
+			}
+			transaccion.commit();
+		}catch(PersistentException e){
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		return lista;
+	}
 
 }

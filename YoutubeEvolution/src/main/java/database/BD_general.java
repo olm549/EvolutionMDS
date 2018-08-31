@@ -135,7 +135,16 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 			e.printStackTrace();
 		}
 	}
-
+	public Listas_de_reproduccion getVideosMeGusta(int idUsuario) {
+		BD_listas bd = new BD_listas();
+		Listas_de_reproduccion lista = null;
+		try {
+			lista = bd.getVideosMeGusta(idUsuario);
+		}catch(PersistentException e){
+			e.printStackTrace();
+		}
+		return lista;
+	}
 	public List<Videos> cargar_Lista_Videos(int aId_Lista, int id_usuario) {
 		BD_listas bd = new BD_listas();
 		List<Videos> lista = null;
