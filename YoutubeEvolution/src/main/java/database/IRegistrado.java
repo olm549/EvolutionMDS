@@ -22,7 +22,7 @@ public interface IRegistrado {
 
 	public void me_gusta(int aIDvideo, int aIDusuario);
 
-	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice);
+	public void eliminar_Video_De_Lista(int idLista, int idVideo, int idUsuario);
 	
 	public void enviar_comentario(TextArea aTexto, int aIDvideo, int aIDUsuario) throws PersistentException;
 

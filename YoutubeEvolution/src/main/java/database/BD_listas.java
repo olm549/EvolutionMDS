@@ -29,11 +29,11 @@ public class BD_listas {
 		}
 	}
 	//LAS LISTAS NO TIENEN NOMBRE XDXDXD
-	public void cambiar_Nombre_Lista(int IDlista, int IDusuario, String aNuevo_Nombre) {
-	/*	PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+	public void cambiar_Nombre_Lista(int IDlista, int IDusuario, String aNuevo_Nombre) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+IDusuario,"1");
-			for(Listas_de_reproduccion2 lista : user.listas_de_reproduccion.toArray()) {
+			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
 				if(lista.getId_lista()==IDlista) {
 					lista.setNombre(aNuevo_Nombre);
 					break;
@@ -42,7 +42,7 @@ public class BD_listas {
 		}catch(Exception e ) {
 			transaccion.rollback();
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	public List<Videos> cargar_Lista_Videos(int aId_Lista, int id_usuario) throws PersistentException {
@@ -83,8 +83,21 @@ public class BD_listas {
 		}
 	}
 	//METODO MAL DEFINIDO, DEBERIA SER IDLISTA, IDVIDEO E IDUSUARIO PARAM
-	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos) {
-		// TODO Auto-generated method stub
+	public void eliminar_Video_De_Lista(int idLista, int idVideo, int idUsuario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+idUsuario,"1");
+			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
+				if(lista.getId_lista()==idLista) {
+					lista.videos_en_lista.remove(VideosDAO.loadVideosByQuery("id_video = "+idVideo, null));
+					break;
+				}
+			}
+			transaccion.commit();
+		}catch(Exception e ) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
 		
 	}
 

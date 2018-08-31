@@ -116,14 +116,24 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		}
 	}
 	
-	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice) {
-		BD_Videos bd = new BD_Videos();
-		bd.eliminar_Video_De_Lista(aLista_De_IDs_Videos, indice);
+	public void eliminar_Video_De_Lista(int idLista, int idVideo, int idUsuario) {
+		BD_listas bd = new BD_listas();
+		try {
+			bd.eliminar_Video_De_Lista(idLista, idVideo, idUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void cambiar_Nombre_Lista(int IDlista, int IDusuario, String aNuevo_Nombre) {
 		BD_listas bd = new BD_listas();
-		bd.cambiar_Nombre_Lista(IDlista, IDusuario, aNuevo_Nombre);
+		try {
+			bd.cambiar_Nombre_Lista(IDlista, IDusuario, aNuevo_Nombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List<Videos> cargar_Lista_Videos(int aId_Lista, int id_usuario) {

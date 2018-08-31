@@ -210,10 +210,6 @@ public class BD_Videos {
 		}
 		return lista;
 	}
-	//Que hace esto aqui?
-	public void eliminar_Video_De_Lista(int[] aLista_De_IDs_Videos, int indice) {
-		
-	}
 
 	public List<Videos> cargar_Videos_Subidos(int aIDUsuario) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
