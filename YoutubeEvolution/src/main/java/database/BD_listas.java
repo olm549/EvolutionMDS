@@ -28,6 +28,25 @@ public class BD_listas {
 			e.printStackTrace();
 		}
 	}
+	
+	public void crearListaReproduccion (int idUsuario, String nombre) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		Listas_de_reproduccion lista = Listas_de_reproduccionDAO.createListas_de_reproduccion();
+		try{
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+idUsuario, null);
+			lista.setNombre(nombre);
+			lista.setNum_videos(0);
+			lista.setUsuario_registrado(user);
+			lista.setUsuario_que_consulta_historial(user);
+			Listas_de_reproduccionDAO.save(lista);
+			user.listas_de_reproduccion.add(lista);
+			Usuario_registradoDAO.save(user);
+			transaccion.commit();
+		}catch(PersistentException e) {
+			e.printStackTrace();
+			transaccion.rollback();
+		}
+	}
 	//LAS LISTAS NO TIENEN NOMBRE XDXDXD
 	public void cambiar_Nombre_Lista(int IDlista, int IDusuario, String aNuevo_Nombre) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();

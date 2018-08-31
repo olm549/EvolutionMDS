@@ -15,6 +15,8 @@ public interface IRegistrado {
 	public void subir_video(String aTitulo, String aMiniatura,String contenido, int idAutor, boolean aDeshabilitar_comentarios, TextArea aDescripcion, String aEtiquetas, String categoria, int lista); 
 		
 	public void descargar(int aID);
+	
+	public void crearListaReproduccion (int idUsuario, String nombre);
 
 	public Listas_de_reproduccion getVideosMeGusta(int idUsuario);
 		

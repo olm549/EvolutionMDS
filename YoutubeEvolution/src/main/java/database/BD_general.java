@@ -146,6 +146,15 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return lista;
 	}
 	
+	public void crearListaReproduccion(int idUsuario, String nombre) {
+		BD_listas bd = new BD_listas();
+		try {
+			bd.crearListaReproduccion(idUsuario, nombre);
+		}catch(PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public boolean getSiVideoMeGusta(int idVideo, int idUsuario) {
 		BD_Videos bd = new BD_Videos();
 		boolean boo = false;
