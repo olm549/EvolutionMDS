@@ -131,5 +131,23 @@ public class BD_listas {
 		}
 		return lista;
 	}
+	public void visualizacionVideo(int idVideo, int idUsuario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+idUsuario, "1");
+			Videos video = VideosDAO.loadVideosByQuery("id_video = "+idVideo, null);
+			if(idUsuario!=-1) {
+				if(!user.video_visualizado.contains(video)) {
+					user.video_visualizado.add(video);
+				}
+			}
+			video.setNumVisualizaciones(video.getNumVisualizaciones()+1);	
+		transaccion.commit();
+		}catch(PersistentException e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		
+	}
 
 }

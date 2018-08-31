@@ -284,4 +284,23 @@ public class BD_Videos {
 			transaccion.rollback();
 		}
 	}
+
+	public boolean getSiVideoMeGusta(int idVideo, int idUsuario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+idUsuario, "1");
+			Videos video = VideosDAO.loadVideosByQuery("id_video = "+idVideo, "1");
+			if(user.videos_que_gustan.contains(video)) {
+				transaccion.commit();
+				return true;
+			}else {
+				transaccion.commit();
+				return false;
+			}
+		}catch(PersistentException e) {
+			transaccion.rollback();
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

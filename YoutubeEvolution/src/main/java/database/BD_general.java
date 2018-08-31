@@ -145,6 +145,28 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		}
 		return lista;
 	}
+	
+	public boolean getSiVideoMeGusta(int idVideo, int idUsuario) {
+		BD_Videos bd = new BD_Videos();
+		boolean boo = false;
+		try {
+			boo = bd.getSiVideoMeGusta(idVideo,idUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return boo;
+	}
+	
+	public void visualizacionVideo(int idVideo, int idUsuario) {
+		BD_listas bd = new BD_listas();
+		try {
+			bd.visualizacionVideo(idVideo,idUsuario);
+		}catch(PersistentException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public List<Videos> cargar_Lista_Videos(int aId_Lista, int id_usuario) {
 		BD_listas bd = new BD_listas();
 		List<Videos> lista = null;

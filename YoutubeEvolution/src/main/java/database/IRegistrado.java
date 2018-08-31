@@ -20,6 +20,8 @@ public interface IRegistrado {
 		
 	public List<Comentarios> cargar_Comentarios(int aID);
 
+	public void visualizacionVideo(int idVideo, int idUsuario);
+	
 	public void aniade_a_lista(int IDusuario, int aIDvideo, int aIDlista);
 
 	public void me_gusta(int aIDvideo, int aIDusuario);
