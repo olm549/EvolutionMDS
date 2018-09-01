@@ -19,6 +19,10 @@ public interface IRegistrado {
 	public void crearListaReproduccion (int idUsuario, String nombre);
 
 	public Listas_de_reproduccion getVideosMeGusta(int idUsuario);
+	
+	public boolean compruebaVideos();
+	
+	public boolean tienenVideosSuscrito(int idUsuario);
 		
 	public List<Comentarios> cargar_Comentarios(int aID);
 

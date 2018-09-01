@@ -105,7 +105,36 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Comprueba si las suscripciones tienen videos
+	 * @return booleano, true Y false N
+	 */
+	public boolean tienenVideosSuscrito(int idUsuario){
+		BD_Videos bd = new BD_Videos();
+		boolean boo = false;
+		try {
+			boo = bd.tienenVideosSuscrito(idUsuario);
+			return boo;
+		}catch(PersistentException e) {
+			e.printStackTrace();
+		}
+		return boo;
+	}
+	/**
+	 * Devuelve si hay videos en la bd
+	 * @return boolean (Hay videos? True - Y False - N)
+	 */
+	public boolean compruebaVideos() {
+		BD_Videos bd = new BD_Videos();
+		boolean boo = false;
+		try {
+			boo = bd.compruebaVideos();
+			return boo;
+		}catch(PersistentException e) {
+			e.printStackTrace();
+		}
+		return boo;
+	}
 	public void enviar_comentario(TextArea aTexto, int aIDvideo, int aIDusuario) {
 		BD_Comentarios bd = new BD_Comentarios();
 		try {

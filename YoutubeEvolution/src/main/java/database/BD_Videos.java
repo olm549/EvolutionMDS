@@ -303,4 +303,50 @@ public class BD_Videos {
 			return false;
 		}
 	}
+	/**
+	 * Comprueba si hay videos en la bd
+	 * @return
+	 * @throws PersistentException 
+	 */
+	@SuppressWarnings("unchecked")
+	public boolean compruebaVideos() throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		boolean boo = false;
+		try {
+			List<Usuario_registrado> users = Usuario_registradoDAO.queryUsuario_registrado(null,null);
+			for(Usuario_registrado foo : users) {
+				if(!foo.video_subido.isEmpty()) {
+					boo = true;
+					break;
+				}
+			}
+			transaccion.commit();
+			return boo;
+		}catch(PersistentException e) {
+			transaccion.rollback();
+			e.printStackTrace();
+			return boo;
+		}
+	}
+
+	public boolean tienenVideosSuscrito(int idUsuario) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		boolean boo = false;
+		try {
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+idUsuario, "1");
+			
+			for(Usuario_registrado foo : user.suscrito.toArray()) {
+				if(!foo.video_subido.isEmpty()) {
+					boo = true;
+					break;
+				}
+			}
+			transaccion.commit();
+			return boo;
+		}catch(PersistentException e) {
+			transaccion.rollback();
+			e.printStackTrace();
+			return boo;
+		}
+	}
 }
