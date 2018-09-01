@@ -224,8 +224,8 @@ public class BD_Usuario_registrado {
 		try{
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aID_Usuario, "1");
 			Usuario_registrado seguido = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+ID_Usuarioseguido, "1");
-			user.suscriptor.remove(seguido);
-			seguido.suscrito.remove(user);
+			user.suscrito.remove(seguido);
+			seguido.suscriptor.remove(user);
 			Usuario_registradoDAO.save(user);
 			Usuario_registradoDAO.save(seguido);
 			transaccion.commit();
@@ -274,8 +274,8 @@ public class BD_Usuario_registrado {
 		try{
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aID_Usuario, "1");
 			Usuario_registrado seguido = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+ID_Usuariosusc, "1");
-			user.suscriptor.add(seguido);
-			seguido.suscrito.add(user);
+			user.suscrito.add(seguido);
+			seguido.suscriptor.add(user);
 			Usuario_registradoDAO.save(user);
 			Usuario_registradoDAO.save(seguido);
 			transaccion.commit();
