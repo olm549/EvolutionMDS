@@ -157,7 +157,7 @@ public class BD_listas {
 			Videos video = VideosDAO.loadVideosByQuery("id_video = "+idVideo, null);
 			if(idUsuario!=-1) {
 				if(!user.video_visualizado.contains(video)) {
-					user.video_visualizado.add(video);
+					aniadeAHistorial(user, video);
 				}
 			}
 			video.setNumVisualizaciones(video.getNumVisualizaciones()+1);	
@@ -167,6 +167,17 @@ public class BD_listas {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void aniadeAHistorial(Usuario_registrado user,Videos video) {
+		ArrayList<Videos> array = new ArrayList<Videos>();
+		if(user.video_visualizado.size() == 10) {
+			for(Videos foo : user.video_visualizado.toArray()) {
+				array.add(foo);
+			}
+			user.video_visualizado.remove(array.get(9));
+		}
+		user.video_visualizado.add(video);
 	}
 
 }

@@ -208,7 +208,10 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		}
 		return boo;
 	}
-	
+	/**
+	 * Metodo a llamar para la visualizacion de video, si no es usuario registrado (El caso de Admin o
+	 * invitado , el idUsuario a enviar es -1).
+	 */
 	public void visualizacionVideo(int idVideo, int idUsuario) {
 		BD_listas bd = new BD_listas();
 		try {
