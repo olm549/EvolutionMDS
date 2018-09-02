@@ -1,4 +1,7 @@
 package database;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -144,8 +147,23 @@ public class BD_Videos {
 		}
 	}
 
-	public void descargar(int aID) {
-		throw new UnsupportedOperationException();
+	public void descargar(int aID) throws PersistentException{
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try{
+			Videos video = VideosDAO.loadVideosByQuery("id_video = "+aID, "1");
+			String url = "";//Aqui url donde se copia
+			  File source = new File(video.getContenidoVideo());
+		      File dest = new File(url + video.getTitulo().replaceAll("\\s+","") +".mp4");
+		      Files.copy(source.toPath(),dest.toPath());
+			transaccion.commit();
+		}catch(PersistentException e) {
+			e.printStackTrace();
+			transaccion.rollback();
+		} catch (IOException e) {
+			e.printStackTrace();
+			transaccion.rollback();
+		}
+		
 	}
 
 	public List<String> ver_etiquetas(int IDvideo) throws PersistentException {
@@ -244,13 +262,13 @@ public class BD_Videos {
 		return lista;
 	}
 
-	public void modificar_video(int aIDVideo, String aTitulo, String aDescripcion, int aId_categoria, String aEtiquetas) throws PersistentException {
+	public void modificar_video(int aIDVideo, String aTitulo, String aDescripcion, String categoria, String aEtiquetas) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Videos video = VideosDAO.loadVideosByQuery("id_video = "+aIDVideo, "1");
 			video.setTitulo(aTitulo);
 			video.setDescrVideo(aDescripcion);
-			video.setCategoria(CategoriasDAO.loadCategoriasByQuery("id_categoria = "+aId_categoria,null));
+			video.setCategoria(CategoriasDAO.loadCategoriasByQuery("nombre = "+categoria,null));
 			video.setEtiquetas(aEtiquetas);
 			VideosDAO.save(video);
 			transaccion.commit();

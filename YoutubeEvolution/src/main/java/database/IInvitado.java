@@ -17,5 +17,5 @@ public interface IInvitado {
 	@SuppressWarnings("rawtypes")
 	public List buscar(String aTexto, String aTipo);
 
-	public void iniciar_sesion(String aEmail, String aContrasenia);
+	public void iniciar_sesion(String aApodo, String aContrasenia);
 }

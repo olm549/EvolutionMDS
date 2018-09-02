@@ -17,6 +17,9 @@ public class BD_Usuario_registrado {
 	public Vector<Usuario_registrado> _contieneRegistrados = new Vector<Usuario_registrado>();
 
 	public void Registrarse(String aNombre, String aApellidos, String aApodo, int aEdad, String aEmail, String aContrasenia, String aConfirmacion) throws PersistentException {
+		if(Existe(aEmail,aApodo)) {
+			return;
+		}
 		Usuario_registradoCriteria criteria = new Usuario_registradoCriteria();
 		criteria.email.eq(aEmail);
 		if(criteria.uniqueUsuario_registrado()!=null) throw new RuntimeException("Email en uso");
@@ -68,24 +71,32 @@ public class BD_Usuario_registrado {
 		return true;
 	}
 
-	public void iniciar_sesion(String aEmail, String aContrasenia) throws PersistentException {
+	public void iniciar_sesion(String aApodo, String aContrasenia) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
-		if(comprobar_inicio(aEmail,aContrasenia) == "user") {
-			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("email = "+aEmail, null);
-			MyUI.setUsuarioLogged(user);
-			MyUI.setAdminLogged(null);
-			((MyUI) UI.getCurrent()).usuario_registrado();
-		}
-		else if(comprobar_inicio(aEmail,aContrasenia) == "admin") {
-			Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("email = "+aEmail, null);
-			MyUI.setAdminLogged(admin);
-			MyUI.setUsuarioLogged(null);
-			((MyUI) UI.getCurrent()).administrador();
-		}
-		else {
-			MyUI.setAdminLogged(null);
-			MyUI.setUsuarioLogged(null);
-			((MyUI) UI.getCurrent()).invitado();
+		try {
+			if(comprobar_inicio(aApodo,aContrasenia) == "user") {
+				Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("apodo = "+aApodo, null);
+				MyUI.setUsuarioLogged(user);
+				MyUI.setAdminLogged(null);
+				transaccion.commit();
+				((MyUI) UI.getCurrent()).usuario_registrado();
+			}
+			else if(comprobar_inicio(aApodo,aContrasenia) == "admin") {
+				Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("apodo = "+aApodo, null);
+				MyUI.setAdminLogged(admin);
+				MyUI.setUsuarioLogged(null);
+				transaccion.commit();
+				((MyUI) UI.getCurrent()).administrador();
+			}
+			else {
+				MyUI.setAdminLogged(null);
+				MyUI.setUsuarioLogged(null);
+				transaccion.commit();
+				((MyUI) UI.getCurrent()).invitado();
+			}
+		}catch(PersistentException e) {
+			transaccion.rollback();
+			e.printStackTrace();
 		}
 	}
 

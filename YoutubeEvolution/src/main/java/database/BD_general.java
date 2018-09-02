@@ -351,10 +351,10 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		return lista;
 	}
 
-	public void modificar_video(int aIDVideo, String aTitulo, String aDescripcion, int aId_categorias, String aEtiquetas) {
+	public void modificar_video(int aIDVideo, String aTitulo, String aDescripcion, String categoria, String aEtiquetas) {
 		BD_Videos bd = new BD_Videos();
 		try {
-			bd.modificar_video(aIDVideo, aTitulo, aDescripcion, aId_categorias, aEtiquetas);
+			bd.modificar_video(aIDVideo, aTitulo, aDescripcion, categoria, aEtiquetas);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -482,10 +482,10 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 		}
 	}
 
-	public void iniciar_sesion(String aEmail, String aContrasenia) {
+	public void iniciar_sesion(String aApodo, String aContrasenia) {
 		BD_Usuario_registrado bd = new BD_Usuario_registrado();
 		try {
-			bd.iniciar_sesion(aEmail, aContrasenia);
+			bd.iniciar_sesion(aApodo, aContrasenia);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
