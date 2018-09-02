@@ -486,6 +486,16 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 			}
 			return lista;
 		}
+		if(aTipo.equals("Etiqueta")) {
+			BD_Videos bd = new BD_Videos();
+			try {
+				lista =  bd.buscarPorEtiqueta(aTexto);
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return lista;
+		}
 		else {
 			BD_Videos bd = new BD_Videos();
 			try {

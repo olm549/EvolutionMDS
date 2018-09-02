@@ -367,4 +367,21 @@ public class BD_Videos {
 			return boo;
 		}
 	}
+
+	public List<Videos> buscarPorEtiqueta(String aTexto) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		ArrayList<Videos> lista = new ArrayList<Videos>();
+		try {
+			Videos[] listaVideos = VideosDAO.listVideosByQuery(null,null);
+			for(Videos vid : listaVideos) {
+				if(vid.getEtiquetas().contains(aTexto))
+				lista.add(vid);
+		}
+			transaccion.commit();
+		}catch(Exception e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		return lista;
+	}
 }

@@ -101,13 +101,10 @@ public class BD_Usuario_registrado {
 	}
 
 	public String comprobar_inicio(String aApodo, String aContrasenia) throws PersistentException {
-		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
-		try {
 			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("apodo = '"+aApodo+"'", null);
 			if(user != null) {
 
 				if(user.getContrasenia().equals(aContrasenia)) {
-					transaccion.commit();
 					return "user";
 				}
 			}
@@ -115,18 +112,11 @@ public class BD_Usuario_registrado {
 				Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("apodo = '"+aApodo+"'",null);
 				if(admin != null ) {
 					if(admin.getContrasenia().equals(aContrasenia)) {
-						transaccion.commit();
 						return "admin";
 					}
 				}
 			}
-			transaccion.commit();
 			return null;
-		}catch(Exception e) {
-			transaccion.rollback();
-			e.printStackTrace();
-			return null;
-		}
 	}
 
 	public void recuperar_contrasenia(String aEmail) throws PersistentException {
