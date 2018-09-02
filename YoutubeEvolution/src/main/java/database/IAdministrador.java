@@ -6,6 +6,8 @@ public interface IAdministrador {
 
 	public void crear_categoria(int idAdmin, String aNombre, String aContrasenia, int aEdad, String aImagen, boolean aConfirmacion);
 
+	public void editar_avatarAdmin(int aID_Usuario, String avatar);
+	
 	public List<Categorias> cargar_Lista_De_Categorias();
 
 	public void eliminar_categoria(int aId_categoria);

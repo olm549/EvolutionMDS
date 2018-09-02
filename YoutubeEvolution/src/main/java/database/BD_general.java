@@ -61,9 +61,22 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 
 	public void descargar(int aID) {
 		BD_Videos bd = new BD_Videos();
-		bd.descargar(aID);
+		try {
+			bd.descargar(aID);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
+	public void editar_avatarAdmin(int aID_Usuario, String avatar) {
+		BD_Usuario_administrador bd = new BD_Usuario_administrador();
+		try {
+			bd.editar_avatarAdmin(aID_Usuario, avatar);
+		}catch(PersistentException e) {
+			e.printStackTrace();
+		}
+	}
 	public List<Comentarios> cargar_Comentarios(int aID) {
 		BD_Comentarios bd = new BD_Comentarios();
 		try {
