@@ -74,15 +74,15 @@ public class BD_Usuario_registrado {
 	public void iniciar_sesion(String aApodo, String aContrasenia) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			if(comprobar_inicio(aApodo,aContrasenia) == "user") {
-				Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("apodo = "+aApodo, null);
+			if(comprobar_inicio(aApodo,aContrasenia).equals("user")) {
+				Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("apodo = '"+aApodo+"'", null);
 				MyUI.setUsuarioLogged(user);
 				MyUI.setAdminLogged(null);
 				transaccion.commit();
 				((MyUI) UI.getCurrent()).usuario_registrado();
 			}
-			else if(comprobar_inicio(aApodo,aContrasenia) == "admin") {
-				Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("apodo = "+aApodo, null);
+			else if(comprobar_inicio(aApodo,aContrasenia).equals("admin")) {
+				Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("apodo = '"+aApodo+"'", null);
 				MyUI.setAdminLogged(admin);
 				MyUI.setUsuarioLogged(null);
 				transaccion.commit();
@@ -100,10 +100,10 @@ public class BD_Usuario_registrado {
 		}
 	}
 
-	public String comprobar_inicio(String aEmail, String aContrasenia) throws PersistentException {
+	public String comprobar_inicio(String aApodo, String aContrasenia) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("email = "+aEmail, null);
+			Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("apodo = '"+aApodo+"'", null);
 			if(user != null) {
 
 				if(user.getContrasenia().equals(aContrasenia)) {
@@ -112,7 +112,7 @@ public class BD_Usuario_registrado {
 				}
 			}
 			else{
-				Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("email = "+aEmail,null);
+				Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("apodo = '"+aApodo+"'",null);
 				if(admin != null ) {
 					if(admin.getContrasenia().equals(aContrasenia)) {
 						transaccion.commit();
