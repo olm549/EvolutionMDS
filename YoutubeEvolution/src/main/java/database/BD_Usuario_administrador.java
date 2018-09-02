@@ -22,6 +22,19 @@ public class BD_Usuario_administrador {
 		return admin;
 		
 	}
+	
+	public void editar_avatarAdmin(int aID_Usuario, String avatar) throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Administrador admin = Usuario_AdministradorDAO.loadUsuario_AdministradorByQuery("ID = "+aID_Usuario, "1");
+			admin.setAvatar(avatar);
+			Usuario_AdministradorDAO.save(admin);
+			transaccion.commit();
+		}catch(Exception e ) {
+			e.printStackTrace();
+			transaccion.rollback();
+		}
+	}
 	public void modificar_datosAdmin(int idAdmin, String aNombre, String aApellido, String aApodo, String aAnio, String aEmail, String aContrasenia) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {

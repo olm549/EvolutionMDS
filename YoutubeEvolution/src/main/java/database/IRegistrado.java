@@ -62,7 +62,7 @@ public interface IRegistrado {
 
 	public List<Videos> cargar_Gestion_Videos_Subidos(int aIDUsuario);
 
-	public void modificar_video(int aIDVideo, String aTitulo, String aDescripcion, int aId_categorias, String aEtiquetas);
+	public void modificar_video(int aIDVideo, String aTitulo, String aDescripcion, String categoria, String aEtiquetas);
 		
 	public void eliminar_Video(int aIDVideo);
 

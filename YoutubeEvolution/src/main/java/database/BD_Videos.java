@@ -268,7 +268,7 @@ public class BD_Videos {
 			Videos video = VideosDAO.loadVideosByQuery("id_video = "+aIDVideo, "1");
 			video.setTitulo(aTitulo);
 			video.setDescrVideo(aDescripcion);
-			video.setCategoria(CategoriasDAO.loadCategoriasByQuery("nombre = "+categoria,null));
+			video.setCategoria(CategoriasDAO.loadCategoriasByQuery("nombre = '"+categoria+"'",null));
 			video.setEtiquetas(aEtiquetas);
 			VideosDAO.save(video);
 			transaccion.commit();
