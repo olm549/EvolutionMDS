@@ -175,7 +175,7 @@ public class BD_listas {
 			for(Videos foo : user.video_visualizado.toArray()) {
 				array.add(foo);
 			}
-			user.video_visualizado.remove(array.get(9));
+			user.video_visualizado.remove(array.get(0));
 		}
 		user.video_visualizado.add(video);
 	}

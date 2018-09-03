@@ -1,5 +1,6 @@
 package database;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import org.orm.PersistentException;
@@ -12,11 +13,14 @@ public class BD_Comentarios {
 	
 	@SuppressWarnings("unchecked")
 	public List<Comentarios> cargar_Comentarios(int aID) throws PersistentException {
-		List<Comentarios> listaComentarios = null;
+		ArrayList<Comentarios> listaComentarios = new ArrayList<Comentarios>();
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
-			
-	      listaComentarios = ComentariosDAO.queryComentarios("videosComentadosId = "+aID, "1");
+			Videos video = VideosDAO.loadVideosByQuery("id_video = "+aID, "1");
+			for(Comentarios coment : video.comentarios_en_videos.toArray()) {
+				listaComentarios.add(coment);
+			}
+	      transaccion.commit();
 		} catch(Exception e) {
 			transaccion.rollback();			
 		}
@@ -46,13 +50,15 @@ public class BD_Comentarios {
 		Comentarios comentario = database.ComentariosDAO.createComentarios();
 		Videos vid = database.VideosDAO.loadVideosByQuery("id_video =" +aIDvideo , "1");
 		Usuario_registrado user = database.Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDusuario,"1");
-		comentario.setContenido_comentario(aTexto.toString());
+		comentario.setContenido_comentario(aTexto.getValue());
 		comentario.setVideosComentados(vid);
 		comentario.setUsuarios_que_comentan(user);
 		ComentariosDAO.save(comentario);
+		vid.comentarios_en_videos.add(comentario);
+		VideosDAO.save(vid);
 		transaccion.commit();
 			
-		} catch (Exception e) {
+			} catch (Exception e) {
 			transaccion.rollback();
 			e.printStackTrace();
 		}
@@ -64,10 +70,15 @@ public class BD_Comentarios {
 		try {
 		Videos vid = database.VideosDAO.loadVideosByQuery("id_video =" +aIDVideo, "1");
 		Comentarios coment = database.ComentariosDAO.loadComentariosByQuery("id_comentario = "+aIDComentario , "1");
-		if(coment.getUsuarios_que_comentan().getId_Usuario_registrado()!=aIDUsuario) {
+		Usuario_registrado user = Usuario_registradoDAO.loadUsuario_registradoByQuery("ID = "+aIDUsuario, "1");
+		if(coment.getUsuarios_que_comentan().getID()!=aIDUsuario) {
 			throw new RuntimeException("El comentario no pertenece al usuario");
 		}
+		user.comentarios.remove(coment);
 		vid.comentarios_en_videos.remove(coment);
+		ComentariosDAO.delete(coment);
+		Usuario_registradoDAO.save(user);
+		VideosDAO.save(vid);
 		transaccion.commit();
 		}catch(Exception e) {
 			

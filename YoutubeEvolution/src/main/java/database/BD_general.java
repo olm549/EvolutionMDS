@@ -517,6 +517,15 @@ public class BD_general implements IRegistrado, IInvitado, IAdministrador {
 			e.printStackTrace();
 		}
 	}
+	
+	public void cerrar_sesion() {
+		BD_Usuario_registrado bd = new BD_Usuario_registrado();
+		try {
+			bd.cerrar_sesion();
+		}catch(PersistentException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void Eliminar_video(int aID) {
 		BD_Videos bd = new BD_Videos();

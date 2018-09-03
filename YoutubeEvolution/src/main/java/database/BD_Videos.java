@@ -26,10 +26,16 @@ public class BD_Videos {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try {
 			for(Videos video :VideosDAO.listVideosByQuery(null, null)) {
+				if(video.usuarios_que_dan_me_gusta!=null)
 				treemap.put(video.usuarios_que_dan_me_gusta.size(), video);
+				else
+					treemap.put(0,video);
 			}
-			for(Videos video : treemap.values()) {
-				listaVideos.add(video);
+			for(int i = treemap.size()-1; i>=0; i--) {
+				listaVideos.add(treemap.);
+			}
+			for(Videos video : treemap.values().) {
+				
 			}
 			transaccion.commit();
 		} catch(Exception e) {
@@ -116,7 +122,7 @@ public class BD_Videos {
 		vid.setTitulo(aTitulo);
 		vid.setMiniatura(aMiniatura);
 		vid.setAutor(autor);
-		vid.setDescrVideo(aDescripcion.toString());
+		vid.setDescrVideo(aDescripcion.getValue());
 		vid.setContenidoVideo(aContenido);
 		vid.setEtiquetas(aEtiquetas);
 		Calendar fecha = Calendar.getInstance();

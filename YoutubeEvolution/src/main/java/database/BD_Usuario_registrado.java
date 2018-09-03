@@ -35,6 +35,7 @@ public class BD_Usuario_registrado {
 			registrado.setEmail(aEmail);
 			registrado.setContrasenia(aContrasenia);
 			registrado.setNumeroVisitas(0);
+			registrado.setAvatar("https://image.ibb.co/cKsvL8/avatar.png");
 			Listas_de_reproduccion lrd = database.Listas_de_reproduccionDAO.createListas_de_reproduccion();
 			lrd.setUsuario_registrado(registrado);
 			lrd.setUsuario_que_consulta_historial(registrado);
@@ -280,9 +281,23 @@ public class BD_Usuario_registrado {
 			Usuario_registradoDAO.save(user);
 			Usuario_registradoDAO.save(seguido);
 			transaccion.commit();
-		}catch(Exception e ) {
+		}catch(Exception e ) {	
 			transaccion.rollback();
 			e.printStackTrace();
 		}
+	}
+
+	public void cerrar_sesion() throws PersistentException {
+		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
+		try {		
+			MyUI.setAdminLogged(null);
+			MyUI.setUsuarioLogged(null);
+			transaccion.commit();
+			((MyUI) UI.getCurrent()).invitado();
+		}catch(PersistentException e) {
+			transaccion.rollback();
+			e.printStackTrace();
+		}
+		
 	}
 }
