@@ -19,6 +19,7 @@ public class BD_listas {
 			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
 				if(lista.getId_lista()==aIDlista) {
 					lista.videos_en_lista.add(video);
+					Listas_de_reproduccionDAO.save(lista);
 					break;
 				}
 			}
@@ -55,6 +56,7 @@ public class BD_listas {
 			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
 				if(lista.getId_lista()==IDlista) {
 					lista.setNombre(aNuevo_Nombre);
+					Listas_de_reproduccionDAO.save(lista);
 					break;
 				}
 			}
@@ -92,9 +94,11 @@ public class BD_listas {
 			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
 				if(lista.getId_lista()==aID_lista) {
 					user.listas_de_reproduccion.remove(lista);
+					Listas_de_reproduccionDAO.delete(lista);
 					break;
 				}
 			}
+			Usuario_registradoDAO.save(user);
 			transaccion.commit();
 		}catch(Exception e ) {
 			transaccion.rollback();
@@ -109,6 +113,7 @@ public class BD_listas {
 			for(Listas_de_reproduccion lista : user.listas_de_reproduccion.toArray()) {
 				if(lista.getId_lista()==idLista) {
 					lista.videos_en_lista.remove(VideosDAO.loadVideosByQuery("id_video = "+idVideo, null));
+					Listas_de_reproduccionDAO.save(lista);
 					break;
 				}
 			}
@@ -161,6 +166,8 @@ public class BD_listas {
 				}
 			}
 			video.setNumVisualizaciones(video.getNumVisualizaciones()+1);	
+			VideosDAO.save(video);
+			Usuario_registradoDAO.save(user);
 		transaccion.commit();
 		}catch(PersistentException e) {
 			transaccion.rollback();

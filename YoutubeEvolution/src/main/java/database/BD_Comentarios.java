@@ -54,8 +54,10 @@ public class BD_Comentarios {
 		comentario.setVideosComentados(vid);
 		comentario.setUsuarios_que_comentan(user);
 		ComentariosDAO.save(comentario);
+		user.comentarios.add(comentario);
 		vid.comentarios_en_videos.add(comentario);
 		VideosDAO.save(vid);
+		Usuario_registradoDAO.save(user);
 		transaccion.commit();
 			
 			} catch (Exception e) {

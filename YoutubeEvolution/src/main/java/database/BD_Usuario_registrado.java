@@ -220,7 +220,6 @@ public class BD_Usuario_registrado {
 			e.printStackTrace();
 		}
 	}
-
 	public void dejar_de_seguir(int aID_Usuario, int ID_Usuarioseguido) throws PersistentException {
 		PersistentTransaction transaccion = ProyectoMDSPersistentManager.instance().getSession().beginTransaction();
 		try{
